@@ -1,0 +1,2678 @@
+
+==================== FINAL INTERFACE ====================
+2016-05-03 07:07:38.581041 UTC
+
+interface ttask_72zq9oHyfMzKhn7BjotlNr:Data.TTask.Types 7102
+  interface hash: 489b6d4c0a369c78b7778445f9230222
+  ABI hash: 53600b9547fce3e645332f8159673fe4
+  export-list hash: be18ddcf96231cbf82b74266a19fefcc
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: b26dd936ccefa5ad3cd3de66a901780e
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Data.TTask.Types.calcProjectPoint
+  Data.TTask.Types.calcSprintPoint
+  Data.TTask.Types.calcStoryPoint
+  Data.TTask.Types.getLastStatus
+  Data.TTask.Types.getSprintById
+  Data.TTask.Types.getStatusTime
+  Data.TTask.Types.getTaskById
+  Data.TTask.Types.getUserStoryById
+  Data.TTask.Types.isFinished
+  Data.TTask.Types.isNotAchieved
+  Data.TTask.Types.isRejected
+  Data.TTask.Types.isRunning
+  Data.TTask.Types.isWait
+  Data.TTask.Types.projectSprintMaxId
+  Data.TTask.Types.projectSprintMaxIdMay
+  Data.TTask.Types.projectStoryMaxId
+  Data.TTask.Types.projectStoryMaxIdMay
+  Data.TTask.Types.projectsAllStory
+  Data.TTask.Types.projectsAllTasks
+  Data.TTask.Types.projectsTaskMaxId
+  Data.TTask.Types.projectsTaskMaxIdMay
+  Data.TTask.Types.sprintAllTasks
+  Data.TTask.Types.statusToList
+  Data.TTask.Types.summaryContents
+  Data.TTask.Types.Id
+  Data.TTask.Types.Point
+  Data.TTask.Types.Project{Data.TTask.Types.Project Data.TTask.Types.projectBacklog Data.TTask.Types.projectName Data.TTask.Types.projectSprints Data.TTask.Types.projectStatus}
+  Data.TTask.Types.Sprint{Data.TTask.Types.Sprint Data.TTask.Types.sprintDescription Data.TTask.Types.sprintId Data.TTask.Types.sprintStatus Data.TTask.Types.sprintStorys}
+  Data.TTask.Types.TStatus{Data.TTask.Types.TStatusCons Data.TTask.Types.TStatusOne}
+  Data.TTask.Types.TStatusRecord{Data.TTask.Types.StatusFinished Data.TTask.Types.StatusNotAchieved Data.TTask.Types.StatusReject Data.TTask.Types.StatusRunning Data.TTask.Types.StatusWait}
+  Data.TTask.Types.Task{Data.TTask.Types.Task Data.TTask.Types.taskDescription Data.TTask.Types.taskId Data.TTask.Types.taskPoint Data.TTask.Types.taskStatus Data.TTask.Types.taskWorkTimes}
+  Data.TTask.Types.UserStory{Data.TTask.Types.UserStory Data.TTask.Types.storyDescription Data.TTask.Types.storyId Data.TTask.Types.storyStatus Data.TTask.Types.storyTasks}
+  Data.TTask.Types.WorkTime{Data.TTask.Types.WorkTime}
+module dependencies:
+package dependencies: array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ
+                      base-4.8.1.0* deepseq-1.4.1.1@deeps_LbCWUlehDDeLxurARKDH5o
+                      ghc-prim-0.4.0.0 integer-gmp-1.0.0.0
+                      safe-0.3.9@safe_BXSoeRP9IFG6t9s3abNgVi
+                      time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Format.Parse
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.LocalTime.LocalTime
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Functor.Identity
+                         base-4.8.1.0:Data.Monoid base-4.8.1.0:Data.Type.Equality
+                         base-4.8.1.0:Data.Void base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:Data.Foldable 2e5acb797cfda6b3b7fabd7052abe290
+import  -/  base-4.8.1.0:Data.List 2a4f5f92892d432e7113f64cd9dcca53
+import  -/  base-4.8.1.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.1.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.1.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.1.0:GHC.Read cfaa50b414b9b02ef6fe4fe5600d9b95
+import  -/  base-4.8.1.0:GHC.Show b8c65ca3124f92a166c9f05120382442
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  base-4.8.1.0:Text.ParserCombinators.ReadPrec 1844ee1249db84f72bd233d7a9bbd968
+import  -/  base-4.8.1.0:Text.Read.Lex 1ec4c08d49d1d5264b910cc76b6c6fde
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  safe-0.3.9@safe_BXSoeRP9IFG6t9s3abNgVi:Safe aeae112f34c10406fbf4ba13f5b20512
+import  -/  time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time 32980eeddfe26f4d4e29d9341bdd87d9
+import  -/  time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.LocalTime.LocalTime 303d3e241c140233efb7305f97e88089
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fEqProject :: GHC.Classes.Eq Data.TTask.Types.Project
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Project
+                  Data.TTask.Types.$fEqProject_$c==
+                  Data.TTask.Types.$fEqProject_$c/= -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fEqProject_$c/= ::
+    Data.TTask.Types.Project
+    -> Data.TTask.Types.Project -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U,1*U,1*U,1*U)><S(SLLL),1*U(1*U,1*U,1*U,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.Project b :: Data.TTask.Types.Project ->
+                 case Data.TTask.Types.$fEqProject_$c== a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fEqProject_$c== ::
+    Data.TTask.Types.Project
+    -> Data.TTask.Types.Project -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U,1*U,1*U,1*U)><S(SLLL),1*U(1*U,1*U,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Project w1 :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 case w1 of ww5 { Data.TTask.Types.Project ww6 ww7 ww8 ww9 ->
+                 Data.TTask.Types.$w$c== ww1 ww2 ww3 ww4 ww6 ww7 ww8 ww9 } }) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fEqProject_$c==1 ::
+    Data.TTask.Types.TStatus
+    -> Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fEqSprint :: GHC.Classes.Eq Data.TTask.Types.Sprint
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Sprint
+                  Data.TTask.Types.$fEqSprint_$c==
+                  Data.TTask.Types.$fEqSprint_$c/= -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fEqSprint_$c/= ::
+    Data.TTask.Types.Sprint
+    -> Data.TTask.Types.Sprint -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U(U),1*U,1*U,1*U)><S(SLLL),1*U(1*U(U),1*U,1*U,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.Sprint b :: Data.TTask.Types.Sprint ->
+                 case Data.TTask.Types.$fEqSprint_$c== a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fEqSprint_$c== ::
+    Data.TTask.Types.Sprint
+    -> Data.TTask.Types.Sprint -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U(U),1*U,1*U,1*U)><S(SLLL),1*U(1*U(U),1*U,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Sprint w1 :: Data.TTask.Types.Sprint ->
+                 case w of ww { Data.TTask.Types.Sprint ww1 ww2 ww3 ww4 ->
+                 case ww1 of ww5 { GHC.Types.I# ww6 ->
+                 case w1 of ww7 { Data.TTask.Types.Sprint ww8 ww9 ww10 ww11 ->
+                 case ww8 of ww12 { GHC.Types.I# ww13 ->
+                 Data.TTask.Types.$w$c==1
+                   ww6
+                   ww2
+                   ww3
+                   ww4
+                   ww13
+                   ww9
+                   ww10
+                   ww11 } } } }) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fEqTStatus :: GHC.Classes.Eq Data.TTask.Types.TStatus
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatus
+                  Data.TTask.Types.$fEqProject_$c==1
+                  Data.TTask.Types.$fEqTStatus_$c/= -}
+86bd241592c4e05830e227b89c779134
+  $fEqTStatusRecord :: GHC.Classes.Eq Data.TTask.Types.TStatusRecord
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatusRecord
+                  Data.TTask.Types.$fEqTStatusRecord_$c==
+                  Data.TTask.Types.$fEqTStatusRecord_$c/= -}
+86bd241592c4e05830e227b89c779134
+  $fEqTStatusRecord_$c/= ::
+    Data.TTask.Types.TStatusRecord
+    -> Data.TTask.Types.TStatusRecord -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.TStatusRecord
+                   b :: Data.TTask.Types.TStatusRecord ->
+                 case Data.TTask.Types.$fEqTStatusRecord_$c== a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+86bd241592c4e05830e227b89c779134
+  $fEqTStatusRecord_$c== ::
+    Data.TTask.Types.TStatusRecord
+    -> Data.TTask.Types.TStatusRecord -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ ds :: Data.TTask.Types.TStatusRecord
+                   ds1 :: Data.TTask.Types.TStatusRecord ->
+                 case ds of wild {
+                   Data.TTask.Types.StatusWait a3
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusWait b1
+                        -> Data.Time.LocalTime.LocalTime.$fEqLocalTime_$c== a3 b1 }
+                   Data.TTask.Types.StatusRunning a3
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusRunning b1
+                        -> Data.Time.LocalTime.LocalTime.$fEqLocalTime_$c== a3 b1 }
+                   Data.TTask.Types.StatusFinished a3
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusFinished b1
+                        -> Data.Time.LocalTime.LocalTime.$fEqLocalTime_$c== a3 b1 }
+                   Data.TTask.Types.StatusNotAchieved a3
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusNotAchieved b1
+                        -> Data.Time.LocalTime.LocalTime.$fEqLocalTime_$c== a3 b1 }
+                   Data.TTask.Types.StatusReject a3
+                   -> case ds1 of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusReject b1
+                        -> Data.Time.LocalTime.LocalTime.$fEqLocalTime_$c== a3 b1 } }) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fEqTStatus_$c/= ::
+    Data.TTask.Types.TStatus
+    -> Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.TStatus b :: Data.TTask.Types.TStatus ->
+                 case Data.TTask.Types.$fEqProject_$c==1 a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fEqTask :: GHC.Classes.Eq Data.TTask.Types.Task
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Task
+                  Data.TTask.Types.$fEqTask_$c==
+                  Data.TTask.Types.$fEqTask_$c/= -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fEqTask_$c/= ::
+    Data.TTask.Types.Task -> Data.TTask.Types.Task -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(U),1*U,1*U(U),1*U,1*U)><S(SLLLL),1*U(1*U(U),1*U,1*U(U),1*U,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.Task b :: Data.TTask.Types.Task ->
+                 case Data.TTask.Types.$fEqTask_$c== a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fEqTask_$c== ::
+    Data.TTask.Types.Task -> Data.TTask.Types.Task -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(U),1*U,1*U(U),1*U,1*U)><S(SLLLL),1*U(1*U(U),1*U,1*U(U),1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Task w1 :: Data.TTask.Types.Task ->
+                 case w of ww { Data.TTask.Types.Task ww1 ww2 ww3 ww4 ww5 ->
+                 case ww1 of ww6 { GHC.Types.I# ww7 ->
+                 case w1 of ww8 { Data.TTask.Types.Task ww9 ww10 ww11 ww12 ww13 ->
+                 case ww9 of ww14 { GHC.Types.I# ww15 ->
+                 Data.TTask.Types.$w$c==3
+                   ww7
+                   ww2
+                   ww3
+                   ww4
+                   ww5
+                   ww15
+                   ww10
+                   ww11
+                   ww12
+                   ww13 } } } }) -}
+edae4947a6c7bbdf6144725474863e99
+  $fEqUserStory :: GHC.Classes.Eq Data.TTask.Types.UserStory
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.UserStory
+                  Data.TTask.Types.$fEqUserStory_$c==
+                  Data.TTask.Types.$fEqUserStory_$c/= -}
+edae4947a6c7bbdf6144725474863e99
+  $fEqUserStory_$c/= ::
+    Data.TTask.Types.UserStory
+    -> Data.TTask.Types.UserStory -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U(U),1*U,1*U,1*U)><S(SLLL),1*U(1*U(U),1*U,1*U,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ a3 :: Data.TTask.Types.UserStory
+                   b :: Data.TTask.Types.UserStory ->
+                 case Data.TTask.Types.$fEqUserStory_$c== a3 b of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+edae4947a6c7bbdf6144725474863e99
+  $fEqUserStory_$c== ::
+    Data.TTask.Types.UserStory
+    -> Data.TTask.Types.UserStory -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLLL),1*U(1*U(U),1*U,1*U,1*U)><S(SLLL),1*U(1*U(U),1*U,1*U,1*U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.UserStory
+                   w1 :: Data.TTask.Types.UserStory ->
+                 case w of ww { Data.TTask.Types.UserStory ww1 ww2 ww3 ww4 ->
+                 case ww1 of ww5 { GHC.Types.I# ww6 ->
+                 case w1 of ww7 { Data.TTask.Types.UserStory ww8 ww9 ww10 ww11 ->
+                 case ww8 of ww12 { GHC.Types.I# ww13 ->
+                 Data.TTask.Types.$w$c==2
+                   ww6
+                   ww2
+                   ww3
+                   ww4
+                   ww13
+                   ww9
+                   ww10
+                   ww11 } } } }) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fEqWorkTime :: GHC.Classes.Eq Data.TTask.Types.WorkTime
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.WorkTime
+                  Data.TTask.Types.$fEqWorkTime_$c==
+                  Data.TTask.Types.$fEqWorkTime_$c/= -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fEqWorkTime_$c/= ::
+    Data.TTask.Types.WorkTime
+    -> Data.TTask.Types.WorkTime -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U)><S,1*U(U)>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.$fEqDouble_$c/=
+                  `cast`
+                (Sym (Data.TTask.Types.NTCo:WorkTime[0])
+                 ->_R Sym (Data.TTask.Types.NTCo:WorkTime[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fEqWorkTime_$c== ::
+    Data.TTask.Types.WorkTime
+    -> Data.TTask.Types.WorkTime -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U)><S,1*U(U)>,
+     Unfolding: InlineRule (0, True, True)
+                GHC.Classes.$fEqDouble_$c==
+                  `cast`
+                (Sym (Data.TTask.Types.NTCo:WorkTime[0])
+                 ->_R Sym (Data.TTask.Types.NTCo:WorkTime[0])
+                 ->_R <GHC.Types.Bool>_R) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject :: GHC.Read.Read Data.TTask.Types.Project
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Project
+                  Data.TTask.Types.$fReadProject_$creadsPrec
+                  Data.TTask.Types.$fReadProject_$sreadListDefault
+                  Data.TTask.Types.$fReadProject_$creadPrec
+                  Data.TTask.Types.$fReadProject_$creadListPrec -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.Project] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.Project]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.Project
+                   Data.TTask.Types.$fReadProject2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.Project>_R))
+                   @ b
+                   eta1) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.Project
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.Project
+                   Data.TTask.Types.$fReadProject3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.Project>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.Project>_R)))) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.Project -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.Project
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa ww1 @ b w1 }) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Data.TTask.Types.Project]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadProject1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.Project]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.Project]>_R))) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.Project
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadProject2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.Project>_R)) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject_$creadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.Project
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Data.TTask.Types.Project
+                   ((GHC.Read.$fReadDouble10
+                       @ Data.TTask.Types.Project
+                       Data.TTask.Types.$fReadProject3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                           <Data.TTask.Types.Project>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                      <Data.TTask.Types.Project>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <Data.TTask.Types.Project>_R)
+                      @ Data.TTask.Types.Project
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ Data.TTask.Types.Project))) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fReadProject_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.Project]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.Project]
+                   ((Data.TTask.Types.$fReadProject_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.Project]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.Project]>_R)
+                      @ [Data.TTask.Types.Project]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.Project]))) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint :: GHC.Read.Read Data.TTask.Types.Sprint
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Sprint
+                  Data.TTask.Types.$fReadSprint_$creadsPrec
+                  Data.TTask.Types.$fReadSprint_$sreadListDefault
+                  Data.TTask.Types.$fReadSprint_$creadPrec
+                  Data.TTask.Types.$fReadSprint_$creadListPrec -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.Sprint] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.Sprint]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.Sprint
+                   Data.TTask.Types.$fReadSprint2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.Sprint>_R))
+                   @ b
+                   eta1) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.Sprint
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.Sprint
+                   Data.TTask.Types.$fReadSprint3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.Sprint>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.Sprint>_R)))) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.Sprint -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.Sprint
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa1 ww1 @ b w1 }) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Data.TTask.Types.Sprint]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadSprint1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.Sprint]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.Sprint]>_R))) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.Sprint
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadSprint2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.Sprint>_R)) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint_$creadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.Sprint
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Data.TTask.Types.Sprint
+                   ((GHC.Read.$fReadDouble10
+                       @ Data.TTask.Types.Sprint
+                       Data.TTask.Types.$fReadSprint3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                           <Data.TTask.Types.Sprint>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                      <Data.TTask.Types.Sprint>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <Data.TTask.Types.Sprint>_R)
+                      @ Data.TTask.Types.Sprint
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ Data.TTask.Types.Sprint))) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fReadSprint_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.Sprint]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.Sprint]
+                   ((Data.TTask.Types.$fReadSprint_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.Sprint]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.Sprint]>_R)
+                      @ [Data.TTask.Types.Sprint]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.Sprint]))) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus :: GHC.Read.Read Data.TTask.Types.TStatus
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatus
+                  Data.TTask.Types.$fReadTStatus_$s$dmreadsPrec
+                  Data.TTask.Types.$fReadTStatus_$sreadListDefault
+                  Data.TTask.Types.$fReadTStatus_$creadPrec
+                  Data.TTask.Types.$fReadTStatus_$creadListPrec -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.TStatus] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.TStatus]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.TStatus
+                   Data.TTask.Types.$fReadTStatus2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.TStatus>_R))
+                   @ b
+                   eta1) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.TStatus
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.TStatus
+                   Data.TTask.Types.$fReadTStatus3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.TStatus>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.TStatus>_R)))) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.TStatus -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.TStatus
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa2 ww1 @ b w1 }) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord :: GHC.Read.Read Data.TTask.Types.TStatusRecord
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatusRecord
+                  Data.TTask.Types.$fReadTStatusRecord_$s$dmreadsPrec
+                  Data.TTask.Types.$fReadTStatusRecord_$sreadListDefault
+                  Data.TTask.Types.$fReadTStatusRecord_$creadPrec
+                  Data.TTask.Types.$fReadTStatusRecord_$creadListPrec -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.TStatusRecord]
+        -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.TStatusRecord]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.TStatusRecord
+                   Data.TTask.Types.$fReadTStatusRecord2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.TStatusRecord>_R))
+                   @ b
+                   eta1) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP
+         Data.TTask.Types.TStatusRecord
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.TStatusRecord
+                   Data.TTask.Types.$fReadTStatusRecord3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.TStatusRecord>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.TStatusRecord>_R)))) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.TStatusRecord
+        -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.TStatusRecord
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa3 ww1 @ b w1 }) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec
+      [Data.TTask.Types.TStatusRecord]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTStatusRecord1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.TStatusRecord]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.TStatusRecord]>_R))) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec
+      Data.TTask.Types.TStatusRecord
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTStatusRecord2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.TStatusRecord>_R)) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord_$s$dmreadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS
+         Data.TTask.Types.TStatusRecord
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (-1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadPrec.readPrec_to_S
+                   @ Data.TTask.Types.TStatusRecord
+                   Data.TTask.Types.$fReadTStatusRecord_$creadPrec
+                   eta) -}
+86bd241592c4e05830e227b89c779134
+  $fReadTStatusRecord_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.TStatusRecord]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.TStatusRecord]
+                   ((Data.TTask.Types.$fReadTStatusRecord_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.TStatusRecord]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.TStatusRecord]>_R)
+                      @ [Data.TTask.Types.TStatusRecord]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.TStatusRecord]))) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Data.TTask.Types.TStatus]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTStatus1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.TStatus]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.TStatus]>_R))) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.TStatus
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTStatus2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.TStatus>_R)) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus_$s$dmreadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.TStatus
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (-1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadPrec.readPrec_to_S
+                   @ Data.TTask.Types.TStatus
+                   Data.TTask.Types.$fReadTStatus_$creadPrec
+                   eta) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fReadTStatus_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.TStatus]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.TStatus]
+                   ((Data.TTask.Types.$fReadTStatus_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.TStatus]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.TStatus]>_R)
+                      @ [Data.TTask.Types.TStatus]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.TStatus]))) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask :: GHC.Read.Read Data.TTask.Types.Task
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Task
+                  Data.TTask.Types.$fReadTask_$creadsPrec
+                  Data.TTask.Types.$fReadTask_$sreadListDefault
+                  Data.TTask.Types.$fReadTask_$creadPrec
+                  Data.TTask.Types.$fReadTask_$creadListPrec -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.Task] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.Task]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.Task
+                   Data.TTask.Types.$fReadTask2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.Task>_R))
+                   @ b
+                   eta1) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.Task
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.Task
+                   Data.TTask.Types.$fReadTask3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.Task>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.Task>_R)))) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.Task -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.Task -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa4 ww1 @ b w1 }) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec [Data.TTask.Types.Task]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTask1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.Task]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.Task]>_R))) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.Task
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadTask2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.Task>_R)) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask_$creadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.Task
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Data.TTask.Types.Task
+                   ((GHC.Read.$fReadDouble10
+                       @ Data.TTask.Types.Task
+                       Data.TTask.Types.$fReadTask3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                           <Data.TTask.Types.Task>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                      <Data.TTask.Types.Task>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <Data.TTask.Types.Task>_R)
+                      @ Data.TTask.Types.Task
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ Data.TTask.Types.Task))) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fReadTask_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.Task]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.Task]
+                   ((Data.TTask.Types.$fReadTask_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.Task]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.Task]>_R)
+                      @ [Data.TTask.Types.Task]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.Task]))) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory :: GHC.Read.Read Data.TTask.Types.UserStory
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.UserStory
+                  Data.TTask.Types.$fReadUserStory_$creadsPrec
+                  Data.TTask.Types.$fReadUserStory_$sreadListDefault
+                  Data.TTask.Types.$fReadUserStory_$creadPrec
+                  Data.TTask.Types.$fReadUserStory_$creadListPrec -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.UserStory] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.UserStory]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.UserStory
+                   Data.TTask.Types.$fReadUserStory2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.UserStory>_R))
+                   @ b
+                   eta1) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.UserStory
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.UserStory
+                   Data.TTask.Types.$fReadUserStory3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.UserStory>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.UserStory>_R)))) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.UserStory -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.UserStory
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa5 ww1 @ b w1 }) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec
+      [Data.TTask.Types.UserStory]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadUserStory1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.UserStory]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.UserStory]>_R))) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.UserStory
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadUserStory2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.UserStory>_R)) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory_$creadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.UserStory
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadP.run
+                   @ Data.TTask.Types.UserStory
+                   ((GHC.Read.$fReadDouble10
+                       @ Data.TTask.Types.UserStory
+                       Data.TTask.Types.$fReadUserStory3
+                         `cast`
+                       (Trans
+                            (<Text.ParserCombinators.ReadPrec.Prec>_R
+                             ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                           <Data.TTask.Types.UserStory>_R))
+                            (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                      <Data.TTask.Types.UserStory>_R)))
+                       eta)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <Data.TTask.Types.UserStory>_R)
+                      @ Data.TTask.Types.UserStory
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ Data.TTask.Types.UserStory))) -}
+edae4947a6c7bbdf6144725474863e99
+  $fReadUserStory_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.UserStory]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.UserStory]
+                   ((Data.TTask.Types.$fReadUserStory_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.UserStory]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.UserStory]>_R)
+                      @ [Data.TTask.Types.UserStory]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.UserStory]))) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime :: GHC.Read.Read Data.TTask.Types.WorkTime
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.WorkTime
+                  Data.TTask.Types.$fReadWorkTime_$s$dmreadsPrec
+                  Data.TTask.Types.$fReadWorkTime_$sreadListDefault
+                  Data.TTask.Types.$fReadWorkTime_$creadPrec
+                  Data.TTask.Types.$fReadWorkTime_$creadListPrec -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime1 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       ([Data.TTask.Types.WorkTime] -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (2, True, True)
+                (\ eta :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   eta1 :: [Data.TTask.Types.WorkTime]
+                           -> Text.ParserCombinators.ReadP.P b ->
+                 GHC.Read.$wa
+                   @ Data.TTask.Types.WorkTime
+                   Data.TTask.Types.$fReadWorkTime2
+                     `cast`
+                   (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                             <Data.TTask.Types.WorkTime>_R))
+                   @ b
+                   eta1) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime2 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> Text.ParserCombinators.ReadP.ReadP Data.TTask.Types.WorkTime
+  {- Arity: 1,
+     Unfolding: (GHC.Read.$fReadDouble10
+                   @ Data.TTask.Types.WorkTime
+                   Data.TTask.Types.$fReadWorkTime3
+                     `cast`
+                   (Trans
+                        (<Text.ParserCombinators.ReadPrec.Prec>_R
+                         ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                       <Data.TTask.Types.WorkTime>_R))
+                        (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                                  <Data.TTask.Types.WorkTime>_R)))) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime3 ::
+    Text.ParserCombinators.ReadPrec.Prec
+    -> forall b.
+       (Data.TTask.Types.WorkTime -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <S,1*U(U)><L,C(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Text.ParserCombinators.ReadPrec.Prec
+                   @ b
+                   w1 :: Data.TTask.Types.WorkTime
+                         -> Text.ParserCombinators.ReadP.P b ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$wa6 ww1 @ b w1 }) -}
+c53346de3a1681c058e4bb451be6b300
+  $fReadWorkTime4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "WorkTime"#) -}
+465488cda9fee92280e1b4729e97f42d
+  $fReadWorkTime5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime_$creadListPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec
+      [Data.TTask.Types.WorkTime]
+  {- Arity: 2, Strictness: <L,A><L,C(U)>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadWorkTime1
+                  `cast`
+                (Trans
+                     (<Text.ParserCombinators.ReadPrec.Prec>_R
+                      ->_R Sym (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                                    <[Data.TTask.Types.WorkTime]>_R))
+                     (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                               <[Data.TTask.Types.WorkTime]>_R))) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime_$creadPrec ::
+    Text.ParserCombinators.ReadPrec.ReadPrec Data.TTask.Types.WorkTime
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Types.$fReadWorkTime2
+                  `cast`
+                (Sym (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <Data.TTask.Types.WorkTime>_R)) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime_$s$dmreadsPrec ::
+    GHC.Types.Int
+    -> Text.ParserCombinators.ReadP.ReadS Data.TTask.Types.WorkTime
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (-1, True, False)
+                (\ eta :: GHC.Types.Int ->
+                 Text.ParserCombinators.ReadPrec.readPrec_to_S
+                   @ Data.TTask.Types.WorkTime
+                   Data.TTask.Types.$fReadWorkTime_$creadPrec
+                   eta) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fReadWorkTime_$sreadListDefault ::
+    Text.ParserCombinators.ReadP.ReadS [Data.TTask.Types.WorkTime]
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, False)
+                (Text.ParserCombinators.ReadP.run
+                   @ [Data.TTask.Types.WorkTime]
+                   ((Data.TTask.Types.$fReadWorkTime_$creadListPrec
+                       `cast`
+                     (Text.ParserCombinators.ReadPrec.NTCo:ReadPrec[0]
+                          <[Data.TTask.Types.WorkTime]>_R)
+                       GHC.Read.$fRead(,)7)
+                      `cast`
+                    (Text.ParserCombinators.ReadP.NTCo:ReadP[0]
+                         <[Data.TTask.Types.WorkTime]>_R)
+                      @ [Data.TTask.Types.WorkTime]
+                      (Text.ParserCombinators.ReadP.$fApplicativeP_$creturn
+                         @ [Data.TTask.Types.WorkTime]))) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fShowProject :: GHC.Show.Show Data.TTask.Types.Project
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Project
+                  Data.TTask.Types.$fShowProject_$cshowsPrec
+                  Data.TTask.Types.$fShowProject_$cshow
+                  Data.TTask.Types.$fShowProject_$cshowList -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fShowProject1 :: Data.TTask.Types.Project -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.Project
+                   w1 :: GHC.Base.String ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$w$cshowsPrec 0 ww1 ww2 ww3 ww4 w1 }) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fShowProject_$cshow :: Data.TTask.Types.Project -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Project ->
+                 Data.TTask.Types.$fShowProject_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fShowProject_$cshowList ::
+    [Data.TTask.Types.Project] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.Project
+                   Data.TTask.Types.$fShowProject1) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $fShowProject_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.Project -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><S,1*U(1*U,1*U,1*U,1*U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.Project
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Data.TTask.Types.Project ww3 ww4 ww5 ww6 ->
+                 Data.TTask.Types.$w$cshowsPrec ww1 ww3 ww4 ww5 ww6 w2 } }) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fShowSprint :: GHC.Show.Show Data.TTask.Types.Sprint
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Sprint
+                  Data.TTask.Types.$fShowSprint_$cshowsPrec
+                  Data.TTask.Types.$fShowSprint_$cshow
+                  Data.TTask.Types.$fShowSprint_$cshowList -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fShowSprint1 :: Data.TTask.Types.Sprint -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.Sprint w1 :: GHC.Base.String ->
+                 case w of ww { Data.TTask.Types.Sprint ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$w$cshowsPrec1 0 ww1 ww2 ww3 ww4 w1 }) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fShowSprint_$cshow :: Data.TTask.Types.Sprint -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U(U),1*U,1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Sprint ->
+                 Data.TTask.Types.$fShowSprint_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fShowSprint_$cshowList ::
+    [Data.TTask.Types.Sprint] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.Sprint
+                   Data.TTask.Types.$fShowSprint1) -}
+c3034c815bf33d3a16be1a6dc834186c
+  $fShowSprint_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.Sprint -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <S,1*U(U)><S,1*U(1*U(U),1*U,1*U,1*U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.Sprint
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Data.TTask.Types.Sprint ww3 ww4 ww5 ww6 ->
+                 Data.TTask.Types.$w$cshowsPrec1 ww1 ww3 ww4 ww5 ww6 w2 } }) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fShowTStatus :: GHC.Show.Show Data.TTask.Types.TStatus
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatus
+                  Data.TTask.Types.$fShowTStatus_$cshowsPrec
+                  Data.TTask.Types.$fShowTStatus_$cshow
+                  Data.TTask.Types.$fShowTStatus_$cshowList -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fShowTStatus1 :: Data.TTask.Types.TStatus -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.TStatus
+                   w1 :: GHC.Base.String ->
+                 Data.TTask.Types.$w$cshowsPrec2 0 w w1) -}
+86bd241592c4e05830e227b89c779134
+  $fShowTStatusRecord :: GHC.Show.Show Data.TTask.Types.TStatusRecord
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.TStatusRecord
+                  Data.TTask.Types.$fShowTStatusRecord_$cshowsPrec
+                  Data.TTask.Types.$fShowTStatusRecord_$cshow
+                  Data.TTask.Types.$fShowTStatusRecord_$cshowList -}
+86bd241592c4e05830e227b89c779134
+  $fShowTStatusRecord1 ::
+    Data.TTask.Types.TStatusRecord -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.TStatusRecord
+                   w1 :: GHC.Base.String ->
+                 Data.TTask.Types.$w$cshowsPrec3 0 w w1) -}
+86bd241592c4e05830e227b89c779134
+  $fShowTStatusRecord_$cshow ::
+    Data.TTask.Types.TStatusRecord -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.TStatusRecord ->
+                 Data.TTask.Types.$fShowTStatusRecord_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+86bd241592c4e05830e227b89c779134
+  $fShowTStatusRecord_$cshowList ::
+    [Data.TTask.Types.TStatusRecord] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.TStatusRecord
+                   Data.TTask.Types.$fShowTStatusRecord1) -}
+86bd241592c4e05830e227b89c779134
+  $fShowTStatusRecord_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.TStatusRecord -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><S,1*U><L,U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.TStatusRecord
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$w$cshowsPrec3 ww1 w1 w2 }) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fShowTStatus_$cshow :: Data.TTask.Types.TStatus -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.TStatus ->
+                 Data.TTask.Types.$fShowTStatus_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fShowTStatus_$cshowList ::
+    [Data.TTask.Types.TStatus] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.TStatus
+                   Data.TTask.Types.$fShowTStatus1) -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $fShowTStatus_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.TStatus -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S,1*U(U)><S,1*U><L,U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.TStatus
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$w$cshowsPrec2 ww1 w1 w2 }) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fShowTask :: GHC.Show.Show Data.TTask.Types.Task
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.Task
+                  Data.TTask.Types.$fShowTask_$cshowsPrec
+                  Data.TTask.Types.$fShowTask_$cshow
+                  Data.TTask.Types.$fShowTask_$cshowList -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fShowTask1 :: Data.TTask.Types.Task -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.Task w1 :: GHC.Base.String ->
+                 case w of ww { Data.TTask.Types.Task ww1 ww2 ww3 ww4 ww5 ->
+                 Data.TTask.Types.$w$cshowsPrec4 0 ww1 ww2 ww3 ww4 ww5 w1 }) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fShowTask_$cshow :: Data.TTask.Types.Task -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U(U),1*U,1*U(U),1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Task ->
+                 Data.TTask.Types.$fShowTask_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fShowTask_$cshowList :: [Data.TTask.Types.Task] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.Task
+                   Data.TTask.Types.$fShowTask1) -}
+30af9f1a75d18f3b5ff07253deccac43
+  $fShowTask_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.Task -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <S,1*U(U)><S,1*U(1*U(U),1*U,1*U(U),1*U,1*U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.Task
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Data.TTask.Types.Task ww3 ww4 ww5 ww6 ww7 ->
+                 Data.TTask.Types.$w$cshowsPrec4 ww1 ww3 ww4 ww5 ww6 ww7 w2 } }) -}
+edae4947a6c7bbdf6144725474863e99
+  $fShowUserStory :: GHC.Show.Show Data.TTask.Types.UserStory
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.UserStory
+                  Data.TTask.Types.$fShowUserStory_$cshowsPrec
+                  Data.TTask.Types.$fShowUserStory_$cshow
+                  Data.TTask.Types.$fShowUserStory_$cshowList -}
+edae4947a6c7bbdf6144725474863e99
+  $fShowUserStory1 :: Data.TTask.Types.UserStory -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ w :: Data.TTask.Types.UserStory
+                   w1 :: GHC.Base.String ->
+                 case w of ww { Data.TTask.Types.UserStory ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$w$cshowsPrec5 0 ww1 ww2 ww3 ww4 w1 }) -}
+edae4947a6c7bbdf6144725474863e99
+  $fShowUserStory_$cshow ::
+    Data.TTask.Types.UserStory -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U(U),1*U,1*U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.UserStory ->
+                 Data.TTask.Types.$fShowUserStory_$cshowsPrec
+                   GHC.Show.shows18
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+edae4947a6c7bbdf6144725474863e99
+  $fShowUserStory_$cshowList ::
+    [Data.TTask.Types.UserStory] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.UserStory
+                   Data.TTask.Types.$fShowUserStory1) -}
+edae4947a6c7bbdf6144725474863e99
+  $fShowUserStory_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.UserStory -> GHC.Show.ShowS
+  {- Arity: 3,
+     Strictness: <S,1*U(U)><S,1*U(1*U(U),1*U,1*U,1*U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: GHC.Types.Int
+                   w1 :: Data.TTask.Types.UserStory
+                   w2 :: GHC.Base.String ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Data.TTask.Types.UserStory ww3 ww4 ww5 ww6 ->
+                 Data.TTask.Types.$w$cshowsPrec5 ww1 ww3 ww4 ww5 ww6 w2 } }) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fShowWorkTime :: GHC.Show.Show Data.TTask.Types.WorkTime
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.TTask.Types.WorkTime
+                  Data.TTask.Types.$fShowWorkTime_$cshowsPrec
+                  Data.TTask.Types.$fShowWorkTime_$cshow
+                  Data.TTask.Types.$fShowWorkTime_$cshowList -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fShowWorkTime1 :: Data.TTask.Types.WorkTime -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ w :: Data.TTask.Types.WorkTime ->
+                 Data.TTask.Types.$w$cshowsPrec6 0 w) -}
+7f4a4388185983646a6852ac4848bad9
+  $fShowWorkTime2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "WorkTime "#) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fShowWorkTime_$cshow ::
+    Data.TTask.Types.WorkTime -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U(U)>,
+     Unfolding: (\ x :: Data.TTask.Types.WorkTime ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Data.TTask.Types.$fShowWorkTime2
+                   (case x `cast`
+                         (Data.TTask.Types.NTCo:WorkTime[0]) of ww { GHC.Types.D# ww1 ->
+                    GHC.Float.$w$sshowSignedFloat
+                      GHC.Float.$fShowDouble_$sshowFloat
+                      Data.TTask.Types.$fReadWorkTime5
+                      ww1
+                      (GHC.Types.[] @ GHC.Types.Char) })) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fShowWorkTime_$cshowList ::
+    [Data.TTask.Types.WorkTime] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Data.TTask.Types.WorkTime
+                   Data.TTask.Types.$fShowWorkTime1) -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $fShowWorkTime_$cshowsPrec ::
+    GHC.Types.Int -> Data.TTask.Types.WorkTime -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U(U)><L,1*U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: GHC.Types.Int w1 :: Data.TTask.Types.WorkTime ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Data.TTask.Types.$w$cshowsPrec6 ww1 w1 }) -}
+15a31f192900e5ce0334b6f6e5b961a4
+  $w$c== ::
+    GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Types.Bool
+  {- Arity: 8, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><L,1*U><L,1*U><S,1*U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Base.String
+                   ww1 :: [Data.TTask.Types.UserStory]
+                   ww2 :: [Data.TTask.Types.Sprint]
+                   ww3 :: Data.TTask.Types.TStatus
+                   ww4 :: GHC.Base.String
+                   ww5 :: [Data.TTask.Types.UserStory]
+                   ww6 :: [Data.TTask.Types.Sprint]
+                   ww7 :: Data.TTask.Types.TStatus ->
+                 case GHC.Base.eqString ww ww4 of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Classes.$fEq[]_$c==
+                             @ Data.TTask.Types.UserStory
+                             Data.TTask.Types.$fEqUserStory
+                             ww1
+                             ww5 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> case GHC.Classes.$fEq[]_$c==
+                                  @ Data.TTask.Types.Sprint
+                                  Data.TTask.Types.$fEqSprint
+                                  ww2
+                                  ww6 of wild2 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True
+                             -> Data.TTask.Types.$fEqProject_$c==1 ww3 ww7 } } }) -}
+7475b2db48b70fe3d63041afc074501b
+  $w$c==1 ::
+    GHC.Prim.Int#
+    -> GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Prim.Int#
+    -> GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Types.Bool
+  {- Arity: 8, HasNoCafRefs,
+     Strictness: <L,U><L,1*U><L,1*U><L,1*U><L,U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: GHC.Base.String
+                   ww2 :: [Data.TTask.Types.UserStory]
+                   ww3 :: Data.TTask.Types.TStatus
+                   ww4 :: GHC.Prim.Int#
+                   ww5 :: GHC.Base.String
+                   ww6 :: [Data.TTask.Types.UserStory]
+                   ww7 :: Data.TTask.Types.TStatus ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww ww4) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Base.eqString ww1 ww5 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> case GHC.Classes.$fEq[]_$c==
+                                  @ Data.TTask.Types.UserStory
+                                  Data.TTask.Types.$fEqUserStory
+                                  ww2
+                                  ww6 of wild2 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True
+                             -> Data.TTask.Types.$fEqProject_$c==1 ww3 ww7 } } }) -}
+7a8222bb75657ecc4f942abf936da243
+  $w$c==2 ::
+    GHC.Prim.Int#
+    -> GHC.Base.String
+    -> [Data.TTask.Types.Task]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Prim.Int#
+    -> GHC.Base.String
+    -> [Data.TTask.Types.Task]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Types.Bool
+  {- Arity: 8, HasNoCafRefs,
+     Strictness: <L,U><L,1*U><L,1*U><L,1*U><L,U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: GHC.Base.String
+                   ww2 :: [Data.TTask.Types.Task]
+                   ww3 :: Data.TTask.Types.TStatus
+                   ww4 :: GHC.Prim.Int#
+                   ww5 :: GHC.Base.String
+                   ww6 :: [Data.TTask.Types.Task]
+                   ww7 :: Data.TTask.Types.TStatus ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww ww4) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Base.eqString ww1 ww5 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> case GHC.Classes.$fEq[]_$c==
+                                  @ Data.TTask.Types.Task
+                                  Data.TTask.Types.$fEqTask
+                                  ww2
+                                  ww6 of wild2 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True
+                             -> Data.TTask.Types.$fEqProject_$c==1 ww3 ww7 } } }) -}
+e440e39ce11cc2c832227d91f69d409d
+  $w$c==3 ::
+    GHC.Prim.Int#
+    -> GHC.Base.String
+    -> GHC.Types.Int
+    -> Data.TTask.Types.TStatus
+    -> [Data.TTask.Types.WorkTime]
+    -> GHC.Prim.Int#
+    -> GHC.Base.String
+    -> GHC.Types.Int
+    -> Data.TTask.Types.TStatus
+    -> [Data.TTask.Types.WorkTime]
+    -> GHC.Types.Bool
+  {- Arity: 10, HasNoCafRefs,
+     Strictness: <L,U><L,1*U><L,1*U(U)><L,1*U><L,1*U><L,U><L,1*U><L,1*U(U)><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   ww1 :: GHC.Base.String
+                   ww2 :: GHC.Types.Int
+                   ww3 :: Data.TTask.Types.TStatus
+                   ww4 :: [Data.TTask.Types.WorkTime]
+                   ww5 :: GHC.Prim.Int#
+                   ww6 :: GHC.Base.String
+                   ww7 :: GHC.Types.Int
+                   ww8 :: Data.TTask.Types.TStatus
+                   ww9 :: [Data.TTask.Types.WorkTime] ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww ww5) of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Base.eqString ww1 ww6 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> case ww2 of wild2 { GHC.Types.I# x ->
+                           case ww7 of wild3 { GHC.Types.I# y ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.==# x y) of wild4 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True
+                             -> case Data.TTask.Types.$fEqProject_$c==1 ww3 ww8 of wild5 {
+                                  GHC.Types.False -> GHC.Types.False
+                                  GHC.Types.True
+                                  -> GHC.Classes.$fEq[]_$c==
+                                       @ Data.TTask.Types.WorkTime
+                                       Data.TTask.Types.$fEqWorkTime
+                                       ww4
+                                       ww9 } } } } } }) -}
+75eef1e739e04838d32b581cd6f39b97
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,1*U><L,1*U><L,1*U><L,1*U><L,U>,
+     Inline: [0] -}
+9c2fade7be60a0db3ecb217e8f9caee8
+  $w$cshowsPrec1 ::
+    GHC.Prim.Int#
+    -> Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> [Data.TTask.Types.UserStory]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,1*U(U)><L,1*U><L,1*U><L,1*U><L,U>,
+     Inline: [0] -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $w$cshowsPrec2 ::
+    GHC.Prim.Int#
+    -> Data.TTask.Types.TStatus -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U>, Inline: [0] -}
+86bd241592c4e05830e227b89c779134
+  $w$cshowsPrec3 ::
+    GHC.Prim.Int#
+    -> Data.TTask.Types.TStatusRecord
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><S,1*U><L,U>, Inline: [0] -}
+c44e739f73d8a90f2d06af7a7bc051fa
+  $w$cshowsPrec4 ::
+    GHC.Prim.Int#
+    -> Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> GHC.Types.Int
+    -> Data.TTask.Types.TStatus
+    -> [Data.TTask.Types.WorkTime]
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 7,
+     Strictness: <L,U><L,1*U(U)><L,1*U><L,1*U(U)><L,1*U><L,1*U><L,U>,
+     Inline: [0] -}
+559511461fd010acfad282b729d0fafa
+  $w$cshowsPrec5 ::
+    GHC.Prim.Int#
+    -> Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> [Data.TTask.Types.Task]
+    -> Data.TTask.Types.TStatus
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,U><L,1*U(U)><L,1*U><L,1*U><L,1*U><L,U>,
+     Inline: [0] -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $w$cshowsPrec6 ::
+    GHC.Prim.Int# -> Data.TTask.Types.WorkTime -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <L,U><L,1*U(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int# w :: Data.TTask.Types.WorkTime ->
+                 let {
+                   g :: GHC.Base.String -> GHC.Base.String
+                   = case w `cast`
+                          (Data.TTask.Types.NTCo:WorkTime[0]) of ww1 { GHC.Types.D# ww2 ->
+                     GHC.Float.$w$sshowSignedFloat
+                       GHC.Float.$fShowDouble_$sshowFloat
+                       Data.TTask.Types.$fReadWorkTime5
+                       ww2 }
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.>=# ww 11) of wild {
+                   GHC.Types.False
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Base.++ @ GHC.Types.Char Data.TTask.Types.$fShowWorkTime2 (g x)
+                   GHC.Types.True
+                   -> \ x :: GHC.Base.String ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.shows9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           Data.TTask.Types.$fShowWorkTime2
+                           (g (GHC.Types.: @ GHC.Types.Char GHC.Show.shows8 x))) }) -}
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  $wa ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.Project -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+c3034c815bf33d3a16be1a6dc834186c
+  $wa1 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.Sprint -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  $wa2 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.TStatus -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+86bd241592c4e05830e227b89c779134
+  $wa3 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.TStatusRecord
+        -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+30af9f1a75d18f3b5ff07253deccac43
+  $wa4 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.Task -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+edae4947a6c7bbdf6144725474863e99
+  $wa5 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.UserStory -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0] -}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  $wa6 ::
+    GHC.Prim.Int#
+    -> forall b.
+       (Data.TTask.Types.WorkTime -> Text.ParserCombinators.ReadP.P b)
+       -> Text.ParserCombinators.ReadP.P b
+  {- Arity: 2, Strictness: <L,U><L,C(U)>, Inline: [0],
+     Unfolding: (\ ww :: GHC.Prim.Int#
+                   @ b
+                   w :: Data.TTask.Types.WorkTime
+                        -> Text.ParserCombinators.ReadP.P b ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# ww 10) of wild2 {
+                   GHC.Types.False -> Text.ParserCombinators.ReadP.Fail @ b
+                   GHC.Types.True
+                   -> let {
+                        lvl78 :: Text.ParserCombinators.ReadP.P b
+                        = let {
+                            lvl79 :: Text.ParserCombinators.ReadP.P b
+                            = (GHC.Read.$fReadDouble9
+                                 GHC.Read.$fReadDouble_$sconvertFrac
+                                 Data.TTask.Types.$fReadWorkTime5)
+                                `cast`
+                              (Text.ParserCombinators.ReadP.NTCo:ReadP[0] <GHC.Types.Double>_R)
+                                @ b
+                                (\ a6 :: GHC.Types.Double ->
+                                 w a6 `cast` (Sym (Data.TTask.Types.NTCo:WorkTime[0])))
+                          } in
+                          Text.Read.Lex.expect2
+                            @ b
+                            (\ a98 :: Text.Read.Lex.Lexeme ->
+                             case a98 of wild {
+                               DEFAULT -> Text.ParserCombinators.ReadP.Fail @ b
+                               Text.Read.Lex.Ident a3
+                               -> case GHC.Base.eqString
+                                         a3
+                                         Data.TTask.Types.$fReadWorkTime4 of wild1 {
+                                    GHC.Types.False -> Text.ParserCombinators.ReadP.Fail @ b
+                                    GHC.Types.True -> lvl79 } })
+                      } in
+                      let {
+                        k :: () -> Text.ParserCombinators.ReadP.P b
+                          {- Arity: 1, Strictness: <L,A>, Inline: INLINE[0],
+                             Unfolding: InlineRule (1, True, True) (\ w2 :: () -> lvl78) -}
+                        = \ w2 :: () -> lvl78
+                      } in
+                      Text.ParserCombinators.ReadP.Look
+                        @ b
+                        (\ a98 :: GHC.Base.String ->
+                         (Text.ParserCombinators.ReadP.skipSpaces_skip a98)
+                           `cast`
+                         (Text.ParserCombinators.ReadP.NTCo:ReadP[0] <()>_R)
+                           @ b
+                           k) }) -}
+8f9f39e5deeea671020222c6c146e627
+  $wgetSprintById ::
+    [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.Id -> GHC.Base.Maybe Data.TTask.Types.Sprint
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U(U)>,
+     Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.Sprint]
+                   w :: Data.TTask.Types.Id ->
+                 letrec {
+                   go :: [Data.TTask.Types.Sprint]
+                         -> Data.Monoid.First Data.TTask.Types.Sprint
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Data.TTask.Types.Sprint] ->
+                     case ds of wild {
+                       []
+                       -> (GHC.Base.Nothing @ Data.TTask.Types.Sprint)
+                            `cast`
+                          (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.Sprint>_N)
+                       : y ys
+                       -> case y of wild1 { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                          case ds1 of wild2 { GHC.Types.I# x ->
+                          case w of wild3 { GHC.Types.I# y1 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# x y1) of wild4 {
+                            GHC.Types.False -> go ys
+                            GHC.Types.True
+                            -> (GHC.Base.Just @ Data.TTask.Types.Sprint wild1)
+                                 `cast`
+                               (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.Sprint>_N) } } } } }
+                 } in
+                 (go ww)
+                   `cast`
+                 (Data.Monoid.NTCo:First[0] <Data.TTask.Types.Sprint>_N)) -}
+ad0f8a0ecd131bcaea8ec34c2956d082
+  $wgetTaskById ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.Id
+    -> GHC.Base.Maybe Data.TTask.Types.Task
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,1*U><S,1*U><L,U(U)>,
+     Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint]
+                   w :: Data.TTask.Types.Id ->
+                 letrec {
+                   go :: [Data.TTask.Types.Task]
+                         -> Data.Monoid.First Data.TTask.Types.Task
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Data.TTask.Types.Task] ->
+                     case ds of wild {
+                       []
+                       -> (GHC.Base.Nothing @ Data.TTask.Types.Task)
+                            `cast`
+                          (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.Task>_N)
+                       : y ys
+                       -> case y of wild1 { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                          case ds1 of wild2 { GHC.Types.I# x ->
+                          case w of wild3 { GHC.Types.I# y1 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# x y1) of wild4 {
+                            GHC.Types.False -> go ys
+                            GHC.Types.True
+                            -> (GHC.Base.Just @ Data.TTask.Types.Task wild1)
+                                 `cast`
+                               (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.Task>_N) } } } } }
+                 } in
+                 (go (Data.TTask.Types.$wprojectsAllTasks ww ww1))
+                   `cast`
+                 (Data.Monoid.NTCo:First[0] <Data.TTask.Types.Task>_N)) -}
+e617a8b29e7bc98d1716979f41bc1002
+  $wgetUserStoryById ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint]
+    -> Data.TTask.Types.Id
+    -> GHC.Base.Maybe Data.TTask.Types.UserStory
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><S,1*U><L,U(U)>,
+     Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint]
+                   w :: Data.TTask.Types.Id ->
+                 letrec {
+                   go :: [Data.TTask.Types.UserStory]
+                         -> Data.Monoid.First Data.TTask.Types.UserStory
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Data.TTask.Types.UserStory] ->
+                     case ds of wild {
+                       []
+                       -> (GHC.Base.Nothing @ Data.TTask.Types.UserStory)
+                            `cast`
+                          (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.UserStory>_N)
+                       : y ys
+                       -> case y of wild1 { Data.TTask.Types.UserStory ds1 ds2 ds3 ds4 ->
+                          case ds1 of wild2 { GHC.Types.I# x ->
+                          case w of wild3 { GHC.Types.I# y1 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# x y1) of wild4 {
+                            GHC.Types.False -> go ys
+                            GHC.Types.True
+                            -> (GHC.Base.Just @ Data.TTask.Types.UserStory wild1)
+                                 `cast`
+                               (Sym (Data.Monoid.NTCo:First[0]) <Data.TTask.Types.UserStory>_N) } } } } }
+                 } in
+                 (go (Data.TTask.Types.$wprojectsAllStory ww ww1))
+                   `cast`
+                 (Data.Monoid.NTCo:First[0] <Data.TTask.Types.UserStory>_N)) -}
+dd67cf4d070e3443a8a03d3b95e6cb98
+  $wgo :: [Data.TTask.Types.UserStory] -> GHC.Prim.Int#
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+0d6028eaa827e7b5ef2e85c107ec57bd
+  $wgo1 :: [Data.TTask.Types.Sprint] -> GHC.Prim.Int#
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+88e8ad3a5075fe77da22b0281d4524c4
+  $wgo2 :: [Data.TTask.Types.UserStory] -> GHC.Prim.Int#
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+a55b9bae0619452ac1f19c50523bc7af
+  $wgo3 :: [Data.TTask.Types.Task] -> GHC.Prim.Int#
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+6160a1770a202090136dfd0122d0367a
+  $wprojectSprintMaxId ::
+    [Data.TTask.Types.Sprint] -> Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.Sprint] ->
+                 case Safe.maximumMay
+                        @ Data.TTask.Types.Id
+                        GHC.Classes.$fOrdInt
+                        (GHC.Base.map
+                           @ Data.TTask.Types.Sprint
+                           @ GHC.Types.Int
+                           Data.TTask.Types.sprintId
+                           ww) of wild {
+                   GHC.Base.Nothing -> Data.TTask.Types.projectSprintMaxId1
+                   GHC.Base.Just v -> v }) -}
+677e5c79910e52e0ce5167ca27feeb20
+  $wprojectStoryMaxId ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint] -> Data.TTask.Types.Id
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint] ->
+                 case Safe.maximumMay
+                        @ Data.TTask.Types.Id
+                        GHC.Classes.$fOrdInt
+                        (GHC.Base.map
+                           @ Data.TTask.Types.UserStory
+                           @ GHC.Types.Int
+                           Data.TTask.Types.storyId
+                           (Data.TTask.Types.$wprojectsAllStory ww ww1)) of wild {
+                   GHC.Base.Nothing -> Data.TTask.Types.projectSprintMaxId1
+                   GHC.Base.Just v -> v }) -}
+b298e8f6a8abf0d844679013e3710ddf
+  $wprojectsAllStory ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint] -> [Data.TTask.Types.UserStory]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint] ->
+                 letrec {
+                   go :: [Data.TTask.Types.Sprint] -> [Data.TTask.Types.UserStory]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Data.TTask.Types.Sprint] ->
+                     case ds of wild {
+                       [] -> ww
+                       : y ys
+                       -> case y of wild1 { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                          GHC.Base.++ @ Data.TTask.Types.UserStory ds3 (go ys) } }
+                 } in
+                 go ww1) -}
+5e56ca02d5704a7fed89b8f2049daba5
+  $wprojectsAllTasks ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint] -> [Data.TTask.Types.Task]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint] ->
+                 let {
+                   z :: [Data.TTask.Types.Task] = Data.TTask.Types.getTaskById_go ww
+                 } in
+                 letrec {
+                   go :: [Data.TTask.Types.Sprint] -> [Data.TTask.Types.Task]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ ds :: [Data.TTask.Types.Sprint] ->
+                     case ds of wild {
+                       [] -> z
+                       : y ys
+                       -> case y of wild1 { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                          let {
+                            z1 :: [Data.TTask.Types.Task] = go ys
+                          } in
+                          letrec {
+                            go1 :: [Data.TTask.Types.UserStory] -> [Data.TTask.Types.Task]
+                              {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ ds5 :: [Data.TTask.Types.UserStory] ->
+                              case ds5 of wild2 {
+                                [] -> z1
+                                : y1 ys1
+                                -> case y1 of wild3 { Data.TTask.Types.UserStory ds6 ds7 ds8 ds9 ->
+                                   GHC.Base.++ @ Data.TTask.Types.Task ds8 (go1 ys1) } }
+                          } in
+                          go1 ds3 } }
+                 } in
+                 go ww1) -}
+3dd8e1f05c269b0bf5025154af07befe
+  $wprojectsTaskMaxId ::
+    [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.Sprint] -> Data.TTask.Types.Id
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: [Data.TTask.Types.UserStory]
+                   ww1 :: [Data.TTask.Types.Sprint] ->
+                 case Safe.maximumMay
+                        @ Data.TTask.Types.Id
+                        GHC.Classes.$fOrdInt
+                        (GHC.Base.map
+                           @ Data.TTask.Types.Task
+                           @ GHC.Types.Int
+                           Data.TTask.Types.taskId
+                           (Data.TTask.Types.$wprojectsAllTasks ww ww1)) of wild {
+                   GHC.Base.Nothing -> Data.TTask.Types.projectSprintMaxId1
+                   GHC.Base.Just v -> v }) -}
+58d440d0011b0776abef2484e26525f5
+  $wstatusToList ::
+    Data.TTask.Types.TStatus
+    -> (# Data.TTask.Types.TStatusRecord,
+          [Data.TTask.Types.TStatusRecord] #)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+04eb8ea16b1d11f2b48d69bfc0e887cb
+  $wsummaryContents ::
+    (a -> [b]) -> (b -> Data.TTask.Types.Point) -> a -> GHC.Prim.Int#
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,C(U(U))><L,U>, Inline: [0],
+     Unfolding: (\ @ a3
+                   @ b
+                   w :: a3 -> [b]
+                   w1 :: b -> Data.TTask.Types.Point
+                   w2 :: a3 ->
+                 letrec {
+                   $wgo4 :: [b] -> GHC.Prim.Int#
+                     {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+                   = \ w3 :: [b] ->
+                     case w3 of wild {
+                       [] -> 0
+                       : y ys
+                       -> case w1 y of wild1 { GHC.Types.I# x ->
+                          case $wgo4 ys of ww { DEFAULT -> GHC.Prim.+# x ww } } }
+                 } in
+                 $wgo4 (w w2)) -}
+89e52418972f0d5f81e790e20b930373
+  type Id = GHC.Types.Int
+20f1a74859b814c5a3be9809e9044e5f
+  type Point = GHC.Types.Int
+8e3e83a4be85f8c7d6dcea853bd9dbcb
+  data Project
+    = Project {projectName :: GHC.Base.String,
+               projectBacklog :: [Data.TTask.Types.UserStory],
+               projectSprints :: [Data.TTask.Types.Sprint],
+               projectStatus :: Data.TTask.Types.TStatus}
+c3034c815bf33d3a16be1a6dc834186c
+  data Sprint
+    = Sprint {sprintId :: Data.TTask.Types.Id,
+              sprintDescription :: GHC.Base.String,
+              sprintStorys :: [Data.TTask.Types.UserStory],
+              sprintStatus :: Data.TTask.Types.TStatus}
+e3c4120da1cd7046b6791c8f7bf47f4f
+  data TStatus
+    = TStatusCons Data.TTask.Types.TStatusRecord
+                  Data.TTask.Types.TStatus
+    | TStatusOne Data.TTask.Types.TStatusRecord
+86bd241592c4e05830e227b89c779134
+  data TStatusRecord
+    = StatusWait Data.Time.LocalTime.LocalTime.LocalTime
+    | StatusRunning Data.Time.LocalTime.LocalTime.LocalTime
+    | StatusFinished Data.Time.LocalTime.LocalTime.LocalTime
+    | StatusNotAchieved Data.Time.LocalTime.LocalTime.LocalTime
+    | StatusReject Data.Time.LocalTime.LocalTime.LocalTime
+30af9f1a75d18f3b5ff07253deccac43
+  data Task
+    = Task {taskId :: Data.TTask.Types.Id,
+            taskDescription :: GHC.Base.String,
+            taskPoint :: GHC.Types.Int,
+            taskStatus :: Data.TTask.Types.TStatus,
+            taskWorkTimes :: [Data.TTask.Types.WorkTime]}
+edae4947a6c7bbdf6144725474863e99
+  data UserStory
+    = UserStory {storyId :: Data.TTask.Types.Id,
+                 storyDescription :: GHC.Base.String,
+                 storyTasks :: [Data.TTask.Types.Task],
+                 storyStatus :: Data.TTask.Types.TStatus}
+9101c61ffe2d9996f0b4a60ea3b6b525
+  newtype WorkTime = WorkTime GHC.Types.Double
+bf93521d72db5ec8df757d9a4fa2ab9d
+  calcProjectPoint ::
+    Data.TTask.Types.Project -> Data.TTask.Types.Point
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSSL),1*U(A,1*U,1*U,A)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 case Data.TTask.Types.$wgo1 ww3 of ww5 { DEFAULT ->
+                 case Data.TTask.Types.$wgo ww2 of ww6 { DEFAULT ->
+                 GHC.Types.I# (GHC.Prim.+# ww5 ww6) } } }) -}
+24e98073c04eb5000892fd84c0546beb
+  calcSprintPoint ::
+    Data.TTask.Types.Sprint -> Data.TTask.Types.Point
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Sprint ->
+                 case w of ww { Data.TTask.Types.Sprint ww1 ww2 ww3 ww4 ->
+                 case Data.TTask.Types.$wgo2 ww3 of ww5 { DEFAULT ->
+                 GHC.Types.I# ww5 } }) -}
+17c599544775bdd08785f22d08cca1f6
+  calcStoryPoint ::
+    Data.TTask.Types.UserStory -> Data.TTask.Types.Point
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.UserStory ->
+                 case w of ww { Data.TTask.Types.UserStory ww1 ww2 ww3 ww4 ->
+                 case Data.TTask.Types.$wgo3 ww3 of ww5 { DEFAULT ->
+                 GHC.Types.I# ww5 } }) -}
+0bf7805b66496395236f649da29d64c6
+  getLastStatus ::
+    Data.TTask.Types.TStatus -> Data.TTask.Types.TStatusRecord
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.TStatus ->
+                 case ds of wild {
+                   Data.TTask.Types.TStatusCons x ds1 -> x
+                   Data.TTask.Types.TStatusOne x -> x }) -}
+5af24abadd846800aa0f3934c2a9c04b
+  getSprintById ::
+    Data.TTask.Types.Project
+    -> Data.TTask.Types.Id -> GHC.Base.Maybe Data.TTask.Types.Sprint
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLSL),1*U(A,A,1*U,A)><L,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Project w1 :: Data.TTask.Types.Id ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wgetSprintById ww3 w1 }) -}
+72e7e21ac00b87f916d20bfe9194213c
+  getStatusTime ::
+    Data.TTask.Types.TStatusRecord
+    -> Data.Time.LocalTime.LocalTime.LocalTime
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.TStatusRecord ->
+                 case ds of wild {
+                   Data.TTask.Types.StatusWait t -> t
+                   Data.TTask.Types.StatusRunning t -> t
+                   Data.TTask.Types.StatusFinished t -> t
+                   Data.TTask.Types.StatusNotAchieved t -> t
+                   Data.TTask.Types.StatusReject t -> t }) -}
+5a00d750a67466eb705e3fcf9c24859b
+  getTaskById ::
+    Data.TTask.Types.Project
+    -> Data.TTask.Types.Id -> GHC.Base.Maybe Data.TTask.Types.Task
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLSL),1*U(A,1*U,1*U,A)><L,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Project w1 :: Data.TTask.Types.Id ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wgetTaskById ww2 ww3 w1 }) -}
+1d3fb94e537da3313edc4297910cdf56
+  getTaskById_go ::
+    [Data.TTask.Types.UserStory] -> [Data.TTask.Types.Task]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+3b8b33b585ecd3a2d8a096baaaf20ad1
+  getUserStoryById ::
+    Data.TTask.Types.Project
+    -> Data.TTask.Types.Id -> GHC.Base.Maybe Data.TTask.Types.UserStory
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLSL),1*U(A,U,1*U,A)><L,U(U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ w :: Data.TTask.Types.Project w1 :: Data.TTask.Types.Id ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wgetUserStoryById ww2 ww3 w1 }) -}
+a0fa7d456e189c5ce68c960db037c434
+  isFinished :: Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: Data.TTask.Types.TStatus ->
+                 case s of wild {
+                   Data.TTask.Types.TStatusCons x ds
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusFinished ds1 -> GHC.Types.True }
+                   Data.TTask.Types.TStatusOne x
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusFinished ds -> GHC.Types.True } }) -}
+7f3274ebaab1d9b2fdcf31657d4d23c0
+  isNotAchieved :: Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: Data.TTask.Types.TStatus ->
+                 case s of wild {
+                   Data.TTask.Types.TStatusCons x ds
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusNotAchieved ds1 -> GHC.Types.True }
+                   Data.TTask.Types.TStatusOne x
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusNotAchieved ds -> GHC.Types.True } }) -}
+236c39897a34263fd82aa8d0578d95c0
+  isRejected :: Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: Data.TTask.Types.TStatus ->
+                 case s of wild {
+                   Data.TTask.Types.TStatusCons x ds
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusReject ds1 -> GHC.Types.True }
+                   Data.TTask.Types.TStatusOne x
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusReject ds -> GHC.Types.True } }) -}
+7e8ac2ffe931e1de6a31285d348d486e
+  isRunning :: Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: Data.TTask.Types.TStatus ->
+                 case s of wild {
+                   Data.TTask.Types.TStatusCons x ds
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusRunning ds1 -> GHC.Types.True }
+                   Data.TTask.Types.TStatusOne x
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusRunning ds -> GHC.Types.True } }) -}
+377ba8dd9dda7c57dd3392973254e2de
+  isWait :: Data.TTask.Types.TStatus -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: Data.TTask.Types.TStatus ->
+                 case s of wild {
+                   Data.TTask.Types.TStatusCons x ds
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusWait ds1 -> GHC.Types.True }
+                   Data.TTask.Types.TStatusOne x
+                   -> case x of wild1 {
+                        DEFAULT -> GHC.Types.False
+                        Data.TTask.Types.StatusWait ds -> GHC.Types.True } }) -}
+e995ffa6d66c36f13f0f41a72180b374
+  projectBacklog ::
+    Data.TTask.Types.Project -> [Data.TTask.Types.UserStory]
+  RecSel Data.TTask.Types.Project
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Project ->
+                 case ds of wild { Data.TTask.Types.Project ds1 ds2 ds3 ds4 ->
+                 ds2 }) -}
+5262ebafdeeecd30e7724516fb3e11a4
+  projectName :: Data.TTask.Types.Project -> GHC.Base.String
+  RecSel Data.TTask.Types.Project
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Project ->
+                 case ds of wild { Data.TTask.Types.Project ds1 ds2 ds3 ds4 ->
+                 ds1 }) -}
+7cf6a59d4285197ef9947fab92606193
+  projectSprintMaxId ::
+    Data.TTask.Types.Project -> Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wprojectSprintMaxId ww3 }) -}
+4eea584c6122166df7908c610fc55ba4
+  projectSprintMaxId1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
+ea4302cbfae092587c9e66df17ccbcc3
+  projectSprintMaxIdMay ::
+    Data.TTask.Types.Project -> GHC.Base.Maybe Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Project ->
+                 case x of wild { Data.TTask.Types.Project ds ds1 ds2 ds3 ->
+                 Safe.maximumMay
+                   @ Data.TTask.Types.Id
+                   GHC.Classes.$fOrdInt
+                   (GHC.Base.build
+                      @ GHC.Types.Int
+                      (\ @ b1 c :: GHC.Types.Int -> b1 -> b1[OneShot] n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Data.TTask.Types.Sprint
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ GHC.Types.Int
+                            @ b1
+                            @ Data.TTask.Types.Sprint
+                            c
+                            Data.TTask.Types.sprintId)
+                         n
+                         ds2)) }) -}
+5af965e26643b99f22685b2e9bfcec1e
+  projectSprints ::
+    Data.TTask.Types.Project -> [Data.TTask.Types.Sprint]
+  RecSel Data.TTask.Types.Project
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Project ->
+                 case ds of wild { Data.TTask.Types.Project ds1 ds2 ds3 ds4 ->
+                 ds3 }) -}
+26b1e82b5152ad145304a5af1748d537
+  projectStatus ::
+    Data.TTask.Types.Project -> Data.TTask.Types.TStatus
+  RecSel Data.TTask.Types.Project
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Project ->
+                 case ds of wild { Data.TTask.Types.Project ds1 ds2 ds3 ds4 ->
+                 ds4 }) -}
+4d549fd34abc277f4b6757d3e0bafe2e
+  projectStoryMaxId ::
+    Data.TTask.Types.Project -> Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,U,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wprojectStoryMaxId ww2 ww3 }) -}
+4592bb9a589b011e09c03e6652b12dc1
+  projectStoryMaxIdMay ::
+    Data.TTask.Types.Project -> GHC.Base.Maybe Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,U,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Project ->
+                 Safe.maximumMay
+                   @ Data.TTask.Types.Id
+                   GHC.Classes.$fOrdInt
+                   (GHC.Base.build
+                      @ GHC.Types.Int
+                      (\ @ b1 c :: GHC.Types.Int -> b1 -> b1[OneShot] n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Data.TTask.Types.UserStory
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ GHC.Types.Int
+                            @ b1
+                            @ Data.TTask.Types.UserStory
+                            c
+                            Data.TTask.Types.storyId)
+                         n
+                         (Data.TTask.Types.projectsAllStory x)))) -}
+c077d94daa4a0b8f63be71d8940b7079
+  projectsAllStory ::
+    Data.TTask.Types.Project -> [Data.TTask.Types.UserStory]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,U,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wprojectsAllStory ww2 ww3 }) -}
+c55e3fe91422caa1c407d07f54ef437e
+  projectsAllTasks ::
+    Data.TTask.Types.Project -> [Data.TTask.Types.Task]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,1*U,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wprojectsAllTasks ww2 ww3 }) -}
+cc5ed2329ba00556064efafa33f7566c
+  projectsTaskMaxId ::
+    Data.TTask.Types.Project -> Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,1*U,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Project ->
+                 case w of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.$wprojectsTaskMaxId ww2 ww3 }) -}
+d075b92411a45569dacdab271a9b3a6b
+  projectsTaskMaxIdMay ::
+    Data.TTask.Types.Project -> GHC.Base.Maybe Data.TTask.Types.Id
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,1*U,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ x :: Data.TTask.Types.Project ->
+                 Safe.maximumMay
+                   @ Data.TTask.Types.Id
+                   GHC.Classes.$fOrdInt
+                   (GHC.Base.build
+                      @ GHC.Types.Int
+                      (\ @ b1 c :: GHC.Types.Int -> b1 -> b1[OneShot] n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Data.TTask.Types.Task
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ GHC.Types.Int
+                            @ b1
+                            @ Data.TTask.Types.Task
+                            c
+                            Data.TTask.Types.taskId)
+                         n
+                         (Data.TTask.Types.projectsAllTasks x)))) -}
+203cd80b802ab6157d36b22cba798173
+  sprintAllTasks ::
+    Data.TTask.Types.Sprint -> [Data.TTask.Types.Task]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.Sprint ->
+                 case w of ww { Data.TTask.Types.Sprint ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.sprintAllTasks_go ww3 }) -}
+6aa8e3e2a222c2a1be8c3b8ffc2769e6
+  sprintAllTasks_go ::
+    [Data.TTask.Types.UserStory] -> [Data.TTask.Types.Task]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+61754c48f603e3cb150cada175ef7ce9
+  sprintDescription :: Data.TTask.Types.Sprint -> GHC.Base.String
+  RecSel Data.TTask.Types.Sprint
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Sprint ->
+                 case ds of wild { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                 ds2 }) -}
+bacdc9239d66a6e0d5122ab793be49d2
+  sprintId :: Data.TTask.Types.Sprint -> Data.TTask.Types.Id
+  RecSel Data.TTask.Types.Sprint
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U(U),A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Sprint ->
+                 case ds of wild { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                 ds1 }) -}
+ca89dbff1536ca53062a2d825e5b918b
+  sprintStatus :: Data.TTask.Types.Sprint -> Data.TTask.Types.TStatus
+  RecSel Data.TTask.Types.Sprint
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Sprint ->
+                 case ds of wild { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                 ds4 }) -}
+3278e9d1b6d5f296df0fb53f0fd61b18
+  sprintStorys ::
+    Data.TTask.Types.Sprint -> [Data.TTask.Types.UserStory]
+  RecSel Data.TTask.Types.Sprint
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Sprint ->
+                 case ds of wild { Data.TTask.Types.Sprint ds1 ds2 ds3 ds4 ->
+                 ds3 }) -}
+5ba979c97f38d6e492b726b5cb3e0add
+  statusToList ::
+    Data.TTask.Types.TStatus -> [Data.TTask.Types.TStatusRecord]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m2,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Data.TTask.Types.TStatus ->
+                 case Data.TTask.Types.$wstatusToList w of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ Data.TTask.Types.TStatusRecord ww1 ww2 }) -}
+98a75f236458a6bc48578c3508fc9a11
+  storyDescription :: Data.TTask.Types.UserStory -> GHC.Base.String
+  RecSel Data.TTask.Types.UserStory
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.UserStory ->
+                 case ds of wild { Data.TTask.Types.UserStory ds1 ds2 ds3 ds4 ->
+                 ds2 }) -}
+9363c6272f78959f6e2b03f2baa11912
+  storyId :: Data.TTask.Types.UserStory -> Data.TTask.Types.Id
+  RecSel Data.TTask.Types.UserStory
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(1*U(U),A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.UserStory ->
+                 case ds of wild { Data.TTask.Types.UserStory ds1 ds2 ds3 ds4 ->
+                 ds1 }) -}
+9762304227c7e88c5e9dd8cb17058b7c
+  storyStatus ::
+    Data.TTask.Types.UserStory -> Data.TTask.Types.TStatus
+  RecSel Data.TTask.Types.UserStory
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.UserStory ->
+                 case ds of wild { Data.TTask.Types.UserStory ds1 ds2 ds3 ds4 ->
+                 ds4 }) -}
+3300a99ccbe6da0606cfe15ec51eedf6
+  storyTasks :: Data.TTask.Types.UserStory -> [Data.TTask.Types.Task]
+  RecSel Data.TTask.Types.UserStory
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.UserStory ->
+                 case ds of wild { Data.TTask.Types.UserStory ds1 ds2 ds3 ds4 ->
+                 ds3 }) -}
+5b4ef82b4845c1e58fd9d226c77269a4
+  summaryContents ::
+    (a -> [b])
+    -> (b -> Data.TTask.Types.Point) -> a -> Data.TTask.Types.Point
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(S),1*C1(U)><L,C(U(U))><L,U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a3
+                   @ b
+                   w :: a3 -> [b]
+                   w1 :: b -> Data.TTask.Types.Point
+                   w2 :: a3 ->
+                 case Data.TTask.Types.$wsummaryContents
+                        @ a3
+                        @ b
+                        w
+                        w1
+                        w2 of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+e0b8214345582c4290373e9ac2e03aaa
+  taskDescription :: Data.TTask.Types.Task -> GHC.Base.String
+  RecSel Data.TTask.Types.Task
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLLL),1*U(A,1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Task ->
+                 case ds of wild { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                 ds2 }) -}
+1c52271f38b72728b99a70fde674f96d
+  taskId :: Data.TTask.Types.Task -> Data.TTask.Types.Id
+  RecSel Data.TTask.Types.Task
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(SLLLL),1*U(1*U(U),A,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Task ->
+                 case ds of wild { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                 ds1 }) -}
+4aa461bab0afb6d9b8a0f85010442cdf
+  taskPoint :: Data.TTask.Types.Task -> GHC.Types.Int
+  RecSel Data.TTask.Types.Task
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLSLL),1*U(A,A,1*U(U),A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Task ->
+                 case ds of wild { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                 ds3 }) -}
+82017d4268f256bd3b5d49058b2036e6
+  taskStatus :: Data.TTask.Types.Task -> Data.TTask.Types.TStatus
+  RecSel Data.TTask.Types.Task
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLSL),1*U(A,A,A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Task ->
+                 case ds of wild { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                 ds4 }) -}
+abc0b15b372adc4d3e0e0d650b3d0505
+  taskWorkTimes ::
+    Data.TTask.Types.Task -> [Data.TTask.Types.WorkTime]
+  RecSel Data.TTask.Types.Task
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLLS),1*U(A,A,A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ ds :: Data.TTask.Types.Task ->
+                 case ds of wild { Data.TTask.Types.Task ds1 ds2 ds3 ds4 ds5 ->
+                 ds5 }) -}
+instance GHC.Classes.Eq [Data.TTask.Types.Project]
+  = Data.TTask.Types.$fEqProject
+instance GHC.Classes.Eq [Data.TTask.Types.Sprint]
+  = Data.TTask.Types.$fEqSprint
+instance GHC.Classes.Eq [Data.TTask.Types.TStatus]
+  = Data.TTask.Types.$fEqTStatus
+instance GHC.Classes.Eq [Data.TTask.Types.TStatusRecord]
+  = Data.TTask.Types.$fEqTStatusRecord
+instance GHC.Classes.Eq [Data.TTask.Types.Task]
+  = Data.TTask.Types.$fEqTask
+instance GHC.Classes.Eq [Data.TTask.Types.UserStory]
+  = Data.TTask.Types.$fEqUserStory
+instance GHC.Classes.Eq [Data.TTask.Types.WorkTime]
+  = Data.TTask.Types.$fEqWorkTime
+instance GHC.Read.Read [Data.TTask.Types.Project]
+  = Data.TTask.Types.$fReadProject
+instance GHC.Read.Read [Data.TTask.Types.Sprint]
+  = Data.TTask.Types.$fReadSprint
+instance GHC.Read.Read [Data.TTask.Types.TStatus]
+  = Data.TTask.Types.$fReadTStatus
+instance GHC.Read.Read [Data.TTask.Types.TStatusRecord]
+  = Data.TTask.Types.$fReadTStatusRecord
+instance GHC.Read.Read [Data.TTask.Types.Task]
+  = Data.TTask.Types.$fReadTask
+instance GHC.Read.Read [Data.TTask.Types.UserStory]
+  = Data.TTask.Types.$fReadUserStory
+instance GHC.Read.Read [Data.TTask.Types.WorkTime]
+  = Data.TTask.Types.$fReadWorkTime
+instance GHC.Show.Show [Data.TTask.Types.Project]
+  = Data.TTask.Types.$fShowProject
+instance GHC.Show.Show [Data.TTask.Types.Sprint]
+  = Data.TTask.Types.$fShowSprint
+instance GHC.Show.Show [Data.TTask.Types.TStatus]
+  = Data.TTask.Types.$fShowTStatus
+instance GHC.Show.Show [Data.TTask.Types.TStatusRecord]
+  = Data.TTask.Types.$fShowTStatusRecord
+instance GHC.Show.Show [Data.TTask.Types.Task]
+  = Data.TTask.Types.$fShowTask
+instance GHC.Show.Show [Data.TTask.Types.UserStory]
+  = Data.TTask.Types.$fShowUserStory
+instance GHC.Show.Show [Data.TTask.Types.WorkTime]
+  = Data.TTask.Types.$fShowWorkTime
+"SPEC/Data.TTask.Types $dmreadsPrec @ TStatus" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                           Data.TTask.Types.TStatus
+  GHC.Read.$dmreadsPrec @ Data.TTask.Types.TStatus $dRead
+  = Data.TTask.Types.$fReadTStatus_$s$dmreadsPrec
+"SPEC/Data.TTask.Types $dmreadsPrec @ TStatusRecord" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                                 Data.TTask.Types.TStatusRecord
+  GHC.Read.$dmreadsPrec @ Data.TTask.Types.TStatusRecord $dRead
+  = Data.TTask.Types.$fReadTStatusRecord_$s$dmreadsPrec
+"SPEC/Data.TTask.Types $dmreadsPrec @ WorkTime" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                            Data.TTask.Types.WorkTime
+  GHC.Read.$dmreadsPrec @ Data.TTask.Types.WorkTime $dRead
+  = Data.TTask.Types.$fReadWorkTime_$s$dmreadsPrec
+"SPEC/Data.TTask.Types readListDefault @ Project" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                              Data.TTask.Types.Project
+  GHC.Read.readListDefault @ Data.TTask.Types.Project $dRead
+  = Data.TTask.Types.$fReadProject_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ Sprint" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                             Data.TTask.Types.Sprint
+  GHC.Read.readListDefault @ Data.TTask.Types.Sprint $dRead
+  = Data.TTask.Types.$fReadSprint_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ TStatus" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                              Data.TTask.Types.TStatus
+  GHC.Read.readListDefault @ Data.TTask.Types.TStatus $dRead
+  = Data.TTask.Types.$fReadTStatus_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ TStatusRecord" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                                    Data.TTask.Types.TStatusRecord
+  GHC.Read.readListDefault @ Data.TTask.Types.TStatusRecord $dRead
+  = Data.TTask.Types.$fReadTStatusRecord_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ Task" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                           Data.TTask.Types.Task
+  GHC.Read.readListDefault @ Data.TTask.Types.Task $dRead
+  = Data.TTask.Types.$fReadTask_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ UserStory" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                                Data.TTask.Types.UserStory
+  GHC.Read.readListDefault @ Data.TTask.Types.UserStory $dRead
+  = Data.TTask.Types.$fReadUserStory_$sreadListDefault
+"SPEC/Data.TTask.Types readListDefault @ WorkTime" [ALWAYS] forall $dRead :: GHC.Read.Read
+                                                                               Data.TTask.Types.WorkTime
+  GHC.Read.readListDefault @ Data.TTask.Types.WorkTime $dRead
+  = Data.TTask.Types.$fReadWorkTime_$sreadListDefault
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

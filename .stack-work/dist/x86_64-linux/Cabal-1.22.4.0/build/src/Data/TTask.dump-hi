@@ -1,0 +1,320 @@
+
+==================== FINAL INTERFACE ====================
+2016-05-03 07:07:41.560279 UTC
+
+interface ttask_72zq9oHyfMzKhn7BjotlNr:Data.TTask 7102
+  interface hash: 7da0f6f9d5858eba90642dc1ab832b4d
+  ABI hash: 3e7cd83c2ff097f6c3bf5b3e91e666e3
+  export-list hash: 6d93b6c14ff0e6c124f763e3ef4f2732
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 63747ad87e2fac6f158abde709abfdcc
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Data.TTask.Command.Add.addNewSprint
+  Data.TTask.Command.Add.addNewStoryToPbl
+  Data.TTask.Command.Add.addNewStoryToSprints
+  Data.TTask.Command.Add.addNewTask
+  Data.TTask.Command.Add.addSprintToProject
+  Data.TTask.Command.Add.addStoryToPbl
+  Data.TTask.Command.Add.addStoryToPblFirst
+  Data.TTask.Command.Add.addStoryToPjSprints
+  Data.TTask.Command.Add.addStoryToSprint
+  Data.TTask.Command.Add.addTaskToProject
+  Data.TTask.Command.Add.addTaskToSprint
+  Data.TTask.Command.Add.addTaskToSprintList
+  Data.TTask.Command.Add.addTaskToStory
+  Data.TTask.Command.Add.addTaskToStorys
+  Data.TTask.Command.Add.getLocalTime
+  Data.TTask.Command.Add.newProject
+  Data.TTask.Command.Add.newSprint
+  Data.TTask.Command.Add.newStory
+  Data.TTask.Command.Add.newTask
+  Data.TTask.Command.Delete.deleteSprint
+  Data.TTask.Command.Delete.deleteStory
+  Data.TTask.Command.Delete.deleteStoryFromSprint
+  Data.TTask.Command.Delete.deleteTask
+  Data.TTask.Command.Delete.deleteTaskFromSprint
+  Data.TTask.Command.Delete.deleteTaskFromStory
+  Data.TTask.Command.Move.moveStoryToPbl
+  Data.TTask.Command.Move.moveStoryToSprints
+  Data.TTask.Command.Move.moveTask
+  Data.TTask.Command.Move.swapBy
+  Data.TTask.Command.Move.swapFuncs
+  Data.TTask.Command.Move.swapSprint
+  Data.TTask.Command.Move.swapSprintsStory
+  Data.TTask.Command.Move.swapSprintsTask
+  Data.TTask.Command.Move.swapStory
+  Data.TTask.Command.Move.swapStorysTask
+  Data.TTask.Command.Move.swapTask
+  Data.TTask.Command.Update.updateSprint
+  Data.TTask.Command.Update.updateSprintStatus
+  Data.TTask.Command.Update.updateSprintsSprint
+  Data.TTask.Command.Update.updateSprintsStory
+  Data.TTask.Command.Update.updateSprintsTask
+  Data.TTask.Command.Update.updateStory
+  Data.TTask.Command.Update.updateStoryStatus
+  Data.TTask.Command.Update.updateStorysStory
+  Data.TTask.Command.Update.updateStorysTask
+  Data.TTask.Command.Update.updateTask
+  Data.TTask.Command.Update.updateTaskStatus
+  Data.TTask.Command.Update.updateTasksTask
+  Data.TTask.File.activeMemoryFile
+  Data.TTask.File.activeProjectName
+  Data.TTask.File.findProjects
+  Data.TTask.File.getDirectoryContentsMay
+  Data.TTask.File.initDirectory
+  Data.TTask.File.initProjectFile
+  Data.TTask.File.projectsDirectory
+  Data.TTask.File.readActiveProject
+  Data.TTask.File.readProject
+  Data.TTask.File.setActiveProject
+  Data.TTask.File.workDirectory
+  Data.TTask.File.writeActiveProject
+  Data.TTask.File.writeProject
+  Data.TTask.Pretty.formatFamily
+  Data.TTask.Pretty.formatRecord
+  Data.TTask.Pretty.formatRecordShowedId
+  Data.TTask.Pretty.ppActive
+  Data.TTask.Pretty.ppProjectHeader
+  Data.TTask.Pretty.ppProjectPbl
+  Data.TTask.Pretty.ppProjectSprint
+  Data.TTask.Pretty.ppProjectSprintDetail
+  Data.TTask.Pretty.ppProjectSprintList
+  Data.TTask.Pretty.ppProjectStory
+  Data.TTask.Pretty.ppProjectTask
+  Data.TTask.Pretty.ppSprint
+  Data.TTask.Pretty.ppSprintDetail
+  Data.TTask.Pretty.ppSprintHeader
+  Data.TTask.Pretty.ppSprintList
+  Data.TTask.Pretty.ppStatus
+  Data.TTask.Pretty.ppStatusRecord
+  Data.TTask.Pretty.ppStory
+  Data.TTask.Pretty.ppStoryHeader
+  Data.TTask.Pretty.ppStoryI
+  Data.TTask.Pretty.ppStoryList
+  Data.TTask.Pretty.ppTask
+  Data.TTask.Types.calcProjectPoint
+  Data.TTask.Types.calcSprintPoint
+  Data.TTask.Types.calcStoryPoint
+  Data.TTask.Types.getLastStatus
+  Data.TTask.Types.getSprintById
+  Data.TTask.Types.getStatusTime
+  Data.TTask.Types.getTaskById
+  Data.TTask.Types.getUserStoryById
+  Data.TTask.Types.isFinished
+  Data.TTask.Types.isNotAchieved
+  Data.TTask.Types.isRejected
+  Data.TTask.Types.isRunning
+  Data.TTask.Types.isWait
+  Data.TTask.Types.projectSprintMaxId
+  Data.TTask.Types.projectSprintMaxIdMay
+  Data.TTask.Types.projectStoryMaxId
+  Data.TTask.Types.projectStoryMaxIdMay
+  Data.TTask.Types.projectsAllStory
+  Data.TTask.Types.projectsAllTasks
+  Data.TTask.Types.projectsTaskMaxId
+  Data.TTask.Types.projectsTaskMaxIdMay
+  Data.TTask.Types.sprintAllTasks
+  Data.TTask.Types.statusToList
+  Data.TTask.Types.summaryContents
+  Data.TTask.File.Success{Data.TTask.File.Failure Data.TTask.File.Success}
+  Data.TTask.Types.Id
+  Data.TTask.Types.Point
+  Data.TTask.Types.Project{Data.TTask.Types.Project Data.TTask.Types.projectBacklog Data.TTask.Types.projectName Data.TTask.Types.projectSprints Data.TTask.Types.projectStatus}
+  Data.TTask.Types.Sprint{Data.TTask.Types.Sprint Data.TTask.Types.sprintDescription Data.TTask.Types.sprintId Data.TTask.Types.sprintStatus Data.TTask.Types.sprintStorys}
+  Data.TTask.Types.TStatus{Data.TTask.Types.TStatusCons Data.TTask.Types.TStatusOne}
+  Data.TTask.Types.TStatusRecord{Data.TTask.Types.StatusFinished Data.TTask.Types.StatusNotAchieved Data.TTask.Types.StatusReject Data.TTask.Types.StatusRunning Data.TTask.Types.StatusWait}
+  Data.TTask.Types.Task{Data.TTask.Types.Task Data.TTask.Types.taskDescription Data.TTask.Types.taskId Data.TTask.Types.taskPoint Data.TTask.Types.taskStatus Data.TTask.Types.taskWorkTimes}
+  Data.TTask.Types.UserStory{Data.TTask.Types.UserStory Data.TTask.Types.storyDescription Data.TTask.Types.storyId Data.TTask.Types.storyStatus Data.TTask.Types.storyTasks}
+  Data.TTask.Types.WorkTime{Data.TTask.Types.WorkTime}
+module dependencies: Data.TTask.Command Data.TTask.Command.Add
+                     Data.TTask.Command.Delete Data.TTask.Command.Move
+                     Data.TTask.Command.Update Data.TTask.File Data.TTask.Pretty
+                     Data.TTask.Types
+package dependencies: array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ
+                      base-4.8.1.0* deepseq-1.4.1.1@deeps_LbCWUlehDDeLxurARKDH5o
+                      directory-1.2.2.0@direc_KowvXytSqazBcvN7MGpFtg
+                      extra-1.4.2@extra_5OxQCVeoy8KDx9eBZEd38j
+                      filepath-1.4.0.0@filep_KsGE6pHE5eZHSN90ZVax6A ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 safe-0.3.9@safe_BXSoeRP9IFG6t9s3abNgVi
+                      time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH
+                      unix-2.7.1.0@unix_A3WgcI5QiHK4PDo4jSYdwQ
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Format.Parse
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.LocalTime.LocalTime
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Functor.Identity
+                         base-4.8.1.0:Data.Monoid base-4.8.1.0:Data.Type.Equality
+                         base-4.8.1.0:Data.Void base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  Data.TTask.Command 2d97064aa371b75633b4570d81081dfc
+  exports: 97b393af40677afea29b7a3ae9f307da
+import  -/  Data.TTask.Command.Add 00b9832e3d9577463ef367f1b1bfc67f
+  addNewSprint 0c33c7f29e2c6fa8f512cd25403fad79
+  addNewStoryToPbl 33afccf2e399ee45a8c4a52c9e2eb616
+  addNewStoryToSprints 888fc0c6913bf3cd7ccf65b74dd2b482
+  addNewTask 1ef535b31192f114c2345346d9777e87
+  addSprintToProject 56b6b649258ad4733765df2ca69b2a4b
+  addStoryToPbl f756ef222ea8038a3781e3064c7939c0
+  addStoryToPblFirst 76a43f8e8f46facd1ea995f68f4eafc6
+  addStoryToPjSprints a1eb15f507ea199e6b3ee2aff1fd8b39
+  addStoryToSprint a057065624b1db5b3c2808719ce20f87
+  addTaskToProject 25bfa814125408be37e6e36c84d91518
+  addTaskToSprint c14aa9cbff299dca9971228f6ea17921
+  addTaskToSprintList 8ae945f18145d815d569e07702af16e5
+  addTaskToStory f8f1f5eda26319e39cfe88789d4f1a5b
+  addTaskToStorys 0514202acd8a2c5a3fd6998e52116d0f
+  getLocalTime 6adb2e3f5aa94a6cbed79714c9d3c950
+  newProject edb8530c86ff47b091fbb5a469f0098c
+  newSprint 0a8b3350286c7865e3f2328033af40b9
+  newStory 1b6e02320d3adffdbbe34d279854e141
+  newTask 58b48002f4602086924883afc556cc23
+import  -/  Data.TTask.Command.Delete c4bfeee69c3fc4e9d39a685e8bdbb3e9
+  deleteSprint c232936f2362973590f09de69a45aed0
+  deleteStory 2ce155b35c612425dec50c834e3a9be9
+  deleteStoryFromSprint 2e93d36b466bd3e767990f4128521c9a
+  deleteTask 82f9a91aaf2f99c4c1c4b58be168b3c0
+  deleteTaskFromSprint 5ff75d6046281b45fb3e9e23cc871f93
+  deleteTaskFromStory 8e2fb540d6163401b8c72c694ff32045
+import  -/  Data.TTask.Command.Move 9b93b310c0ed78678af0f9e0616088f5
+  moveStoryToPbl 71afe98af3d02a7bdd552c5e7e131a58
+  moveStoryToSprints 1a7b12316f2ed22ffcacaf6abe7f84be
+  moveTask a65556866562c808e9788bf7ce5d343b
+  swapBy a38e89446a6443c3d08cb5de2fa811d8
+  swapFuncs d65cdcbf11e30e246189c54135c1ffde
+  swapSprint 494046e17ba7f859be138193ff9550a6
+  swapSprintsStory 480bcb79b9e11ca71baeb47b53234861
+  swapSprintsTask 8372867d3d6ed0081da5a53e7761e95c
+  swapStory 84c19c1265bb23d487bbb8bd1a41d396
+  swapStorysTask 3719fb6a263bb319f927442ee95b951d
+  swapTask eb46c10a95c07d88be0801fbe680c177
+import  -/  Data.TTask.Command.Update a183d18f0c6fc51cad079d2d7207f7cc
+  updateSprint ad8cee24bd0fa8a59d699f22e2515e56
+  updateSprintStatus 5712aca50715b4e31948468746bf40f6
+  updateSprintsSprint 20fece0c7dc63b0acb30266aaa171e43
+  updateSprintsStory 1967454eefeee3e0eb37b1434888a233
+  updateSprintsTask 23fcf770a8d22deabd791dec7a6daf43
+  updateStory c9f08051eb91a52971f5d47854d53090
+  updateStoryStatus 186385102796347e48e955c9f792ff7d
+  updateStorysStory 1b2bffa3d355c0290869f89968de4c5a
+  updateStorysTask 857d69d020a4ba7a2e9db95f0320e96c
+  updateTask 26501c77d48a582918d3210fad126e4b
+  updateTaskStatus 514e9e287b39c7d4a287c02c295b13b9
+  updateTasksTask d74dcac35aefb8cc850a0a2f39d649d6
+import  -/  Data.TTask.File b8c93530de9eb6a16e42c01ab6a000dd
+  exports: 701faf540114311adab3d438371a37e4
+  Failure 72db83a7292bd52889ff4e54d4bbfa92
+  Success b8f9a5bd824534452fa56197926fe53e
+  Success e1f849fe91307ee24c6ec67ad15cd8f2
+  activeMemoryFile 8473e4677b8456201b2dc9e16c9e49e7
+  activeProjectName 5f6793536447231bdc399d01a8222272
+  findProjects 4201d803c88a5b0968396afde44360d2
+  getDirectoryContentsMay 550c3f4bd7b79ccfd3bf68698604f273
+  initDirectory 7bdc51867b42728703d526002d034a47
+  initProjectFile 8631b7675990101fb6ad0d4d3d675949
+  projectsDirectory 8ffe8b08bf0c2cc157d26ccf5d11f238
+  readActiveProject 59005f4aa7521b6e3ef06d1890627061
+  readProject 20eaf2c92332472ee60d241ce2daa25c
+  setActiveProject 7ae484e0cb46198befb9ac7fae4d5ebe
+  workDirectory c63245baa6ac87ae67884d327bce9b5b
+  writeActiveProject 766acc3fbb71daccdcb99fd0bc291147
+  writeProject afe92e0a33492c55a4ec711db31b724b
+import  -/  Data.TTask.Pretty 0dd4ac05e5586b821e862e1719bb8c03
+  exports: 71a3311e5ce247a9f205a0d1f2afdd63
+  formatFamily b8ceba695a9fcfea2b09161f3ddd4a38
+  formatRecord 94921dca1b1644b42421c965d707b3ee
+  formatRecordShowedId 3fa2772f6eb3d7aa0d3347a6023d4319
+  ppActive 03566084a390badef539ebd81c8a14e8
+  ppProjectHeader 2266ee49087c7640ce072b4c3d84e670
+  ppProjectPbl 704f209b440e4e784b832e8cc7cfead8
+  ppProjectSprint 4688ffd315c2ca48f631782228a486d5
+  ppProjectSprintDetail 3b4bb0382407d85e39f7a79433b2eceb
+  ppProjectSprintList 73a61476f50f7d1fb24dd29f20e7b549
+  ppProjectStory 07ca1035deb20b3ff8c12003d9081ead
+  ppProjectTask 5599e1f5bac4cd5634c059ec921e6bfd
+  ppSprint 62dd918d423240cfa2ab8d546bf274e4
+  ppSprintDetail bfa52351dbefa65ddfa01c2f92804edb
+  ppSprintHeader 968db62b5d945018081df480215df437
+  ppSprintList 70e892deacb2bfa248459b77a083ff80
+  ppStatus a603684dc9c0f3eed75a7a93b17646f7
+  ppStatusRecord 7057f34cdf37f2f9295c170f3c4af491
+  ppStory 65475995eb280dc85dc82d502acffcc6
+  ppStoryHeader dcc9e9206ec765f1193bc3896f0f64de
+  ppStoryI b362bbcb6c1c39565d1c709fac3109be
+  ppStoryList 79de2285fe1a1d9e2c90c1f18b110ca6
+  ppTask 6b7e4a84043e845d731e795e64ddb6b9
+import  -/  Data.TTask.Types 53600b9547fce3e645332f8159673fe4
+  exports: be18ddcf96231cbf82b74266a19fefcc
+  Id 89e52418972f0d5f81e790e20b930373
+  Point 20f1a74859b814c5a3be9809e9044e5f
+  Project ee946ff5756724351634431d96992bd1
+  Project 8e3e83a4be85f8c7d6dcea853bd9dbcb
+  Sprint c3f4781d8c7d8c8cbc88fc897b582d2c
+  Sprint c3034c815bf33d3a16be1a6dc834186c
+  StatusFinished 5b244249a4c6ebac7682b4d8594f05f3
+  StatusNotAchieved eb3585a6e15b6d9ecb066145eff9c6fc
+  StatusReject 2595a6c58ff7b86f5318bfdce35869f4
+  StatusRunning c4ee6243b4ef6cdc0b8503893f535181
+  StatusWait 49444f524fb08b408c45848c1fa5733a
+  TStatus e3c4120da1cd7046b6791c8f7bf47f4f
+  TStatusCons e763af7b13bf1e78419d95fdb45f1e89
+  TStatusOne 55b895304af6f915b59d363d4cdd8792
+  TStatusRecord 86bd241592c4e05830e227b89c779134
+  Task 8ce3e307683b9d6e5d22199d93eaf15e
+  Task 30af9f1a75d18f3b5ff07253deccac43
+  UserStory 15b90712d29605dd107c70b3b74f4422
+  UserStory edae4947a6c7bbdf6144725474863e99
+  WorkTime 7322df7f0420010253c1e540ca7e0c1c
+  WorkTime 9101c61ffe2d9996f0b4a60ea3b6b525
+  calcProjectPoint bf93521d72db5ec8df757d9a4fa2ab9d
+  calcSprintPoint 24e98073c04eb5000892fd84c0546beb
+  calcStoryPoint 17c599544775bdd08785f22d08cca1f6
+  getLastStatus 0bf7805b66496395236f649da29d64c6
+  getSprintById 5af24abadd846800aa0f3934c2a9c04b
+  getStatusTime 72e7e21ac00b87f916d20bfe9194213c
+  getTaskById 5a00d750a67466eb705e3fcf9c24859b
+  getUserStoryById 3b8b33b585ecd3a2d8a096baaaf20ad1
+  isFinished a0fa7d456e189c5ce68c960db037c434
+  isNotAchieved 7f3274ebaab1d9b2fdcf31657d4d23c0
+  isRejected 236c39897a34263fd82aa8d0578d95c0
+  isRunning 7e8ac2ffe931e1de6a31285d348d486e
+  isWait 377ba8dd9dda7c57dd3392973254e2de
+  projectBacklog e995ffa6d66c36f13f0f41a72180b374
+  projectName 5262ebafdeeecd30e7724516fb3e11a4
+  projectSprintMaxId 7cf6a59d4285197ef9947fab92606193
+  projectSprintMaxIdMay ea4302cbfae092587c9e66df17ccbcc3
+  projectSprints 5af965e26643b99f22685b2e9bfcec1e
+  projectStatus 26b1e82b5152ad145304a5af1748d537
+  projectStoryMaxId 4d549fd34abc277f4b6757d3e0bafe2e
+  projectStoryMaxIdMay 4592bb9a589b011e09c03e6652b12dc1
+  projectsAllStory c077d94daa4a0b8f63be71d8940b7079
+  projectsAllTasks c55e3fe91422caa1c407d07f54ef437e
+  projectsTaskMaxId cc5ed2329ba00556064efafa33f7566c
+  projectsTaskMaxIdMay d075b92411a45569dacdab271a9b3a6b
+  sprintAllTasks 203cd80b802ab6157d36b22cba798173
+  sprintDescription 61754c48f603e3cb150cada175ef7ce9
+  sprintId bacdc9239d66a6e0d5122ab793be49d2
+  sprintStatus ca89dbff1536ca53062a2d825e5b918b
+  sprintStorys 3278e9d1b6d5f296df0fb53f0fd61b18
+  statusToList 5ba979c97f38d6e492b726b5cb3e0add
+  storyDescription 98a75f236458a6bc48578c3508fc9a11
+  storyId 9363c6272f78959f6e2b03f2baa11912
+  storyStatus 9762304227c7e88c5e9dd8cb17058b7c
+  storyTasks 3300a99ccbe6da0606cfe15ec51eedf6
+  summaryContents 5b4ef82b4845c1e58fd9d226c77269a4
+  taskDescription e0b8214345582c4290373e9ac2e03aaa
+  taskId 1c52271f38b72728b99a70fde674f96d
+  taskPoint 4aa461bab0afb6d9b8a0f85010442cdf
+  taskStatus 82017d4268f256bd3b5d49058b2036e6
+  taskWorkTimes abc0b15b372adc4d3e0e0d650b3d0505
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

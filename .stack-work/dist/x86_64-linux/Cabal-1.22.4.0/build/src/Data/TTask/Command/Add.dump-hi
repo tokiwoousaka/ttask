@@ -1,0 +1,841 @@
+
+==================== FINAL INTERFACE ====================
+2016-05-03 07:07:40.277588 UTC
+
+interface ttask_72zq9oHyfMzKhn7BjotlNr:Data.TTask.Command.Add 7102
+  interface hash: 2c01f7a1832992f5092981ca28e3f410
+  ABI hash: 00b9832e3d9577463ef367f1b1bfc67f
+  export-list hash: 71b2006f454b0b12db1f8c3d9244fb50
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: ffa1665cb7e7b1b19a01b9358f36d6f0
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Data.TTask.Command.Add.addNewSprint
+  Data.TTask.Command.Add.addNewStoryToPbl
+  Data.TTask.Command.Add.addNewStoryToSprints
+  Data.TTask.Command.Add.addNewTask
+  Data.TTask.Command.Add.addSprintToProject
+  Data.TTask.Command.Add.addStoryToPbl
+  Data.TTask.Command.Add.addStoryToPblFirst
+  Data.TTask.Command.Add.addStoryToPjSprints
+  Data.TTask.Command.Add.addStoryToSprint
+  Data.TTask.Command.Add.addTaskToProject
+  Data.TTask.Command.Add.addTaskToSprint
+  Data.TTask.Command.Add.addTaskToSprintList
+  Data.TTask.Command.Add.addTaskToStory
+  Data.TTask.Command.Add.addTaskToStorys
+  Data.TTask.Command.Add.getLocalTime
+  Data.TTask.Command.Add.newProject
+  Data.TTask.Command.Add.newSprint
+  Data.TTask.Command.Add.newStory
+  Data.TTask.Command.Add.newTask
+module dependencies: Data.TTask.Types
+package dependencies: array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ
+                      base-4.8.1.0* deepseq-1.4.1.1@deeps_LbCWUlehDDeLxurARKDH5o
+                      extra-1.4.2@extra_5OxQCVeoy8KDx9eBZEd38j ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 safe-0.3.9@safe_BXSoeRP9IFG6t9s3abNgVi
+                      time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.Format.Parse
+         time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.LocalTime.LocalTime
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Functor.Identity
+                         base-4.8.1.0:Data.Monoid base-4.8.1.0:Data.Type.Equality
+                         base-4.8.1.0:Data.Void base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.1.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  extra-1.4.2@extra_5OxQCVeoy8KDx9eBZEd38j:Data.List.Extra 19413c97d9692a2a01d7ee6bcdc22d42
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time 32980eeddfe26f4d4e29d9341bdd87d9
+import  -/  time-1.5.0.1@time_AXTdBF9VRQoBOqJT6qtmVH:Data.Time.LocalTime.LocalTime 303d3e241c140233efb7305f97e88089
+import  -/  Data.TTask.Types 53600b9547fce3e645332f8159673fe4
+  exports: be18ddcf96231cbf82b74266a19fefcc
+  Id 89e52418972f0d5f81e790e20b930373
+  Point 20f1a74859b814c5a3be9809e9044e5f
+  Project ee946ff5756724351634431d96992bd1
+  Project 8e3e83a4be85f8c7d6dcea853bd9dbcb
+  Sprint c3f4781d8c7d8c8cbc88fc897b582d2c
+  Sprint c3034c815bf33d3a16be1a6dc834186c
+  StatusWait 49444f524fb08b408c45848c1fa5733a
+  TStatusOne 55b895304af6f915b59d363d4cdd8792
+  Task 8ce3e307683b9d6e5d22199d93eaf15e
+  Task 30af9f1a75d18f3b5ff07253deccac43
+  UserStory 15b90712d29605dd107c70b3b74f4422
+  UserStory edae4947a6c7bbdf6144725474863e99
+  projectBacklog e995ffa6d66c36f13f0f41a72180b374
+  projectName 5262ebafdeeecd30e7724516fb3e11a4
+  projectSprintMaxId 7cf6a59d4285197ef9947fab92606193
+  projectSprints 5af965e26643b99f22685b2e9bfcec1e
+  projectStatus 26b1e82b5152ad145304a5af1748d537
+  projectStoryMaxId 4d549fd34abc277f4b6757d3e0bafe2e
+  projectsTaskMaxId cc5ed2329ba00556064efafa33f7566c
+  sprintDescription 61754c48f603e3cb150cada175ef7ce9
+  sprintId bacdc9239d66a6e0d5122ab793be49d2
+  sprintStatus ca89dbff1536ca53062a2d825e5b918b
+  sprintStorys 3278e9d1b6d5f296df0fb53f0fd61b18
+  storyDescription 98a75f236458a6bc48578c3508fc9a11
+  storyId 9363c6272f78959f6e2b03f2baa11912
+  storyStatus 9762304227c7e88c5e9dd8cb17058b7c
+  storyTasks 3300a99ccbe6da0606cfe15ec51eedf6
+  taskDescription e0b8214345582c4290373e9ac2e03aaa
+  taskId 1c52271f38b72728b99a70fde674f96d
+  taskPoint 4aa461bab0afb6d9b8a0f85010442cdf
+  taskStatus 82017d4268f256bd3b5d49058b2036e6
+  taskWorkTimes abc0b15b372adc4d3e0e0d650b3d0505
+0c33c7f29e2c6fa8f512cd25403fad79
+  addNewSprint ::
+    GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Types.IO Data.TTask.Types.Project
+  {- Arity: 3, Strictness: <L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.addNewSprint1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Project>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Project>_R)) -}
+656f3ddb338a89e702e7bd8517bf7c07
+  addNewSprint1 ::
+    GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Project #)
+  {- Arity: 3, Strictness: <L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: (\ description :: GHC.Base.String
+                   pj :: Data.TTask.Types.Project
+                   s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    case pj of wild { Data.TTask.Types.Project ds ds2 ds3 ds4 ->
+                    Data.TTask.Types.Project
+                      ds
+                      ds2
+                      (GHC.Base.++
+                         @ Data.TTask.Types.Sprint
+                         ds3
+                         (GHC.Types.:
+                            @ Data.TTask.Types.Sprint
+                            (Data.TTask.Types.Sprint
+                               (case Safe.maximumMay
+                                       @ Data.TTask.Types.Id
+                                       GHC.Classes.$fOrdInt
+                                       (GHC.Base.map
+                                          @ Data.TTask.Types.Sprint
+                                          @ GHC.Types.Int
+                                          Data.TTask.Types.sprintId
+                                          ds3) of wild1 {
+                                  GHC.Base.Nothing -> Data.TTask.Command.Add.addNewSprint2
+                                  GHC.Base.Just v
+                                  -> case v of wild2 { GHC.Types.I# x ->
+                                     GHC.Types.I# (GHC.Prim.+# x 1) } })
+                               description
+                               (GHC.Types.[] @ Data.TTask.Types.UserStory)
+                               (Data.TTask.Types.TStatusOne
+                                  (Data.TTask.Types.StatusWait
+                                     (case ipv1 of wild1 { Data.Time.LocalTime.LocalTime.ZonedTime ds5 ds6 ->
+                                      ds5 }))))
+                            (GHC.Types.[] @ Data.TTask.Types.Sprint)))
+                      ds4 } #) }) -}
+64d4803763cc34a8b7162900baadf28e
+  addNewSprint2 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1) -}
+33afccf2e399ee45a8c4a52c9e2eb616
+  addNewStoryToPbl ::
+    GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Types.IO Data.TTask.Types.Project
+  {- Arity: 3, Strictness: <L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.addNewStoryToPbl1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Project>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Project>_R)) -}
+0447ea3750acc7c9122284e92351181d
+  addNewStoryToPbl1 ::
+    GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Project #)
+  {- Arity: 3, Strictness: <L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: (\ description :: GHC.Base.String
+                   pj :: Data.TTask.Types.Project
+                   s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    case pj of wild { Data.TTask.Types.Project ds ds2 ds3 ds4 ->
+                    Data.TTask.Types.Project
+                      ds
+                      (GHC.Base.++
+                         @ Data.TTask.Types.UserStory
+                         ds2
+                         (GHC.Types.:
+                            @ Data.TTask.Types.UserStory
+                            (Data.TTask.Types.UserStory
+                               (case Data.TTask.Types.$wprojectStoryMaxId
+                                       ds2
+                                       ds3 of wild1 { GHC.Types.I# x ->
+                                GHC.Types.I# (GHC.Prim.+# x 1) })
+                               description
+                               (GHC.Types.[] @ Data.TTask.Types.Task)
+                               (Data.TTask.Types.TStatusOne
+                                  (Data.TTask.Types.StatusWait
+                                     (case ipv1 of wild1 { Data.Time.LocalTime.LocalTime.ZonedTime ds5 ds6 ->
+                                      ds5 }))))
+                            (GHC.Types.[] @ Data.TTask.Types.UserStory)))
+                      ds3
+                      ds4 } #) }) -}
+888fc0c6913bf3cd7ccf65b74dd2b482
+  addNewStoryToSprints ::
+    Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Types.IO Data.TTask.Types.Project
+  {- Arity: 4, Strictness: <L,U(U)><L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.addNewStoryToSprints1
+                  `cast`
+                (<Data.TTask.Types.Id>_R
+                 ->_R <GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Project>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Project>_R)) -}
+cff58d1e0a464e316fd7f894f1e6e7f9
+  addNewStoryToSprints1 ::
+    Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Project #)
+  {- Arity: 4, Strictness: <L,U(U)><L,U><L,1*U(U,U,U,U)><L,U>,
+     Unfolding: (\ spid :: Data.TTask.Types.Id
+                   description :: GHC.Base.String
+                   pj :: Data.TTask.Types.Project
+                   s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    case pj of wild { Data.TTask.Types.Project ds ds2 ds3 ds4 ->
+                    Data.TTask.Types.Project
+                      ds
+                      ds2
+                      (GHC.Base.map
+                         @ Data.TTask.Types.Sprint
+                         @ Data.TTask.Types.Sprint
+                         (let {
+                            a :: Data.TTask.Types.Id
+                            = case Data.TTask.Types.$wprojectStoryMaxId
+                                     ds2
+                                     ds3 of wild1 { GHC.Types.I# x ->
+                              GHC.Types.I# (GHC.Prim.+# x 1) }
+                          } in
+                          let {
+                            a1 :: Data.Time.LocalTime.LocalTime.LocalTime
+                            = case ipv1 of wild1 { Data.Time.LocalTime.LocalTime.ZonedTime ds5 ds6 ->
+                              ds5 }
+                          } in
+                          let {
+                            a2 :: Data.TTask.Types.TStatusRecord
+                            = Data.TTask.Types.StatusWait a1
+                          } in
+                          let {
+                            a3 :: Data.TTask.Types.TStatus = Data.TTask.Types.TStatusOne a2
+                          } in
+                          let {
+                            us :: Data.TTask.Types.UserStory {- Strictness: m -}
+                            = Data.TTask.Types.UserStory
+                                a
+                                description
+                                (GHC.Types.[] @ Data.TTask.Types.Task)
+                                a3
+                          } in
+                          let {
+                            lvl :: [Data.TTask.Types.UserStory]
+                            = GHC.Types.:
+                                @ Data.TTask.Types.UserStory
+                                us
+                                (GHC.Types.[] @ Data.TTask.Types.UserStory)
+                          } in
+                          \ sp :: Data.TTask.Types.Sprint ->
+                          case sp of wild1 { Data.TTask.Types.Sprint ds5 ds6 ds7 ds8 ->
+                          case ds5 of wild2 { GHC.Types.I# x ->
+                          case spid of wild3 { GHC.Types.I# y ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# x y) of wild4 {
+                            GHC.Types.False -> wild1
+                            GHC.Types.True
+                            -> Data.TTask.Types.Sprint
+                                 wild2
+                                 ds6
+                                 (GHC.Base.++ @ Data.TTask.Types.UserStory ds7 lvl)
+                                 ds8 } } } })
+                         ds3)
+                      ds4 } #) }) -}
+1ef535b31192f114c2345346d9777e87
+  addNewTask ::
+    Data.TTask.Types.Point
+    -> Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Types.IO Data.TTask.Types.Project
+  {- Arity: 5, Strictness: <L,U><L,U(U)><L,U><L,U(U,U,U,U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.addNewTask1
+                  `cast`
+                (<Data.TTask.Types.Point>_R
+                 ->_R <Data.TTask.Types.Id>_R
+                 ->_R <GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Project>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Project>_R)) -}
+4faf42e58fd327edfe41d019581ccaea
+  addNewTask1 ::
+    Data.TTask.Types.Point
+    -> Data.TTask.Types.Id
+    -> GHC.Base.String
+    -> Data.TTask.Types.Project
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Project #)
+  {- Arity: 5, Strictness: <L,U><L,U(U)><L,U><L,U(U,U,U,U)><L,U>,
+     Unfolding: (\ point :: Data.TTask.Types.Point
+                   usid :: Data.TTask.Types.Id
+                   description :: GHC.Base.String
+                   pj :: Data.TTask.Types.Project
+                   s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    case pj of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                    let {
+                      a :: Data.Time.LocalTime.LocalTime.LocalTime
+                      = case ipv1 of wild { Data.Time.LocalTime.LocalTime.ZonedTime ds2 ds3 ->
+                        ds2 }
+                    } in
+                    let {
+                      a1 :: Data.TTask.Types.TStatusRecord
+                      = Data.TTask.Types.StatusWait a
+                    } in
+                    let {
+                      a2 :: Data.TTask.Types.TStatus = Data.TTask.Types.TStatusOne a1
+                    } in
+                    let {
+                      a3 :: Data.TTask.Types.Id
+                      = case Data.TTask.Types.$wprojectsTaskMaxId
+                               ww2
+                               ww3 of wild { GHC.Types.I# x ->
+                        GHC.Types.I# (GHC.Prim.+# x 1) }
+                    } in
+                    let {
+                      w :: Data.TTask.Types.Task
+                      = Data.TTask.Types.Task
+                          a3
+                          description
+                          point
+                          a2
+                          (GHC.Types.[] @ Data.TTask.Types.WorkTime)
+                    } in
+                    let {
+                      lvl :: [Data.TTask.Types.Task]
+                      = GHC.Types.:
+                          @ Data.TTask.Types.Task
+                          w
+                          (GHC.Types.[] @ Data.TTask.Types.Task)
+                    } in
+                    Data.TTask.Types.Project
+                      ww1
+                      (GHC.Base.map
+                         @ Data.TTask.Types.UserStory
+                         @ Data.TTask.Types.UserStory
+                         (\ w1 :: Data.TTask.Types.UserStory ->
+                          case usid of ww5 { GHC.Types.I# ww6 ->
+                          case w1 of ww7 { Data.TTask.Types.UserStory ww8 ww9 ww10 ww11 ->
+                          case ww8 of ww12 { GHC.Types.I# ww13 ->
+                          case GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.==# ww13 ww6) of wild {
+                            GHC.Types.False -> ww7
+                            GHC.Types.True
+                            -> Data.TTask.Types.UserStory
+                                 ww12
+                                 ww9
+                                 (GHC.Base.++ @ Data.TTask.Types.Task ww10 lvl)
+                                 ww11 } } } })
+                         ww2)
+                      (letrec {
+                         go :: [Data.TTask.Types.UserStory] -> [Data.TTask.Types.UserStory]
+                           {- Arity: 1 -}
+                         = \ ds :: [Data.TTask.Types.UserStory] ->
+                           case ds of wild {
+                             [] -> GHC.Types.[] @ Data.TTask.Types.UserStory
+                             : y ys
+                             -> GHC.Types.:
+                                  @ Data.TTask.Types.UserStory
+                                  (case usid of ww5 { GHC.Types.I# ww6 ->
+                                   case y of ww7 { Data.TTask.Types.UserStory ww8 ww9 ww10 ww11 ->
+                                   case ww8 of ww12 { GHC.Types.I# ww13 ->
+                                   case GHC.Prim.tagToEnum#
+                                          @ GHC.Types.Bool
+                                          (GHC.Prim.==# ww13 ww6) of wild1 {
+                                     GHC.Types.False -> ww7
+                                     GHC.Types.True
+                                     -> Data.TTask.Types.UserStory
+                                          ww12
+                                          ww9
+                                          (GHC.Base.++ @ Data.TTask.Types.Task ww10 lvl)
+                                          ww11 } } } })
+                                  (go ys) }
+                       } in
+                       GHC.Base.map
+                         @ Data.TTask.Types.Sprint
+                         @ Data.TTask.Types.Sprint
+                         (\ sp :: Data.TTask.Types.Sprint ->
+                          case sp of wild { Data.TTask.Types.Sprint ds ds2 ds3 ds4 ->
+                          Data.TTask.Types.Sprint ds ds2 (go ds3) ds4 })
+                         ww3)
+                      ww4 } #) }) -}
+56b6b649258ad4733765df2ca69b2a4b
+  addSprintToProject ::
+    Data.TTask.Types.Sprint
+    -> Data.TTask.Types.Project -> Data.TTask.Types.Project
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,U,1*U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ sp :: Data.TTask.Types.Sprint pj :: Data.TTask.Types.Project ->
+                 case pj of wild { Data.TTask.Types.Project ds ds1 ds2 ds3 ->
+                 Data.TTask.Types.Project
+                   ds
+                   ds1
+                   (GHC.Base.augment
+                      @ Data.TTask.Types.Sprint
+                      (\ @ b
+                         c :: Data.TTask.Types.Sprint -> b -> b[OneShot]
+                         n :: b[OneShot] ->
+                       GHC.Base.foldr @ Data.TTask.Types.Sprint @ b c n ds2)
+                      (GHC.Types.:
+                         @ Data.TTask.Types.Sprint
+                         sp
+                         (GHC.Types.[] @ Data.TTask.Types.Sprint)))
+                   ds3 }) -}
+f756ef222ea8038a3781e3064c7939c0
+  addStoryToPbl ::
+    Data.TTask.Types.UserStory
+    -> Data.TTask.Types.Project -> Data.TTask.Types.Project
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,1*U,U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ us :: Data.TTask.Types.UserStory
+                   pj :: Data.TTask.Types.Project ->
+                 case pj of wild { Data.TTask.Types.Project ds ds1 ds2 ds3 ->
+                 Data.TTask.Types.Project
+                   ds
+                   (GHC.Base.augment
+                      @ Data.TTask.Types.UserStory
+                      (\ @ b
+                         c :: Data.TTask.Types.UserStory -> b -> b[OneShot]
+                         n :: b[OneShot] ->
+                       GHC.Base.foldr @ Data.TTask.Types.UserStory @ b c n ds1)
+                      (GHC.Types.:
+                         @ Data.TTask.Types.UserStory
+                         us
+                         (GHC.Types.[] @ Data.TTask.Types.UserStory)))
+                   ds2
+                   ds3 }) -}
+76a43f8e8f46facd1ea995f68f4eafc6
+  addStoryToPblFirst ::
+    Data.TTask.Types.UserStory
+    -> Data.TTask.Types.Project -> Data.TTask.Types.Project
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ us :: Data.TTask.Types.UserStory
+                   pj :: Data.TTask.Types.Project ->
+                 case pj of wild { Data.TTask.Types.Project ds ds1 ds2 ds3 ->
+                 Data.TTask.Types.Project
+                   ds
+                   (GHC.Types.: @ Data.TTask.Types.UserStory us ds1)
+                   ds2
+                   ds3 }) -}
+a1eb15f507ea199e6b3ee2aff1fd8b39
+  addStoryToPjSprints ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.UserStory
+    -> Data.TTask.Types.Project
+    -> Data.TTask.Types.Project
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U)><L,U><S,1*U(U,U,1*U,U)>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ i :: Data.TTask.Types.Id
+                   us :: Data.TTask.Types.UserStory
+                   pj :: Data.TTask.Types.Project ->
+                 case pj of wild { Data.TTask.Types.Project ds ds1 ds2 ds3 ->
+                 Data.TTask.Types.Project
+                   ds
+                   ds1
+                   (GHC.Base.build
+                      @ Data.TTask.Types.Sprint
+                      (\ @ b1
+                         c :: Data.TTask.Types.Sprint -> b1 -> b1[OneShot]
+                         n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Data.TTask.Types.Sprint
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ Data.TTask.Types.Sprint
+                            @ b1
+                            @ Data.TTask.Types.Sprint
+                            c
+                            (Data.TTask.Command.Add.addStoryToSprint i us))
+                         n
+                         ds2))
+                   ds3 }) -}
+a057065624b1db5b3c2808719ce20f87
+  addStoryToSprint ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.UserStory
+    -> Data.TTask.Types.Sprint
+    -> Data.TTask.Types.Sprint
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S,1*U(U)><L,U><S(SLLL),1*U(U(U),U,U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: Data.TTask.Types.Id
+                   w1 :: Data.TTask.Types.UserStory
+                   w2 :: Data.TTask.Types.Sprint ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { Data.TTask.Types.Sprint ww3 ww4 ww5 ww6 ->
+                 case ww3 of ww7 { GHC.Types.I# ww8 ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww8 ww1) of wild {
+                   GHC.Types.False
+                   -> Data.TTask.Types.Sprint (GHC.Types.I# ww8) ww4 ww5 ww6
+                   GHC.Types.True
+                   -> Data.TTask.Types.Sprint
+                        (GHC.Types.I# ww8)
+                        ww4
+                        (GHC.Base.++
+                           @ Data.TTask.Types.UserStory
+                           ww5
+                           (GHC.Types.:
+                              @ Data.TTask.Types.UserStory
+                              w1
+                              (GHC.Types.[] @ Data.TTask.Types.UserStory)))
+                        ww6 } } } }) -}
+25bfa814125408be37e6e36c84d91518
+  addTaskToProject ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.Task
+    -> Data.TTask.Types.Project
+    -> Data.TTask.Types.Project
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U)><L,U><S,1*U(U,1*U,1*U,U)>m, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: Data.TTask.Types.Id
+                   w1 :: Data.TTask.Types.Task
+                   w2 :: Data.TTask.Types.Project ->
+                 case w2 of ww { Data.TTask.Types.Project ww1 ww2 ww3 ww4 ->
+                 Data.TTask.Types.Project
+                   ww1
+                   (GHC.Base.map
+                      @ Data.TTask.Types.UserStory
+                      @ Data.TTask.Types.UserStory
+                      (Data.TTask.Command.Add.addTaskToStory w w1)
+                      ww2)
+                   (GHC.Base.map
+                      @ Data.TTask.Types.Sprint
+                      @ Data.TTask.Types.Sprint
+                      (Data.TTask.Command.Add.addTaskToSprint w w1)
+                      ww3)
+                   ww4 }) -}
+c14aa9cbff299dca9971228f6ea17921
+  addTaskToSprint ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.Task
+    -> Data.TTask.Types.Sprint
+    -> Data.TTask.Types.Sprint
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(U)><L,U><S,1*U(U,U,1*U,U)>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ id :: Data.TTask.Types.Id
+                   task :: Data.TTask.Types.Task
+                   sp :: Data.TTask.Types.Sprint ->
+                 case sp of wild { Data.TTask.Types.Sprint ds ds1 ds2 ds3 ->
+                 Data.TTask.Types.Sprint
+                   ds
+                   ds1
+                   (GHC.Base.build
+                      @ Data.TTask.Types.UserStory
+                      (\ @ b1
+                         c :: Data.TTask.Types.UserStory -> b1 -> b1[OneShot]
+                         n :: b1[OneShot] ->
+                       GHC.Base.foldr
+                         @ Data.TTask.Types.UserStory
+                         @ b1
+                         (GHC.Base.mapFB
+                            @ Data.TTask.Types.UserStory
+                            @ b1
+                            @ Data.TTask.Types.UserStory
+                            c
+                            (Data.TTask.Command.Add.addTaskToStory id task))
+                         n
+                         ds2))
+                   ds3 }) -}
+8ae945f18145d815d569e07702af16e5
+  addTaskToSprintList ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.Task
+    -> [Data.TTask.Types.Sprint]
+    -> [Data.TTask.Types.Sprint]
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U)><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ id :: Data.TTask.Types.Id
+                   task :: Data.TTask.Types.Task
+                   eta :: [Data.TTask.Types.Sprint] ->
+                 GHC.Base.build
+                   @ Data.TTask.Types.Sprint
+                   (\ @ b1
+                      c :: Data.TTask.Types.Sprint -> b1 -> b1[OneShot]
+                      n :: b1[OneShot] ->
+                    GHC.Base.foldr
+                      @ Data.TTask.Types.Sprint
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ Data.TTask.Types.Sprint
+                         @ b1
+                         @ Data.TTask.Types.Sprint
+                         c
+                         (Data.TTask.Command.Add.addTaskToSprint id task))
+                      n
+                      eta)) -}
+f8f1f5eda26319e39cfe88789d4f1a5b
+  addTaskToStory ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.Task
+    -> Data.TTask.Types.UserStory
+    -> Data.TTask.Types.UserStory
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S,1*U(U)><L,U><S(SLLL),1*U(U(U),U,U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ w :: Data.TTask.Types.Id
+                   w1 :: Data.TTask.Types.Task
+                   w2 :: Data.TTask.Types.UserStory ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w2 of ww2 { Data.TTask.Types.UserStory ww3 ww4 ww5 ww6 ->
+                 case ww3 of ww7 { GHC.Types.I# ww8 ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.==# ww8 ww1) of wild {
+                   GHC.Types.False
+                   -> Data.TTask.Types.UserStory (GHC.Types.I# ww8) ww4 ww5 ww6
+                   GHC.Types.True
+                   -> Data.TTask.Types.UserStory
+                        (GHC.Types.I# ww8)
+                        ww4
+                        (GHC.Base.++
+                           @ Data.TTask.Types.Task
+                           ww5
+                           (GHC.Types.:
+                              @ Data.TTask.Types.Task
+                              w1
+                              (GHC.Types.[] @ Data.TTask.Types.Task)))
+                        ww6 } } } }) -}
+0514202acd8a2c5a3fd6998e52116d0f
+  addTaskToStorys ::
+    Data.TTask.Types.Id
+    -> Data.TTask.Types.Task
+    -> [Data.TTask.Types.UserStory]
+    -> [Data.TTask.Types.UserStory]
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(U)><L,U><S,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ id :: Data.TTask.Types.Id
+                   task :: Data.TTask.Types.Task
+                   eta :: [Data.TTask.Types.UserStory] ->
+                 GHC.Base.build
+                   @ Data.TTask.Types.UserStory
+                   (\ @ b1
+                      c :: Data.TTask.Types.UserStory -> b1 -> b1[OneShot]
+                      n :: b1[OneShot] ->
+                    GHC.Base.foldr
+                      @ Data.TTask.Types.UserStory
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ Data.TTask.Types.UserStory
+                         @ b1
+                         @ Data.TTask.Types.UserStory
+                         c
+                         (Data.TTask.Command.Add.addTaskToStory id task))
+                      n
+                      eta)) -}
+6adb2e3f5aa94a6cbed79714c9d3c950
+  getLocalTime ::
+    GHC.Types.IO Data.Time.LocalTime.LocalTime.LocalTime
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.getLocalTime1
+                  `cast`
+                (Sym (GHC.Types.NTCo:IO[0]
+                          <Data.Time.LocalTime.LocalTime.LocalTime>_R)) -}
+a1f2392e69346a9b3bebc8c34d82a062
+  getLocalTime1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Time.LocalTime.LocalTime.LocalTime #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.Time.LocalTime.LocalTime.zonedTimeToLocalTime ipv1 #) }) -}
+edb8530c86ff47b091fbb5a469f0098c
+  newProject ::
+    GHC.Base.String -> GHC.Types.IO Data.TTask.Types.Project
+  {- Arity: 2, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.newProject1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Project>_R)) -}
+8e5f46ce1cef7602181dbad37918f7ec
+  newProject1 ::
+    GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Project #)
+  {- Arity: 2, Strictness: <L,U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ name :: GHC.Base.String
+                   eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.TTask.Types.Project
+                      name
+                      (GHC.Types.[] @ Data.TTask.Types.UserStory)
+                      (GHC.Types.[] @ Data.TTask.Types.Sprint)
+                      (Data.TTask.Types.TStatusOne
+                         (Data.TTask.Types.StatusWait
+                            (Data.Time.LocalTime.LocalTime.zonedTimeToLocalTime
+                               ipv1))) #) }) -}
+0a8b3350286c7865e3f2328033af40b9
+  newSprint ::
+    GHC.Base.String
+    -> Data.TTask.Types.Id -> GHC.Types.IO Data.TTask.Types.Sprint
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.newSprint1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Id>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Sprint>_R)) -}
+71b812d5b31515b4e0a305c2941e9089
+  newSprint1 ::
+    GHC.Base.String
+    -> Data.TTask.Types.Id
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.Sprint #)
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ description :: GHC.Base.String
+                   id :: Data.TTask.Types.Id
+                   eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.TTask.Types.Sprint
+                      id
+                      description
+                      (GHC.Types.[] @ Data.TTask.Types.UserStory)
+                      (Data.TTask.Types.TStatusOne
+                         (Data.TTask.Types.StatusWait
+                            (Data.Time.LocalTime.LocalTime.zonedTimeToLocalTime
+                               ipv1))) #) }) -}
+1b6e02320d3adffdbbe34d279854e141
+  newStory ::
+    GHC.Base.String
+    -> GHC.Types.Int -> GHC.Types.IO Data.TTask.Types.UserStory
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.newStory1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <GHC.Types.Int>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.UserStory>_R)) -}
+60ed236f7447fd4fb286257e71cbbcb8
+  newStory1 ::
+    GHC.Base.String
+    -> GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.TTask.Types.UserStory #)
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ description :: GHC.Base.String
+                   id :: GHC.Types.Int
+                   eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.TTask.Types.UserStory
+                      id
+                      description
+                      (GHC.Types.[] @ Data.TTask.Types.Task)
+                      (Data.TTask.Types.TStatusOne
+                         (Data.TTask.Types.StatusWait
+                            (Data.Time.LocalTime.LocalTime.zonedTimeToLocalTime
+                               ipv1))) #) }) -}
+58b48002f4602086924883afc556cc23
+  newTask ::
+    GHC.Base.String
+    -> Data.TTask.Types.Point
+    -> Data.TTask.Types.Id
+    -> GHC.Types.IO Data.TTask.Types.Task
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Data.TTask.Command.Add.newTask1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <Data.TTask.Types.Point>_R
+                 ->_R <Data.TTask.Types.Id>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <Data.TTask.Types.Task>_R)) -}
+33ef6722b0c8d2198f72e930a47cd3c4
+  newTask1 ::
+    GHC.Base.String
+    -> Data.TTask.Types.Point
+    -> Data.TTask.Types.Id
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Data.TTask.Types.Task #)
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ description :: GHC.Base.String
+                   point :: Data.TTask.Types.Point
+                   id :: Data.TTask.Types.Id
+                   eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Data.Time.LocalTime.LocalTime.getZonedTime1
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    Data.TTask.Types.Task
+                      id
+                      description
+                      point
+                      (Data.TTask.Types.TStatusOne
+                         (Data.TTask.Types.StatusWait
+                            (Data.Time.LocalTime.LocalTime.zonedTimeToLocalTime ipv1)))
+                      (GHC.Types.[] @ Data.TTask.Types.WorkTime) #) }) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
