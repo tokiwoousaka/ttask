@@ -239,10 +239,10 @@ To Wait            at 2016-05-03 17:59:42.212454
 スプリントの状態が表示されるようになりました。
 
 ```
-tune@tune-no-PC:~/Documents/Program/Haskell/ttask$ ttask run task -i 1
-tune@tune-no-PC:~/Documents/Program/Haskell/ttask$ ttask run story -i 3
-tune@tune-no-PC:~/Documents/Program/Haskell/ttask$ ttask run sprint -i 1
-tune@tune-no-PC:~/Documents/Program/Haskell/ttask$ ttask active
+$ ttask run task -i 1
+$ ttask run story -i 3
+$ ttask run sprint -i 1
+$ ttask active
 PROJECT - sample : 11pt [ Wait ] サンプルプロジェクトです
 
 Active sprint(s) :
