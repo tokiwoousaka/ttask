@@ -50,17 +50,17 @@ Options:
   -v[n]  --verbose[=n]  set verbosity level
 
 Commands: 
-  project     Switch other project. Or list all projects when project id is abbraviated.
+  project     Switch other project. Or list all projects when project id is abbreviated.
   add         Add contents to active project
   delete      Delete contents from active project
   move        Move contents of active project
   swap        Swap contents of active project
   active      Show active projects information
-  pbl         List all pbl storys
-  sprint      List all sprint, Or show sprints detail when project id is abbraviated.
+  pbl         List all pbl stories
+  sprint      List all sprint, Or show sprints detail when project id is abbreviated.
   story       Show target story information and all tasks
   run         Update contents status to `Running`
-  finish      Update contents status to `Finiesh`
+  finish      Update contents status to `Finish`
   wait        Update contents status to `Wait`
   nota        Update contents status to `Not Achieved`
   reject      Update contents status to `Rejected`
