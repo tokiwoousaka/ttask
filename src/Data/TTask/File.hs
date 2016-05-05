@@ -1,4 +1,13 @@
-module Data.TTask.File where
+module Data.TTask.File 
+  ( Success(..)
+  , readActiveProject
+  , writeActiveProject
+  , activeProjectName
+  , setActiveProject
+  , initDirectory 
+  , initProjectFile 
+  , findProjects 
+  ) where
 import Control.Applicative
 import Control.Exception
 import Control.Monad

@@ -1,4 +1,11 @@
-module Data.TTask.Command.Update where
+module Data.TTask.Command.Update
+  ( updateTaskStatus 
+  , updateStoryStatus 
+  , updateSprintStatus 
+  , updateTask 
+  , updateStory 
+  , updateSprint 
+  )  where
 import Data.TTask.Types
 
 ------

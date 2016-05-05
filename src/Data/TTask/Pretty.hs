@@ -1,4 +1,17 @@
-module Data.TTask.Pretty where
+module Data.TTask.Pretty 
+  ( ppActive
+  , ppStory 
+  , ppStoryI 
+  , ppStoryList 
+  , ppSprint 
+  , ppSprintList 
+  , ppProjectPbl 
+  , ppProjectSprintList 
+  , ppProjectSprint 
+  , ppProjectSprintDetail 
+  , ppProjectStory 
+  , ppProjectTask 
+  ) where
 import Control.Applicative
 import Data.TTask.Types
 import Data.List

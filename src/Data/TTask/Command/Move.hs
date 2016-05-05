@@ -1,5 +1,12 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-module Data.TTask.Command.Move where
+module Data.TTask.Command.Move 
+  ( moveStoryToPbl 
+  , moveStoryToSprints 
+  , moveTask 
+  , swapSprint 
+  , swapStory 
+  , swapTask 
+  ) where
 import Control.Applicative
 import Control.Monad
 import Data.Maybe

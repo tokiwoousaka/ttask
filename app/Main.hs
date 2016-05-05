@@ -39,7 +39,7 @@ cmdProject i = liftIO $ do
     j -> do
       res <- setActiveProject j
       when (res == Failure) 
-        $ putStrLn ("Error : Set active project Failure. Check Project `" ++ j ++ "` exist as `ttask project`")
+        . putStrLn $ failureMsgWithIdS "Set active project" "project" j
 
 listupAllProjects :: IO ()
 listupAllProjects = do
@@ -80,18 +80,16 @@ cmdAddProject j n = liftIO $ do
 cmdAddSprint
   :: Arg "DESCRIPTION" String 
   -> Cmd "Add sprint to active project" ()
-cmdAddSprint description = liftIO $ modifyActivePjSimple
-    (addNewSprint $ get description) 
-    "Error : Add sprint to project Failure. Check active project is available as `ttask project`"
+cmdAddSprint description = liftIO . modifyActivePjSimple
+    (addNewSprint $ get description) $ failureMsg "Add sprint"
 
 cmdAddStory 
   :: Arg "DESCRIPTION" String 
   -> Flag "i" '["ID"] "Sprint id" "Target Sprint Id" (Def "-1" Int) 
   -> Cmd "Add story to product backlog, Or designated sprint." ()
-cmdAddStory description i = liftIO $ modifyActiveProject
-    (addStory (get i) (get description))
-    "Error : Add story to project Failure. Check active project is available as `ttask project`"
-    ("Error : Add story to project Failure. Check target sprint (id = " ++ show (get i) ++ ") is exist")
+cmdAddStory description i = liftIO . modifyActiveProject
+    (addStory (get i) $ get description) (failureMsg "Add story") 
+      $ failureMsgWithId "Add story" "sprint" (get i)
   where
     addStory :: Id -> String -> Project -> IO Project
     addStory i description pj = case i of
@@ -103,10 +101,9 @@ cmdAddTask
   -> Flag "i" '["ID"] "Story id" "Target Story Id" Int
   -> Flag "p" '["POINT"] "Estimated work point" "Estimated work point like 1, 2, 3, 5, 8 ..." Int
   -> Cmd "Add task to active project" ()
-cmdAddTask description i point = liftIO $ modifyActiveProject 
-  (addNewTask (get point) (get i) (get description))
-  "Error : Add task to project Failure. Check active project is available as `ttask project`"
-  ("Error : Add task to project Failure. Check target story (id = " ++ show (get i) ++ ") is exist")
+cmdAddTask description i point = liftIO . modifyActiveProject 
+  (addNewTask (get point) (get i) (get description)) (failureMsg "Add task") 
+    $ failureMsgWithId "Add task" "story" (get i)
 
 ----
 -- delete
@@ -121,23 +118,20 @@ cmdDelete = Group "Delete contents from active project"
 cmdDeleteSprint
   :: Flag "i" '["ID"] "Sprint id" "Target Sprint Id" Int
   -> Cmd "Delete sprint from active project" ()
-cmdDeleteSprint i = liftIO $ modifyActivePjSimple
-  (return . deleteSprint (get i))
-  "Error : Delete sprint Failure. Check active project is available as `ttask project`"
+cmdDeleteSprint i = liftIO . modifyActivePjSimple
+  (return . deleteSprint (get i)) $ failureMsg "Delete sprint"
 
 cmdDeleteStory
   :: Flag "i" '["ID"] "Story id" "Target Story Id" Int
   -> Cmd "Delete sprint from active project" ()
-cmdDeleteStory i = liftIO $ modifyActivePjSimple
-  (return . deleteStory (get i))
-  "Error : Delete story Failure. Check active project is available as `ttask project`"
+cmdDeleteStory i = liftIO . modifyActivePjSimple
+  (return . deleteStory (get i)) $ failureMsg "Delete story"
 
 cmdDeleteTask
   :: Flag "i" '["ID"] "Task id" "Target Task Id" Int
   -> Cmd "Delete sprint from active project" ()
-cmdDeleteTask i = liftIO $ modifyActivePjSimple
-  (return . deleteTask (get i))
-  "Error : Delete task Failure. Check active project is available as `ttask project`"
+cmdDeleteTask i = liftIO . modifyActivePjSimple
+  (return . deleteTask (get i)) $ failureMsg "Delete task"
 
 ----
 -- swap
@@ -153,25 +147,22 @@ cmdSwapSprint
   :: Flag "f" '["ID-FROM"] "Sprint id From" "Target Story Id : From" Int
   -> Flag "t" '["ID-TO"] "Sprint id To" "Target Story Id : To" Int
   -> Cmd "Swap sprint of active project" ()
-cmdSwapSprint i j = liftIO $ modifyActivePjSimple
-  (return . swapSprint (get i) (get j))
-  "Error : Swap sprint Failure. Check active project is available as `ttask project`"
+cmdSwapSprint i j = liftIO . modifyActivePjSimple
+  (return . swapSprint (get i) (get j)) $ failureMsg "Swap sprint"
 
 cmdSwapStory 
   :: Flag "f" '["ID-FROM"] "Story id From" "Target Story Id : From" Int
   -> Flag "t" '["ID-TO"] "Story id To" "Target Story Id : To" Int
   -> Cmd "Swap story of active project" ()
-cmdSwapStory i j = liftIO $ modifyActivePjSimple
-  (return . swapStory (get i) (get j))
-  "Error : Swap project Failure. Check active project is available as `ttask project`"
+cmdSwapStory i j = liftIO . modifyActivePjSimple
+  (return . swapStory (get i) (get j)) $ failureMsg "Swap story"
 
 cmdSwapTask 
   :: Flag "f" '["ID-FROM"] "Task id From" "Target Story Id : From" Int
   -> Flag "t" '["ID-TO"] "Task id To" "Target Story Id : To" Int
   -> Cmd "Swap task of active project" ()
-cmdSwapTask i j = liftIO $ modifyActivePjSimple
-  (return . swapTask (get i) (get j))
-  "Error : Swap task Failure. Check active project is available as `ttask project`"
+cmdSwapTask i j = liftIO . modifyActivePjSimple
+  (return . swapTask (get i) (get j)) $ failureMsg "Swap task"
 
 ----
 -- move
@@ -186,9 +177,8 @@ cmdMoveStory
   :: Flag "i" '["ID"] "Story id" "Target Story Id" Int
   -> Flag "t" '["SPRINT-ID"] "Sprint id" "Destination Srint Id" (Def "-1" Int)
   -> Cmd "Move story of active project" ()
-cmdMoveStory i s = liftIO $ modifyActivePjSimple
-    (return . moveStory (get i) (get s))
-    "Error : Move story Failure. Check active project is available as `ttask project`"
+cmdMoveStory i s = liftIO . modifyActivePjSimple
+    (return . moveStory (get i) (get s)) $ failureMsg "Move story"
   where
     moveStory :: Id -> Id -> Project -> Project
     moveStory i s pj = fromMaybe pj $ case s of
@@ -199,9 +189,8 @@ cmdMoveTask
   :: Flag "i" '["ID"] "Story id" "Target Story Id" Int
   -> Flag "t" '["STORY-ID"] "Story id" "Destination Story Id" Int
   -> Cmd "Move story of active project" ()
-cmdMoveTask i s = liftIO $ modifyActivePjSimple
-  (\pj -> return . fromMaybe pj $ moveTask (get i) (get s) pj) 
-  "Error : Move task Failure. Check active project is available as `ttask project`"
+cmdMoveTask i s = liftIO . modifyActivePjSimple
+  (\pj -> return . fromMaybe pj $ moveTask (get i) (get s) pj) $ failureMsg "Move task"
 
 ----
 -- update
@@ -247,8 +236,7 @@ cmdUpdStatusSprint :: (LocalTime -> TStatusRecord)
 cmdUpdStatusSprint s i = liftIO $ do
   lt <- getLocalTime
   modifyActivePjSimple
-    (return . updateSprintStatus (get i) (s lt))
-    "Error : Update sprint Failure. Check active project is available as `ttask project`"
+    (return . updateSprintStatus (get i) (s lt)) $ failureMsg "Update sprint"
 
 cmdUpdStatusStory :: (LocalTime -> TStatusRecord)
   -> Flag "i" '["ID"] "Story id" "Target Story Id" Int
@@ -256,8 +244,7 @@ cmdUpdStatusStory :: (LocalTime -> TStatusRecord)
 cmdUpdStatusStory s i = liftIO $ do
   lt <- getLocalTime
   modifyActivePjSimple
-    (return . updateStoryStatus (get i) (s lt))
-    "Error : Update story Failure. Check active project is available as `ttask project`"
+    (return . updateStoryStatus (get i) (s lt)) $ failureMsg "Update story"
 
 cmdUpdStatusTask :: (LocalTime -> TStatusRecord)
   -> Flag "i" '["ID"] "Task id" "Target Task Id" Int
@@ -265,8 +252,7 @@ cmdUpdStatusTask :: (LocalTime -> TStatusRecord)
 cmdUpdStatusTask s i = liftIO $ do
   lt <- getLocalTime
   modifyActivePjSimple
-    (return . updateTaskStatus (get i) (s lt))
-    "Error : Update task Failure. Check active project is available as `ttask project`"
+    (return . updateTaskStatus (get i) (s lt)) $ failureMsg "Update task"
 
 ----
 -- show
@@ -277,24 +263,20 @@ cmdActive = liftIO $ do
     pn <- activeProjectName
     case pn of
       Just n -> 
-        execToActiveProject (putStrLn . ppActive n) errMsg
-      Nothing -> putStrLn errMsg
-  where
-    errMsg = "Error : show active project Failure. Check active project is available as `ttask project`"
+        execToActiveProject (putStrLn . ppActive n) $ failureMsg "Show project"
+      Nothing -> putStrLn $ failureMsg "Show project"
 
 cmdShowPbl 
   :: Cmd "List all pbl storys" ()
 cmdShowPbl  = liftIO $ do
-  execToActiveProject (putStrLn . ppProjectPbl)
-    "Error : Show pbl Failure. Check active project is available as `ttask project`"
+  execToActiveProject (putStrLn . ppProjectPbl) $ failureMsg "Show product backlog"
 
 cmdShowSprints
   :: Flag "i" '["ID"] "Sprint id" "Target Sprint Id" (Def "-1" Int)
   -> Flag "s" '["SIMPLE"] "show simple" "Show simple mode when sprint id is designated." Bool
-  -> Cmd "List all sprint, Or show sprints detail when project id is abbraviated." ()
+  -> Cmd "List all sprint, Or show sprints detail when project id is not abbraviated." ()
 cmdShowSprints i s = liftIO $ do
-    execToActiveProject (showSprint $ get i)
-      "Error : Show sprint(s) Failure. Check active project is available as `ttask project`"
+    execToActiveProject (showSprint $ get i) $ failureMsg "Show sprint(s)"
   where
     showSprint :: Id -> Project -> IO ()
     showSprint i pj = 
@@ -305,8 +287,7 @@ cmdShowStorys
   :: Flag "i" '["ID"] "Story id" "Target Story Id" Int
   -> Cmd "Show target story information and all tasks" ()
 cmdShowStorys i = liftIO $ do
-    execToActiveProject (showStory $ get i)
-      "Error : Show story Failure. Check active project is available as `ttask project`"
+    execToActiveProject (showStory $ get i) $ failureMsg "Show story"
   where
     showStory :: Id -> Project -> IO ()
     showStory i pj = showContnt i pj (const "") ppProjectStory
@@ -343,3 +324,16 @@ showContnt i pj f g err = case i of
     in case res of 
       Just r -> putStrLn r
       Nothing -> putStrLn err
+
+----
+
+failureMsg :: String -> String
+failureMsg s 
+  = "Error : " ++ s ++ " Failure. Check active project is available as `ttask project`"
+
+failureMsgWithId :: String -> String -> Id -> String
+failureMsgWithId s t i = failureMsgWithIdS s t $ show i
+
+failureMsgWithIdS :: String -> String -> String -> String
+failureMsgWithIdS s t i 
+  = "Error : " ++ s ++ " Failure. Check " ++ t ++ " `" ++ show i ++ "` exist"

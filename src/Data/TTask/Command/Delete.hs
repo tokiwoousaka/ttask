@@ -1,4 +1,8 @@
-module Data.TTask.Command.Delete where
+module Data.TTask.Command.Delete 
+  ( deleteTask 
+  , deleteStory 
+  , deleteSprint 
+  ) where
 import Data.TTask.Types
 
 deleteTask :: Id -> Project -> Project
