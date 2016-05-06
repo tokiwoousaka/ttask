@@ -10,10 +10,15 @@ module Data.TTask.Command.Add
   , addStoryToPjSprints 
   , addTaskToProject 
   , getLocalTime 
+  , projectsTaskMaxId 
+  , projectStoryMaxId 
+  , projectSprintMaxId 
   ) where
 import Data.Time
 import Data.List.Extra
+import Data.Maybe
 import Data.TTask.Types
+import Safe
 
 ------
 -- Create new Contents
@@ -127,6 +132,26 @@ addTaskToStory :: Id -> Task -> UserStory -> UserStory
 addTaskToStory id task us = if storyId us == id
   then us { storyTasks = snoc (storyTasks us) task } else us
 
+------
+-- Id Control
+
+projectsTaskMaxIdMay :: Project -> Maybe Id
+projectsTaskMaxIdMay = maximumMay . map taskId . projectsAllTasks
+
+projectsTaskMaxId :: Project -> Id
+projectsTaskMaxId = fromMaybe 0 . projectsTaskMaxIdMay
+
+projectStoryMaxIdMay :: Project -> Maybe Id
+projectStoryMaxIdMay = maximumMay . map storyId . projectsAllStory
+
+projectStoryMaxId :: Project -> Id
+projectStoryMaxId = fromMaybe 0 . projectStoryMaxIdMay
+
+projectSprintMaxIdMay :: Project -> Maybe Id
+projectSprintMaxIdMay = maximumMay . map sprintId . projectSprints
+
+projectSprintMaxId :: Project -> Id
+projectSprintMaxId = fromMaybe 0 . projectSprintMaxIdMay
 
 ---- 
 -- Util 
