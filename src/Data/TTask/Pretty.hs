@@ -36,7 +36,7 @@ ppTask task = formatRecord "TASK"
   (taskStatus task) (taskDescription task)
 
 ppStoryHeader :: UserStory -> String
-ppStoryHeader story = formatRecord "SOTRY" 
+ppStoryHeader story = formatRecord "STORY" 
   (storyId story) (calcStoryPoint story) 
   (storyStatus story) (storyDescription story)
 
