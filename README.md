@@ -81,21 +81,21 @@ Active sprint(s) :
 SPRINT - 1 : 11pt [ Running ] ttaskの公開
 To Wait            at 2016-05-03 17:29:30.337829
 To Running         at 2016-05-03 17:39:45.119291
-　　SOTRY - 1 : 11pt [ Running ] 作業者はセルフマネジメントのためttaskをgithubからインストール出来る
+　　STORY - 1 : 11pt [ Running ] 作業者はセルフマネジメントのためttaskをgithubからインストール出来る
 　　　　TASK - 1 : 3pt [ Finished ] サンプルのプロジェクトを作成しながら標準出力を記録
 　　　　TASK - 2 : 5pt [ Running ] README作成
 　　　　TASK - 3 : 3pt [ Wait ] githubにリポジトリ作成〜pushまで
 
 Product backlog :
-SOTRY - 4 : 0pt [ Wait ] 作業者は現在よりもより手軽にPBLを並び替える事の出来るttaskを使う事が出来る
-SOTRY - 9 : 0pt [ Wait ] 作業者が誤入力しても大丈夫なように一度作成したコンテンツの説明を修正出来る
-SOTRY - 2 : 0pt [ Wait ] 作業者はレビューのためttaskで記録したスプリントのログを照会出来る
-SOTRY - 5 : 0pt [ Wait ] 作業者はswapやmoveを失敗した際に、その失敗を直ちに認知する事が出来る
-SOTRY - 11 : 0pt [ Wait ] 作業者は作業の相対見積もりを正しく行うためにいつでも基準となるタスクを見れる
-SOTRY - 7 : 0pt [ Wait ] 作業者は実際に作業を行った作業時間を記録する事が出来る
-SOTRY - 8 : 0pt [ Wait ] スクラムを知らない作業者はttaskの管理の仕組みを理解するための詳細な文章を読む事が出来る
-SOTRY - 6 : 0pt [ Wait ] 作業者は日々の進捗状況を正確に把握するためのバーンダウンチャートを見る事が出来る
-SOTRY - 10 : 0pt [ Wait ] 忙しい作業者は正しい振り返りのため複数のプロジェクトにまたがったログを照会出来る
+STORY - 4 : 0pt [ Wait ] 作業者は現在よりもより手軽にPBLを並び替える事の出来るttaskを使う事が出来る
+STORY - 9 : 0pt [ Wait ] 作業者が誤入力しても大丈夫なように一度作成したコンテンツの説明を修正出来る
+STORY - 2 : 0pt [ Wait ] 作業者はレビューのためttaskで記録したスプリントのログを照会出来る
+STORY - 5 : 0pt [ Wait ] 作業者はswapやmoveを失敗した際に、その失敗を直ちに認知する事が出来る
+STORY - 11 : 0pt [ Wait ] 作業者は作業の相対見積もりを正しく行うためにいつでも基準となるタスクを見れる
+STORY - 7 : 0pt [ Wait ] 作業者は実際に作業を行った作業時間を記録する事が出来る
+STORY - 8 : 0pt [ Wait ] スクラムを知らない作業者はttaskの管理の仕組みを理解するための詳細な文章を読む事が出来る
+STORY - 6 : 0pt [ Wait ] 作業者は日々の進捗状況を正確に把握するためのバーンダウンチャートを見る事が出来る
+STORY - 10 : 0pt [ Wait ] 忙しい作業者は正しい振り返りのため複数のプロジェクトにまたがったログを照会出来る
 ```
 
 * 要求仕様を自然言語で簡潔に記したものをユーザーストーリー(`STORY`)と呼びます
@@ -155,9 +155,9 @@ PROJECT - sample : 0pt [ Wait ] サンプルプロジェクトです
 Running sprint is nothing
 
 Product backlog :
-SOTRY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
-SOTRY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
-SOTRY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
+STORY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
+STORY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+STORY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
 ```
 
 ストーリーは優先して実現したい事が上にくるように並べ替えを行います。
@@ -173,9 +173,9 @@ PROJECT - sample : 0pt [ Wait ] サンプルプロジェクトです
 Running sprint is nothing
 
 Product backlog :
-SOTRY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
-SOTRY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
-SOTRY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
+STORY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
+STORY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+STORY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
 ```
 
 プロダクトバックログは常に更新され続ける事が良いとされているのですが、
@@ -207,8 +207,8 @@ $ ttask move story -i 2 -t 1
 $ ttask sprint -i 1
 SPRINT - 1 : 0pt [ Wait ] プロジェクト開始、重要度の高い機能をとりあえず作る
 To Wait            at 2016-05-03 17:59:42.212454
-　　SOTRY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
-　　SOTRY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+　　STORY - 3 : 0pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
+　　STORY - 2 : 0pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
 ```
 
 ### プランニング
@@ -224,10 +224,10 @@ $ ttask add task -i 2 -p 5 "機能Zを作る"
 $ ttask sprint -i 1
 SPRINT - 1 : 11pt [ Wait ] プロジェクト開始、重要度の高い機能をとりあえず作る
 To Wait            at 2016-05-03 17:59:42.212454
-　　SOTRY - 3 : 4pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
+　　STORY - 3 : 4pt [ Wait ] Cさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 1 : 3pt [ Wait ] 機能Xを作る
 　　　　TASK - 2 : 1pt [ Wait ] 機能Yを作る
-　　SOTRY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+　　STORY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 3 : 2pt [ Wait ] 機能Zを作るための技術Nについて調べる
 　　　　TASK - 4 : 5pt [ Wait ] 機能Zを作る
 ```
@@ -251,21 +251,21 @@ Active sprint(s) :
 SPRINT - 1 : 11pt [ Running ] プロジェクト開始、重要度の高い機能をとりあえず作る
 To Wait            at 2016-05-03 17:59:42.212454
 To Running         at 2016-05-03 18:09:39.96355
-　　SOTRY - 3 : 4pt [ Running ] Cさんは〜が出来る。それは〜だからだ。
+　　STORY - 3 : 4pt [ Running ] Cさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 1 : 3pt [ Running ] 機能Xを作る
 　　　　TASK - 2 : 1pt [ Wait ] 機能Yを作る
-　　SOTRY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+　　STORY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 3 : 2pt [ Wait ] 機能Zを作るための技術Nについて調べる
 　　　　TASK - 4 : 5pt [ Wait ] 機能Zを作る
 
 Product backlog :
-SOTRY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
+STORY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
 ```
 
 尚、この`run`されたタイミングを元に、今後追加されるタスクが計画内作業なのか、
 予想外の追加作業なのか判別する事が出来るので、`run`するのはプランニングが終了してからの方が良いです。
 
-実際に、`SOTRY`や`TASK`等のステータスが変更されたタイミングも記録されているので、
+実際に、`STORY`や`TASK`等のステータスが変更されたタイミングも記録されているので、
 便利そうな照会機能や集計機能は思いついた時に追加されていくかもしれません。
 
 ### タスクの完了
@@ -284,16 +284,16 @@ Active sprint(s) :
 SPRINT - 1 : 14pt [ Running ] プロジェクト開始、重要度の高い機能をとりあえず作る
 To Wait            at 2016-05-03 17:59:42.212454
 To Running         at 2016-05-03 18:09:39.96355
-　　SOTRY - 3 : 7pt [ Running ] Cさんは〜が出来る。それは〜だからだ。
+　　STORY - 3 : 7pt [ Running ] Cさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 1 : 3pt [ Finished ] 機能Xを作る
 　　　　TASK - 2 : 1pt [ Running ] 機能Yを作る
 　　　　TASK - 5 : 3pt [ Wait ] 機能Wを作る
-　　SOTRY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
+　　STORY - 2 : 7pt [ Wait ] Bさんは〜が出来る。それは〜だからだ。
 　　　　TASK - 3 : 2pt [ Wait ] 機能Zを作るための技術Nについて調べる
 　　　　TASK - 4 : 5pt [ Wait ] 機能Zを作る
 
 Product backlog :
-SOTRY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
+STORY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
 ```
 
 全てのタスクが完了したら同じ要領で`story`や`sprint`も`Finished`に変更します。これでスプリント作業完了です。
