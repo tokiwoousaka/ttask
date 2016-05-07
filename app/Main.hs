@@ -32,7 +32,7 @@ main = do
 
 cmdProject 
   :: Flag "i" '["ID"] "Project id" "Switch project id" (Def "" String)
-  -> Cmd "Switch other project. Or list all projects when project id is abbraviated." ()
+  -> Cmd "Switch other project. Or list all projects when project id is abbreviated." ()
 cmdProject i = liftIO $ do
   case get i of 
     "" -> listupAllProjects
@@ -203,7 +203,7 @@ cmdRun = Group "Update contents status to `Running`"
   ]
 
 cmdFinish :: Group
-cmdFinish = Group "Update contents status to `Finiesh`"
+cmdFinish = Group "Update contents status to `Finish`"
   [ subCmd "sprint" (cmdUpdStatusSprint StatusFinished)
   , subCmd "story" (cmdUpdStatusStory StatusFinished)
   , subCmd "task" (cmdUpdStatusTask StatusFinished)
@@ -267,14 +267,14 @@ cmdActive = liftIO $ do
       Nothing -> putStrLn $ failureMsg "Show project"
 
 cmdShowPbl 
-  :: Cmd "List all pbl storys" ()
+  :: Cmd "List all pbl stories" ()
 cmdShowPbl  = liftIO $ do
   execToActiveProject (putStrLn . ppProjectPbl) $ failureMsg "Show product backlog"
 
 cmdShowSprints
   :: Flag "i" '["ID"] "Sprint id" "Target Sprint Id" (Def "-1" Int)
   -> Flag "s" '["SIMPLE"] "show simple" "Show simple mode when sprint id is designated." Bool
-  -> Cmd "List all sprint, Or show sprints detail when project id is not abbraviated." ()
+  -> Cmd "List all sprint, Or show sprints detail when project id is not abbreviated." ()
 cmdShowSprints i s = liftIO $ do
     execToActiveProject (showSprint $ get i) $ failureMsg "Show sprint(s)"
   where
