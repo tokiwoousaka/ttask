@@ -9,7 +9,7 @@ ttask
 スクラムというアジャイル開発手法で用いられるスケジュール管理手法に感銘を受けて開発された、
 セルフマネジメントを行うための簡単なタスク管理ツールです。
 
-ちゅーんさんが作ったタスク管理ツール……`tune san no task kanri tool`を縮めて`ttask`です。どうも。
+ちゅーんさんが作ったタスク管理ツール……`tune san ga tukutta task kanri tool`を縮めて`ttask`です。どうも。
 
 スプリントやプロダクトバックログといった仕組みを、個人のプロジェクトや、自学等に応用する事を目的とし、
 最小限の機能をCUI上でなるべく簡単に操作出来る事を目的として開発しています。
@@ -17,7 +17,7 @@ ttask
 尚、ドッグフーディングしながらの開発のため、当面の間は後方互換を保ちながら開発予定です。
 
 あくまでベータ版のため、不具合が残っている可能性が高い事、使い方や表示等の変更はしばらく続く事、
-まだどのくらい大なデータの扱いに耐えられるのかが不明な事等、色々と不完全な状態ですので、ご了承ください。
+まだどのくらい巨大なデータの扱いに耐えられるのかが不明な事等、色々と不完全な状態ですので、ご了承ください。
 
 哲学
 -------------------------------------------------
@@ -57,13 +57,14 @@ Commands:
   swap        Swap contents of active project
   active      Show active projects information
   pbl         List all pbl stories
-  sprint      List all sprint, Or show sprints detail when project id is abbreviated.
+  sprint      List all sprint, Or show sprints detail when project id is not abbreviated.
   story       Show target story information and all tasks
   run         Update contents status to `Running`
   finish      Update contents status to `Finish`
   wait        Update contents status to `Wait`
   nota        Update contents status to `Not Achieved`
   reject      Update contents status to `Rejected`
+  log         Analysis sprint log
 ```
 
 用語 
@@ -309,5 +310,49 @@ STORY - 1 : 0pt [ Wait ] Aさんは〜が出来る。それは〜だからだ。
 * `ttask nota -i [ID]` で完了出来なかった事を表す`Not Achieved`に更新
 * `ttask reject -i [ID]` でタスクやストーリー等を却下した事を表す`Rejected`に更新
 
-これらもおいおい集計材料に使えるため、上手く活用すると良いでしょう。
+これらもおいおい分析材料に使えるため、上手く活用すると良いでしょう。
+
+### ログの照会
+
+指定した`ttask log -i [スプリントId]`で、スプリントのStatusの変更ログを照会する事ができます。
+
+```
+$ ttask log -i 1
+SPRINT - 1 : 14pt [ Running ] プロジェクト開始、重要度の高い機能をとりあえず作る
+To Wait            at 2016-05-03 17:59:42.212454
+To Running         at 2016-05-03 18:09:39.96355
+
+2016-05-03 : Total Finished point = 5
+    [STORY 7pt Wait at 17:54:41.121922] 2 : Bさんは〜が出来る。それは〜だからだ。
+    [STORY 7pt Wait at 17:54:52.559651] 3 : Cさんは〜が出来る。それは〜だからだ。
+    [SPRINT 14pt Wait at 17:59:42.212454] 1 : プロジェクト開始、重要度の高い機能をとりあえず作る
+    [TASK 3pt Wait at 18:02:53.522256] 1 : 機能Xを作る
+    [TASK 1pt Wait at 18:06:10.331305] 2 : 機能Yを作る
+    [TASK 2pt Wait at 18:06:41.003772] 3 : 機能Zを作るための技術Nについて調べる
+    [TASK 5pt Wait at 18:06:47.726077] 4 : 機能Zを作る
+    [TASK 3pt Running at 18:09:24.241093] 1 : 機能Xを作る
+    [STORY 7pt Running at 18:09:31.880485] 3 : Cさんは〜が出来る。それは〜だからだ。
+    [SPRINT 14pt Running at 18:09:39.96355] 1 : プロジェクト開始、重要度の高い機能をとりあえず作る
+    [TASK 2pt Finished at 18:10:48.585817] 3 : 機能Zを作るための技術Nについて調べる
+    [TASK 1pt Running at 18:10:56.600559] 2 : 機能Yを作る
+    [TASK 2pt Running at 18:11:45.51535] 3 : 機能Zを作るための技術Nについて調べる
+    [TASK 3pt Finished at 18:11:49.527379] 1 : 機能Xを作る
+    [TASK 2pt Wait at 18:12:10.619377] 3 : 機能Zを作るための技術Nについて調べる
+    [TASK 3pt Wait at 18:13:44.597384] 5 : 機能Wを作る
+2016-05-04 : Total Finished point = 1
+    [TASK 1pt Finished at 03:01:38.742591] 2 : 機能Yを作る
+    [TASK 3pt Running at 03:02:54.303788] 5 : 機能Wを作る
+
+Wait : 7pt
+Running : 3pt
+Finished : 4pt
+Not Achieved : 0pt
+Rejected : 0pt
+```
+
+この機能を使えば、現在のスプリントの全体の進行状況やボトルネックになった作業を確認する事ができます。
+
+うまく活用して振り返りに用いると良いでしょう。
+
+
 

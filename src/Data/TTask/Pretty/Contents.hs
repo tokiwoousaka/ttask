@@ -9,6 +9,7 @@ module Data.TTask.Pretty.Contents
   , ppProjectSprintList 
   , ppProjectSprint 
   , ppProjectSprintDetail 
+  , ppSprintHeaderDetail 
   , ppProjectStory 
   , ppProjectTask 
   , ppStatusRecord
@@ -70,9 +71,9 @@ ppProjectHeader pid pj =
 ppSprintDetail :: Sprint -> String
 ppSprintDetail s 
     = formatFamily 1 s ppSprintHeaderDetail sprintStorys $ \s -> ppStoryI 2 s
-  where
-    ppSprintHeaderDetail :: Sprint -> String
-    ppSprintHeaderDetail s = ppSprintHeader s ++ "\n" ++ ppStatus (sprintStatus s)
+
+ppSprintHeaderDetail :: Sprint -> String
+ppSprintHeaderDetail s = ppSprintHeader s ++ "\n" ++ ppStatus (sprintStatus s)
 
 ----
 

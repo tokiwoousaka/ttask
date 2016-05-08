@@ -18,7 +18,9 @@ ppDailySprintLog s =
     cond f r = (f $ stRecToStatus r) && (isTask $ stRecToContents r)
     summary f = show (summaryPointBy (cond f) sx)
   in concat
-      [ intercalate "\n" . map ppDailyStatuses . dailyGroup $ getSprintStatuses s
+      [ ppSprintHeaderDetail s
+      , "\n\n" 
+      , intercalate "\n" . map ppDailyStatuses . dailyGroup $ getSprintStatuses s
       , "\n\n" 
       , "Wait : " ++ summary stWait ++ "pt\n"
       , "Running : " ++ summary stRunning ++ "pt\n"
