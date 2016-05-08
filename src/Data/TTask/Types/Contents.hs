@@ -1,5 +1,9 @@
 module Data.TTask.Types.Contents
-  ( sprintAllTasks 
+  ( isProject 
+  , isSprint 
+  , isStory 
+  , isTask 
+  , sprintAllTasks 
   , projectsAllTasks 
   , projectsAllStory 
   , calcStoryPoint 
@@ -11,6 +15,25 @@ module Data.TTask.Types.Contents
   ) where
 import Data.TTask.Types.Types
 import Data.List
+
+------
+-- Screening contents
+
+isProject :: TTaskContents -> Bool
+isProject (TTaskProject _) = True
+isProject _ = False
+
+isSprint :: TTaskContents -> Bool
+isSprint (TTaskSprint _) = True
+isSprint _ = False
+
+isStory :: TTaskContents -> Bool
+isStory (TTaskStory _) = True
+isStory _ = False
+
+isTask :: TTaskContents -> Bool
+isTask (TTaskTask _) = True
+isTask _ = False
 
 ------
 -- List up Task/Story

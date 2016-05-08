@@ -1,6 +1,7 @@
 module Data.TTask.Types.Types
   ( Point(..)
   , Id(..)
+  , StatusLogRec
   , WorkTime(..)   
   , TStatusRecord(..) 
   , TStatus(..) 
@@ -8,11 +9,13 @@ module Data.TTask.Types.Types
   , UserStory(..) 
   , Sprint(..) 
   , Project(..) 
+  , TTaskContents(..)
   ) where
 import Data.Time
 
 type Point = Int
 type Id = Int
+type StatusLogRec = (TTaskContents, TStatusRecord)
 
 newtype WorkTime = WorkTime Double deriving (Show, Read, Eq)
 data TStatusRecord 
@@ -52,3 +55,9 @@ data Project = Project
   , projectSprints :: [Sprint]
   , projectStatus :: TStatus
   } deriving (Show, Read, Eq)
+
+data TTaskContents
+  = TTaskProject Project
+  | TTaskSprint Sprint
+  | TTaskStory UserStory
+  | TTaskTask Task

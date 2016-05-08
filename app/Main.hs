@@ -25,6 +25,7 @@ main = do
     , subCmd "wait" cmdWait
     , subCmd "nota" cmdNotAchieved 
     , subCmd "reject" cmdReject
+    , subCmd "log" cmdLog
     ]
 
 ----
@@ -292,6 +293,19 @@ cmdShowStorys i = liftIO $ do
     showStory :: Id -> Project -> IO ()
     showStory i pj = showContnt i pj (const "") ppProjectStory
       ("Error : Show story Filure. Check target story (id = " ++ show i ++ ") is exist")
+
+----
+-- log
+
+cmdLog 
+  :: Flag "i" '["ID"] "Sprint id" "Target Sprint Id" Int
+  -> Cmd "Analysis sprint log" ()
+cmdLog i = liftIO $ do
+    execToActiveProject (showSprintLog $ get i) $ failureMsg "Show sprint log"
+  where
+    showSprintLog :: Id -> Project -> IO ()
+    showSprintLog i pj = showContnt i pj (const "") ppProjectSprintLog
+      ("Error : Show sprint log Filure. Check target sprint (id = " ++ show i ++ ") is exist")
 
 ----
 -- util

@@ -1,14 +1,14 @@
 name:                ttask
 version:             0.0.0.2
-synopsis:            Initial project template from stack
-description:         Please see README.md
-homepage:            https://github.com/githubuser/ttask#readme
+synopsis:            This is task management tool for yourself, that inspired by scrum.
+description:         Please see README.md (ja)
+homepage:            https://github.com/tokiwoousaka/ttask#readme
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2016 Author name here
-category:            Web
+author:              Tokiwo Ousaka
+maintainer:          its.out.of.tune.this.my.music@gmail.com
+copyright:           2016 Tokiwo Ousaka
+category:            Data
 build-type:          Simple
 -- extra-source-files:
 cabal-version:       >=1.10
@@ -26,7 +26,10 @@ library
                      , Data.TTask.Types.Contents
                      , Data.TTask.Types.Status
                      , Data.TTask.Pretty
+                     , Data.TTask.Pretty.Contents
+                     , Data.TTask.Pretty.Status
                      , Data.TTask.File
+                     , Data.TTask.Analysis
   build-depends:       base >= 4.7 && < 5
                      , time
                      , extra
