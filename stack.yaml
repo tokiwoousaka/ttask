@@ -3,6 +3,7 @@ packages:
 - '.'
 extra-deps: 
 - optparse-declarative-0.3.0
+- filepath-1.4.1.0
 flags: {}
 extra-package-dbs: []
 
