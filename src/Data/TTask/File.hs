@@ -16,6 +16,7 @@ import Data.TTask.Types
 import Data.TTask.Command
 import Safe
 import System.Directory
+import System.FilePath
 
 data Success = Success | Failure deriving (Show, Read, Eq)
 
@@ -29,15 +30,15 @@ readProject fn = do
 
 readActiveProject :: IO (Maybe Project)
 readActiveProject = do
-  dir <- return . (++"/") =<< projectsDirectory
+  dir <- projectsDirectory
   mfn <- activeProjectName 
-  join <$> sequence (readProject . (dir++) <$> mfn)
+  join <$> sequence (readProject . (dir </>) <$> mfn)
 
 writeActiveProject :: Project -> IO Success
 writeActiveProject pj = do
-  dir <- return . (++"/") =<< projectsDirectory
+  dir <- projectsDirectory
   mfn <- activeProjectName 
-  res <- sequence $ writeProject <$> fmap (dir++) mfn <*> pure pj
+  res <- sequence $ writeProject <$> fmap (dir </>) mfn <*> pure pj
   case res of
     Just _ -> return Success
     Nothing -> return Failure
@@ -47,15 +48,17 @@ writeActiveProject pj = do
 workDirectory :: IO String
 workDirectory = do
   homeDir <- getHomeDirectory
-  return $ homeDir ++ "/.ttask"
+  return $ homeDir </> ".ttask"
 
 projectsDirectory :: IO String
 projectsDirectory = do
   homeDir <- getHomeDirectory
-  return $ homeDir ++ "/.ttask/projects"
+  return $ homeDir </> ".ttask" </> "projects"
 
 activeMemoryFile :: IO String
-activeMemoryFile = workDirectory >>= return . (++"/active")
+activeMemoryFile = do
+  workDir <- workDirectory
+  return $ workDir </> "active"
 
 activeProjectName :: IO (Maybe String)
 activeProjectName = do
@@ -87,7 +90,7 @@ initDirectory = do
 initProjectFile :: String -> String -> IO ()
 initProjectFile id name = do
   pj <- newProject name
-  fn <- projectsDirectory >>= return . (++"/"++id)
+  fn <- projectsDirectory >>= return . (</> id)
   writeProject fn $ pj
   _ <- setActiveProject id --ファイル作成直後なので成功している気持ち……
   return ()
