@@ -28,6 +28,9 @@ library
                      , Data.TTask.Pretty.Contents
                      , Data.TTask.Pretty.Status
                      , Data.TTask.File
+                     , Data.TTask.File.File
+                     , Data.TTask.File.Compatibility
+                     , Data.TTask.File.Compatibility.V0_1_0_0
                      , Data.TTask.Analysis
   build-depends:       base >= 4.7 && < 5
                      , time
@@ -35,6 +38,9 @@ library
                      , safe
                      , directory
                      , filepath
+                     , lens
+                     , either
+                     , transformers
   default-language:    Haskell2010
 
 executable ttask

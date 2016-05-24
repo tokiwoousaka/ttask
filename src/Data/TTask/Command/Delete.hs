@@ -7,32 +7,32 @@ import Data.TTask.Types
 
 deleteTask :: Id -> Project -> Project
 deleteTask i pj = pj
-  { projectBacklog  = map (deleteTaskFromStory i) $ projectBacklog pj 
-  , projectSprints = map (deleteTaskFromSprint i) $ projectSprints pj 
+  { _projectBacklog  = map (deleteTaskFromStory i) $ _projectBacklog pj 
+  , _projectSprints = map (deleteTaskFromSprint i) $ _projectSprints pj 
   }
 
 deleteStory :: Id -> Project -> Project
 deleteStory i pj = pj
-  { projectBacklog  = filter (\u -> storyId u /= i) $ projectBacklog pj
-  , projectSprints = map (deleteStoryFromSprint i) $ projectSprints pj 
+  { _projectBacklog  = filter (\u -> _storyId u /= i) $ _projectBacklog pj
+  , _projectSprints = map (deleteStoryFromSprint i) $ _projectSprints pj 
   }
 
 deleteSprint :: Id -> Project -> Project
 deleteSprint i pj 
-  = pj { projectSprints = filter (\s -> sprintId s /= i) $ projectSprints pj }
+  = pj { _projectSprints = filter (\s -> _sprintId s /= i) $ _projectSprints pj }
 
 ----
 
 deleteTaskFromStory :: Id -> UserStory -> UserStory
 deleteTaskFromStory i s 
-  = s { storyTasks = filter (\t -> taskId t /= i) $ storyTasks s }
+  = s { _storyTasks = filter (\t -> _taskId t /= i) $ _storyTasks s }
 
 deleteTaskFromSprint :: Id -> Sprint -> Sprint
 deleteTaskFromSprint i s 
-  = s { sprintStorys = map (deleteTaskFromStory i) $ sprintStorys s }
+  = s { _sprintStorys = map (deleteTaskFromStory i) $ _sprintStorys s }
 
 deleteStoryFromSprint :: Id -> Sprint -> Sprint
 deleteStoryFromSprint i s 
-  = s { sprintStorys = filter (\u -> storyId u /= i) $ sprintStorys s }
+  = s { _sprintStorys = filter (\u -> _storyId u /= i) $ _sprintStorys s }
 
 

@@ -87,27 +87,27 @@ stRecToStatus = snd
 ----
 
 getTaskStatuses :: Task -> [StatusLogRec]
-getTaskStatuses t = map (\x -> (TTaskTask t, x)) . statusToList $ taskStatus t
+getTaskStatuses t = map (\x -> (TTaskTask t, x)) . statusToList $ _taskStatus t
 
 getStoryStatuses :: UserStory -> [StatusLogRec]
 getStoryStatuses u = 
-  let uStatus = map (\x -> (TTaskStory u, x)) . statusToList $ storyStatus u
-  in uStatus ++ concatMap getTaskStatuses (storyTasks u)
+  let uStatus = map (\x -> (TTaskStory u, x)) . statusToList $ _storyStatus u
+  in uStatus ++ concatMap getTaskStatuses (_storyTasks u)
   
 getSprintStatuses :: Sprint -> [StatusLogRec]
 getSprintStatuses s = 
-  let sStatus = map (\x -> (TTaskSprint s, x)) . statusToList $ sprintStatus s
-  in sStatus ++ concatMap getStoryStatuses (sprintStorys s)
+  let sStatus = map (\x -> (TTaskSprint s, x)) . statusToList $ _sprintStatus s
+  in sStatus ++ concatMap getStoryStatuses (_sprintStorys s)
 
 getTaskLastStatus :: Task -> StatusLogRec
-getTaskLastStatus t = (\x -> (TTaskTask t, x)) . getLastStatus $ taskStatus t
+getTaskLastStatus t = (\x -> (TTaskTask t, x)) . getLastStatus $ _taskStatus t
 
 getStoryLastStatuses :: UserStory -> [StatusLogRec]
 getStoryLastStatuses u = 
-  let uStatus = (\x -> (TTaskStory u, x)) . getLastStatus $ storyStatus u
-  in uStatus : map getTaskLastStatus (storyTasks u)
+  let uStatus = (\x -> (TTaskStory u, x)) . getLastStatus $ _storyStatus u
+  in uStatus : map getTaskLastStatus (_storyTasks u)
 
 getSprintLastStatuses :: Sprint -> [StatusLogRec]
 getSprintLastStatuses s = 
-  let sStatus = (\x -> (TTaskSprint s, x)) . getLastStatus $ sprintStatus s
-  in sStatus : concatMap getStoryLastStatuses (sprintStorys s)
+  let sStatus = (\x -> (TTaskSprint s, x)) . getLastStatus $ _sprintStatus s
+  in sStatus : concatMap getStoryLastStatuses (_sprintStorys s)

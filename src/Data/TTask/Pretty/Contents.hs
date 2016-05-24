@@ -21,12 +21,12 @@ import Data.List
 ppActive :: String -> Project -> String 
 ppActive pid pj = let
     activeSprints :: Project -> [Sprint]
-    activeSprints = filter (isRunning . sprintStatus) . projectSprints
+    activeSprints = filter (isRunning . _sprintStatus) . _projectSprints
   in concat
     [ ppProjectHeader pid pj 
     , if activeSprints pj /= [] then "\n\nActive sprint(s) :\n" else "\nRunning sprint is nothing"
     , intercalate "\n" . map ppSprintDetail $ activeSprints pj
-    , if projectBacklog pj /= [] then "\n\nProduct backlog :\n" else ""
+    , if _projectBacklog pj /= [] then "\n\nProduct backlog :\n" else ""
     , ppProjectPbl pj
     ]
 
@@ -34,54 +34,54 @@ ppActive pid pj = let
 
 ppTask :: Task -> String
 ppTask task = formatRecord "TASK" 
-  (taskId task) (taskPoint task) 
-  (taskStatus task) (taskDescription task)
+  (_taskId task) (_taskPoint task) 
+  (_taskStatus task) (_taskDescription task)
 
 ppStoryHeader :: UserStory -> String
 ppStoryHeader story = formatRecord "STORY" 
-  (storyId story) (calcStoryPoint story) 
-  (storyStatus story) (storyDescription story)
+  (_storyId story) (calcStoryPoint story) 
+  (_storyStatus story) (_storyDescription story)
 
 ppStory :: UserStory -> String
 ppStory story = ppStoryI 1 story
 
 ppStoryI :: Int -> UserStory -> String
-ppStoryI r story = formatFamily r story ppStoryHeader storyTasks ppTask
+ppStoryI r story = formatFamily r story ppStoryHeader _storyTasks ppTask
 
 ppStoryList :: [UserStory] -> String
 ppStoryList = intercalate "\n" . map ppStoryHeader
 
 ppSprintHeader :: Sprint -> String
 ppSprintHeader sprint = formatRecord "SPRINT" 
-  (sprintId sprint) (calcSprintPoint sprint) 
-  (sprintStatus sprint) (sprintDescription sprint)
+  (_sprintId sprint) (calcSprintPoint sprint) 
+  (_sprintStatus sprint) (_sprintDescription sprint)
 
 ppSprint :: Sprint -> String
-ppSprint sprint = formatFamily 1 sprint ppSprintHeader sprintStorys ppStoryHeader
+ppSprint sprint = formatFamily 1 sprint ppSprintHeader _sprintStorys ppStoryHeader
 
 ppSprintList :: [Sprint] -> String
 ppSprintList = intercalate "\n" . map ppSprintHeader
 
 ppProjectHeader :: String -> Project -> String
 ppProjectHeader pid pj = 
-  formatRecordShowedId "PROJECT" pid (calcProjectPoint pj) (projectStatus pj) (projectName pj)
+  formatRecordShowedId "PROJECT" pid (calcProjectPoint pj) (_projectStatus pj) (_projectName pj)
 
 ----
 
 ppSprintDetail :: Sprint -> String
 ppSprintDetail s 
-    = formatFamily 1 s ppSprintHeaderDetail sprintStorys $ \s -> ppStoryI 2 s
+    = formatFamily 1 s ppSprintHeaderDetail _sprintStorys $ \s -> ppStoryI 2 s
 
 ppSprintHeaderDetail :: Sprint -> String
-ppSprintHeaderDetail s = ppSprintHeader s ++ "\n" ++ ppStatus (sprintStatus s)
+ppSprintHeaderDetail s = ppSprintHeader s ++ "\n" ++ ppStatus (_sprintStatus s)
 
 ----
 
 ppProjectPbl :: Project -> String
-ppProjectPbl = ppStoryList . projectBacklog
+ppProjectPbl = ppStoryList . _projectBacklog
 
 ppProjectSprintList :: Project -> String
-ppProjectSprintList = ppSprintList . projectSprints
+ppProjectSprintList = ppSprintList . _projectSprints
 
 ppProjectSprint :: Id -> Project -> Maybe String
 ppProjectSprint i pj = ppSprint <$> getSprintById pj i

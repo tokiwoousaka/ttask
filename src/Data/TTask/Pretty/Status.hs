@@ -40,13 +40,13 @@ ppDailyStatuses d = concat
 ppStatusLog :: StatusLogRec -> String
 ppStatusLog s = case stRecToContents s of
   TTaskProject v -> 
-    fmtStatusRec "PROJECT" 0 (calcProjectPoint v) s (projectName v)
+    fmtStatusRec "PROJECT" 0 (calcProjectPoint v) s (_projectName v)
   TTaskSprint  v -> 
-    fmtStatusRec "SPRINT" (sprintId v) (calcSprintPoint v) s (sprintDescription v)
+    fmtStatusRec "SPRINT" (_sprintId v) (calcSprintPoint v) s (_sprintDescription v)
   TTaskStory   v -> 
-    fmtStatusRec "STORY" (storyId v) (calcStoryPoint v) s (storyDescription v)
+    fmtStatusRec "STORY" (_storyId v) (calcStoryPoint v) s (_storyDescription v)
   TTaskTask    v -> 
-    fmtStatusRec "TASK" (taskId v) (taskPoint v) s (taskDescription v)
+    fmtStatusRec "TASK" (_taskId v) (_taskPoint v) s (_taskDescription v)
 
 fmtStatusRec 
   :: String -> Id -> Point -> StatusLogRec -> String -> String

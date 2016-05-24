@@ -39,41 +39,41 @@ moveTask tid uid pj = do
 
 swapSprint :: Id -> Id -> Project -> Project
 swapSprint fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj sprintId getSprintById fid tid
-  in pj { projectSprints = swapBy f2t t2f $ projectSprints pj }
+  let (f2t, t2f) = swapFuncs pj _sprintId getSprintById fid tid
+  in pj { _projectSprints = swapBy f2t t2f $ _projectSprints pj }
 
 swapStory :: Id -> Id -> Project -> Project
 swapStory fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj storyId getUserStoryById fid tid
+  let (f2t, t2f) = swapFuncs pj _storyId getUserStoryById fid tid
   in pj
-    { projectBacklog = swapBy f2t t2f $ projectBacklog pj
-    , projectSprints = map (swapSprintsStory fid tid pj) $ projectSprints pj
+    { _projectBacklog = swapBy f2t t2f $ _projectBacklog pj
+    , _projectSprints = map (swapSprintsStory fid tid pj) $ _projectSprints pj
     }
 
 swapTask :: Id -> Id -> Project -> Project
 swapTask fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj taskId getTaskById fid tid
+  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
   in pj
-    { projectBacklog = map (swapStorysTask fid tid pj) $ projectBacklog pj
-    , projectSprints = map (swapSprintsTask fid tid pj) $ projectSprints pj
+    { _projectBacklog = map (swapStorysTask fid tid pj) $ _projectBacklog pj
+    , _projectSprints = map (swapSprintsTask fid tid pj) $ _projectSprints pj
     }
 
 ----
 
 swapSprintsTask :: Id -> Id -> Project -> Sprint -> Sprint
 swapSprintsTask fid tid pj sp = 
-  let (f2t, t2f) = swapFuncs pj taskId getTaskById fid tid
-  in sp { sprintStorys = map (swapStorysTask fid tid pj) $ sprintStorys sp }
+  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
+  in sp { _sprintStorys = map (swapStorysTask fid tid pj) $ _sprintStorys sp }
 
 swapStorysTask :: Id -> Id -> Project -> UserStory -> UserStory
 swapStorysTask fid tid pj story = 
-  let (f2t, t2f) = swapFuncs pj taskId getTaskById fid tid
-  in story { storyTasks = swapBy f2t t2f $ storyTasks story } 
+  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
+  in story { _storyTasks = swapBy f2t t2f $ _storyTasks story } 
 
 swapSprintsStory :: Id -> Id -> Project -> Sprint -> Sprint
 swapSprintsStory fid tid pj sp = 
-  let (f2t, t2f) = swapFuncs pj storyId getUserStoryById fid tid
-  in sp { sprintStorys = swapBy f2t t2f $ sprintStorys sp }
+  let (f2t, t2f) = swapFuncs pj _storyId getUserStoryById fid tid
+  in sp { _sprintStorys = swapBy f2t t2f $ _sprintStorys sp }
 
 swapFuncs :: Project -> (a -> Id) 
   -> (Project -> Id -> Maybe a) -> Id -> Id -> (a -> Maybe a, a -> Maybe a)

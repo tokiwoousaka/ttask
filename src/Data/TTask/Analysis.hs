@@ -58,6 +58,6 @@ getPoint r = case stRecToContents r of
   TTaskProject v -> calcProjectPoint v
   TTaskSprint v -> calcSprintPoint v
   TTaskStory v -> calcStoryPoint v
-  TTaskTask v -> taskPoint v 
+  TTaskTask v -> _taskPoint v 
 
 
