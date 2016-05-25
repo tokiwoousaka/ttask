@@ -33,12 +33,12 @@ readActiveProject :: IO (Maybe Project)
 readActiveProject = do
   dir <- projectsDirectory
   mfn <- activeProjectName 
-  mpj <- join <$> sequence (readProject . (dir </>) <$> mfn)
+  mpj <- readProject . (dir </>) >$< mfn
   case mpj of
-    Just pj -> return mpj
+    Just _ -> return mpj
     Nothing -> do
-      s <- sequence (readFile . (dir </>) <$> mfn)
-      join <$> (s `seq` sequence (C.resolution <$> s))
+      s <- fmap return . readFile . (dir </>) >$< mfn
+      s `seq` C.resolution >$< s
 
 writeActiveProject :: Project -> IO Success
 writeActiveProject pj = do
@@ -116,5 +116,7 @@ getDirectoryContentsMay path =
 ----
 -- util
 
-
+infixl 8 >$<
+(>$<) :: (Monad m, Monad t, Traversable t) => (a -> m (t b)) -> t a -> m (t b)
+f >$< x = join <$> sequence (f <$> x)
 
