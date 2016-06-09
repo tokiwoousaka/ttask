@@ -1,4 +1,4 @@
-module Data.TTask.File.Compatibility.V0_1_0_0 
+module Data.TTask.File.Compatibility.V0_0_1_0 
   ( readProject
   ) where
 import Data.Functor

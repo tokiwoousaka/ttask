@@ -8,6 +8,7 @@ module Data.TTask.Command.Move
   , swapTask 
   ) where
 import Control.Applicative
+import Control.Lens
 import Control.Monad
 import Data.Maybe
 import Data.TTask.Types
@@ -19,19 +20,19 @@ import Data.TTask.Command.Delete
 
 moveStoryToPbl :: Id -> Project -> Maybe Project
 moveStoryToPbl uid pj = do
-  us <- getUserStoryById pj uid
+  us <- pj^?story uid
   return . addStoryToPblFirst us . deleteStory uid $ pj
 
 moveStoryToSprints :: Id -> Id -> Project -> Maybe Project
 moveStoryToSprints uid sid pj = do
-  us <- getUserStoryById pj uid
-  _ <- getSprintById pj sid
+  us <- pj^?story uid
+  _ <- pj^?sprint sid
   return . addStoryToPjSprints sid us . deleteStory uid $ pj
 
 moveTask :: Id -> Id -> Project -> Maybe Project
 moveTask tid uid pj = do
-  task <- getTaskById pj tid
-  _ <- getUserStoryById pj uid
+  task <- pj^?task tid
+  _ <- pj^?story uid
   return . addTaskToProject uid task . deleteTask tid $ pj
 
 ------
@@ -39,12 +40,12 @@ moveTask tid uid pj = do
 
 swapSprint :: Id -> Id -> Project -> Project
 swapSprint fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj _sprintId getSprintById fid tid
+  let (f2t, t2f) = swapFuncs pj _sprintId (\p i -> p^?sprint i) fid tid
   in pj { _projectSprints = swapBy f2t t2f $ _projectSprints pj }
 
 swapStory :: Id -> Id -> Project -> Project
 swapStory fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj _storyId getUserStoryById fid tid
+  let (f2t, t2f) = swapFuncs pj _storyId (\p i -> p^?story i) fid tid
   in pj
     { _projectBacklog = swapBy f2t t2f $ _projectBacklog pj
     , _projectSprints = map (swapSprintsStory fid tid pj) $ _projectSprints pj
@@ -52,7 +53,7 @@ swapStory fid tid pj =
 
 swapTask :: Id -> Id -> Project -> Project
 swapTask fid tid pj = 
-  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
+  let (f2t, t2f) = swapFuncs pj _taskId (\p i -> p^?task i) fid tid
   in pj
     { _projectBacklog = map (swapStorysTask fid tid pj) $ _projectBacklog pj
     , _projectSprints = map (swapSprintsTask fid tid pj) $ _projectSprints pj
@@ -62,17 +63,17 @@ swapTask fid tid pj =
 
 swapSprintsTask :: Id -> Id -> Project -> Sprint -> Sprint
 swapSprintsTask fid tid pj sp = 
-  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
+  let (f2t, t2f) = swapFuncs pj _taskId (\p i -> p^?task i) fid tid
   in sp { _sprintStorys = map (swapStorysTask fid tid pj) $ _sprintStorys sp }
 
 swapStorysTask :: Id -> Id -> Project -> UserStory -> UserStory
 swapStorysTask fid tid pj story = 
-  let (f2t, t2f) = swapFuncs pj _taskId getTaskById fid tid
+  let (f2t, t2f) = swapFuncs pj _taskId (\p i -> p^?task i) fid tid
   in story { _storyTasks = swapBy f2t t2f $ _storyTasks story } 
 
 swapSprintsStory :: Id -> Id -> Project -> Sprint -> Sprint
 swapSprintsStory fid tid pj sp = 
-  let (f2t, t2f) = swapFuncs pj _storyId getUserStoryById fid tid
+  let (f2t, t2f) = swapFuncs pj _storyId (\p i -> p^?story i) fid tid
   in sp { _sprintStorys = swapBy f2t t2f $ _sprintStorys sp }
 
 swapFuncs :: Project -> (a -> Id) 

@@ -15,13 +15,14 @@ module Data.TTask.Pretty.Contents
   , ppStatusRecord
   ) where
 import Control.Applicative
+import Control.Lens
 import Data.TTask.Types
 import Data.List
 
 ppActive :: String -> Project -> String 
 ppActive pid pj = let
     activeSprints :: Project -> [Sprint]
-    activeSprints = filter (isRunning . _sprintStatus) . _projectSprints
+    activeSprints = filter ((^.isRunning) . _sprintStatus) . _projectSprints
   in concat
     [ ppProjectHeader pid pj 
     , if activeSprints pj /= [] then "\n\nActive sprint(s) :\n" else "\nRunning sprint is nothing"
@@ -33,14 +34,14 @@ ppActive pid pj = let
 ----
 
 ppTask :: Task -> String
-ppTask task = formatRecord "TASK" 
-  (_taskId task) (_taskPoint task) 
-  (_taskStatus task) (_taskDescription task)
+ppTask t = formatRecord "TASK" 
+  (t^.taskId) (t^.taskPoint) 
+  (t^.taskStatus) (t^.taskDescription)
 
 ppStoryHeader :: UserStory -> String
-ppStoryHeader story = formatRecord "STORY" 
-  (_storyId story) (calcStoryPoint story) 
-  (_storyStatus story) (_storyDescription story)
+ppStoryHeader s = formatRecord "STORY" 
+  (s^.storyId) (s^.point) 
+  (s^.storyStatus) (s^.storyDescription)
 
 ppStory :: UserStory -> String
 ppStory story = ppStoryI 1 story
@@ -52,9 +53,9 @@ ppStoryList :: [UserStory] -> String
 ppStoryList = intercalate "\n" . map ppStoryHeader
 
 ppSprintHeader :: Sprint -> String
-ppSprintHeader sprint = formatRecord "SPRINT" 
-  (_sprintId sprint) (calcSprintPoint sprint) 
-  (_sprintStatus sprint) (_sprintDescription sprint)
+ppSprintHeader s = formatRecord "SPRINT" 
+  (s^.sprintId) (s^.point) 
+  (s^.sprintStatus) (s^.sprintDescription)
 
 ppSprint :: Sprint -> String
 ppSprint sprint = formatFamily 1 sprint ppSprintHeader _sprintStorys ppStoryHeader
@@ -64,7 +65,7 @@ ppSprintList = intercalate "\n" . map ppSprintHeader
 
 ppProjectHeader :: String -> Project -> String
 ppProjectHeader pid pj = 
-  formatRecordShowedId "PROJECT" pid (calcProjectPoint pj) (_projectStatus pj) (_projectName pj)
+  formatRecordShowedId "PROJECT" pid (pj^.point) (pj^.projectStatus) (pj^.projectName)
 
 ----
 
@@ -83,17 +84,17 @@ ppProjectPbl = ppStoryList . _projectBacklog
 ppProjectSprintList :: Project -> String
 ppProjectSprintList = ppSprintList . _projectSprints
 
-ppProjectSprint :: Id -> Project -> Maybe String
-ppProjectSprint i pj = ppSprint <$> getSprintById pj i
+ppProjectSprint :: Id -> Project -> Maybe String 
+ppProjectSprint i pj = ppSprint <$> pj^?sprint i
 
 ppProjectSprintDetail :: Id -> Project -> Maybe String
-ppProjectSprintDetail i pj = ppSprintDetail <$> getSprintById pj i
+ppProjectSprintDetail i pj = ppSprintDetail <$> pj^?sprint i
 
 ppProjectStory :: Id -> Project -> Maybe String
-ppProjectStory i pj = ppStory <$> getUserStoryById pj i
+ppProjectStory i pj = ppStory <$> pj^?story i
 
 ppProjectTask :: Id -> Project -> Maybe String
-ppProjectTask i pj = ppTask <$> getTaskById pj i
+ppProjectTask i pj = ppTask <$> pj^?task i
 
 ----
 
@@ -104,7 +105,7 @@ formatRecord htype i point st description =
 formatRecordShowedId :: String -> String -> Point -> TStatus -> String -> String
 formatRecordShowedId htype i point st description = concat
   [ htype ++ " - " , i , " : " , show $ point 
-  , "pt [ " , ppStatusRecord . getLastStatus $ st , " ] " , description
+  , "pt [ " , ppStatusRecord $ st^.getLastStatus , " ] " , description
   ]
 
 formatFamily :: Eq b => Int -> a -> (a -> String) -> (a -> [b]) -> (b -> String) -> String
@@ -122,10 +123,10 @@ ppStatusRecord (StatusNotAchieved _) = "Not Achieved"
 ppStatusRecord (StatusReject _) = "Reject"
 
 ppStatus :: TStatus -> String
-ppStatus s = intercalate "\n" . map pps . reverse $ statusToList s
+ppStatus s = intercalate "\n" . map pps . reverse $ s^.statusToList
   where
     pps :: TStatusRecord -> String
     pps r = 
       let st = take 15 $ ppStatusRecord r ++ concat (replicate 16 " ")
-      in "To " ++ st ++ " at " ++ show (getStatusTime r)
+      in "To " ++ st ++ " at " ++ show (r^.getStatusTime)
   

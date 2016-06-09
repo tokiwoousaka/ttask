@@ -1,4 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE RankNTypes #-}
 module Data.TTask.Types.Types
   ( Point(..)
   , Id(..)
@@ -12,25 +13,26 @@ module Data.TTask.Types.Types
   , Project(..) 
   , TTaskContents(..)
   -- Lens accessers
-  --, taskId 
-  --, taskDescription 
-  --, taskPoint 
-  --, taskStatus 
-  --, taskWorkTimes 
-  --, storyId 
-  --, storyDescription 
-  --, storyTasks 
-  --, storyStatus 
-  --, sprintId 
-  --, sprintDescription 
-  --, sprintStorys 
-  --, sprintStatus 
-  --, projectName 
-  --, projectBacklog 
-  --, projectSprints
-  --, projectStatus
+  , taskId 
+  , taskDescription 
+  , taskPoint 
+  , taskStatus 
+  , taskWorkTimes 
+  , storyId 
+  , storyDescription 
+  , storyTasks 
+  , storyStatus 
+  , sprintId 
+  , sprintDescription 
+  , sprintStorys 
+  , sprintStatus 
+  , projectName 
+  , projectBacklog 
+  , projectSprints
+  , projectStatus
   ) where
 import Data.Time
+import Data.List
 import Control.Lens
 
 type Point = Int

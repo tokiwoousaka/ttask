@@ -316,7 +316,6 @@ modifyActivePjSimple f err = modifyActiveProject f err err
 modifyActiveProject :: (Project -> IO Project) -> String -> String -> IO ()
 modifyActiveProject f err1 err2 = do
   mpj <- readActiveProject
-  print mpj
   case mpj of
     Just pj -> do
       res <- writeActiveProject =<< f pj

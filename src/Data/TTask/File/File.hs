@@ -16,6 +16,7 @@ import Data.TTask.Types
 import Data.TTask.Command
 import qualified Data.TTask.File.Compatibility as C
 import Safe
+import qualified System.IO.Strict as S
 import System.Directory
 import System.FilePath
 
@@ -26,7 +27,7 @@ writeProject fn pj = writeFile fn $ show pj
 
 readProject :: String -> IO (Maybe Project)
 readProject fn = do
-  d <- readFile fn
+  d <- S.readFile fn
   return $ readMay d
 
 readActiveProject :: IO (Maybe Project)
@@ -37,8 +38,8 @@ readActiveProject = do
   case mpj of
     Just _ -> return mpj
     Nothing -> do
-      s <- fmap return . readFile . (dir </>) >$< mfn
-      s `seq` C.resolution >$< s
+      s <- fmap return . S.readFile . (dir </>) >$< mfn
+      C.resolution >$< s
 
 writeActiveProject :: Project -> IO Success
 writeActiveProject pj = do

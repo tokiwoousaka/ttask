@@ -3,6 +3,7 @@ module Data.TTask.Analysis
   , dailyGroup
   , summaryPointBy 
   ) where
+import Control.Lens
 import Data.List
 import Data.Maybe
 import Data.Time
@@ -34,7 +35,7 @@ calcDaylyPoint xs@(x:_) = Just . (,) (getDay x) $ summaryPointBy isFinishedTask 
   where
     isFinishedTask :: StatusLogRec -> Bool
     isFinishedTask r 
-      = (stFinished $ stRecToStatus r) && (isTask $ stRecToContents r)
+      = r^.getLogStatus.isFinished && r^.getLogContents.isTask
 
 dailyGrouping :: [StatusLogRec] -> [[StatusLogRec]]
 dailyGrouping = groupBy (\l r -> getDay l == getDay r) . sortRecord
@@ -51,13 +52,9 @@ getDay :: StatusLogRec -> Day
 getDay = localDay . getTime
 
 getTime :: StatusLogRec -> LocalTime
-getTime = getStatusTime . stRecToStatus
+getTime = (^.getLogStatus.getStatusTime)
 
 getPoint :: StatusLogRec -> Point
-getPoint r = case stRecToContents r of
-  TTaskProject v -> calcProjectPoint v
-  TTaskSprint v -> calcSprintPoint v
-  TTaskStory v -> calcStoryPoint v
-  TTaskTask v -> _taskPoint v 
+getPoint = (^.getLogContents.point)
 
 

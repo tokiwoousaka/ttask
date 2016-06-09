@@ -4,24 +4,29 @@ module Data.TTask.File.Compatibility
 import Control.Monad.Trans.Either
 import Control.Monad.IO.Class
 import Data.TTask.Types.Types 
-import Data.TTask.File.Compatibility.V0_1_0_0
-
-type TryConvert a = EitherT Project IO a
+import qualified Data.TTask.File.Compatibility.V0_0_1_0 as V0_0_1_0
 
 resolution' :: String -> TryConvert ()
 resolution' s = do
   liftIO $ putStrLn "That is not latest ttask project file."
-  tryRead "0.1.0.0" s
+  tryRead "0.0.1.0" s $ V0_0_1_0.readProject
   liftIO $ putStrLn "... convert failure"
 
-tryRead :: String -> String -> TryConvert ()
-tryRead v s = tryFromMaybe (successMsg v) $ readProject s
+tryRead :: String -> String -> (String -> Maybe Project) -> TryConvert ()
+tryRead v s f = tryFromMaybe (successMsg v) $ f s
+
+--------
+
+type TryConvert a = EitherT Project IO a
+
+runConvert :: TryConvert a -> IO (Either Project a)
+runConvert = runEitherT
 
 --------
 
 resolution :: String -> IO (Maybe Project)
 resolution s = do
-  e <- runEitherT $ resolution' s
+  e <- runConvert $ resolution' s
   case e of
     Right () -> return Nothing
     Left pj -> return $ Just pj
@@ -34,4 +39,4 @@ tryFromMaybe _ Nothing = return ()
 
 successMsg :: String -> String
 successMsg s = concat 
-  [ "Success convert from old ttask project file (V = less than ", s, ")" ]
+  [ "Success convert from old ttask project file (less than ", s, ")" ]

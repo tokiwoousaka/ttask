@@ -14,6 +14,7 @@ module Data.TTask.Command.Add
   , projectStoryMaxId 
   , projectSprintMaxId 
   ) where
+import Control.Lens (over, (^.))
 import Data.Time
 import Data.List.Extra
 import Data.Maybe
@@ -71,7 +72,7 @@ addNewStoryToPbl :: String -> Project -> IO Project
 addNewStoryToPbl description pj = do
   let nid = projectStoryMaxId pj + 1
   us <- newStory description nid
-  return $ pj { _projectBacklog = snoc (_projectBacklog pj) us }
+  return . over projectBacklog (flip snoc us) $ pj
 
 addNewStoryToSprints :: Id -> String -> Project -> IO Project
 addNewStoryToSprints spid description pj = do
@@ -136,13 +137,13 @@ addTaskToStory id task us = if _storyId us == id
 -- Id Control
 
 projectsTaskMaxIdMay :: Project -> Maybe Id
-projectsTaskMaxIdMay = maximumMay . map _taskId . projectsAllTasks
+projectsTaskMaxIdMay = maximumMay . map _taskId . (^.allTasks)
 
 projectsTaskMaxId :: Project -> Id
 projectsTaskMaxId = fromMaybe 0 . projectsTaskMaxIdMay
 
 projectStoryMaxIdMay :: Project -> Maybe Id
-projectStoryMaxIdMay = maximumMay . map _storyId . projectsAllStory
+projectStoryMaxIdMay = maximumMay . map _storyId . (^.allStory)
 
 projectStoryMaxId :: Project -> Id
 projectStoryMaxId = fromMaybe 0 . projectStoryMaxIdMay
